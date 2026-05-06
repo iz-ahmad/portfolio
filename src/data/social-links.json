@@ -1,0 +1,44 @@
+[
+  {
+    "key": "github",
+    "label": "GitHub",
+    "handle": "@iz-ahmad",
+    "url": "https://github.com/iz-ahmad",
+    "icon": "GH"
+  },
+  {
+    "key": "linkedin",
+    "label": "LinkedIn",
+    "handle": "in/iz-ahmad",
+    "url": "https://linkedin.com/in/iz-ahmad",
+    "icon": "in"
+  },
+  {
+    "key": "x",
+    "label": "X / Twitter",
+    "handle": "@iz_ahmad",
+    "url": "https://x.com/iz_ahmad",
+    "icon": "𝕏"
+  },
+  {
+    "key": "email",
+    "label": "Email",
+    "handle": "n.ahmad.web.cit22@gmail.com",
+    "url": "mailto:n.ahmad.web.cit22@gmail.com",
+    "icon": "@"
+  },
+  {
+    "key": "laravel",
+    "label": "Laravel PRs",
+    "handle": "framework · boost · docs",
+    "url": "https://github.com/laravel/framework/pulls?q=author%3Aiz-ahmad",
+    "icon": "L"
+  },
+  {
+    "key": "rss",
+    "label": "Medium",
+    "handle": "@iz-ahmad",
+    "url": "https://medium.com/@iz-ahmad",
+    "icon": "≡"
+  }
+]
