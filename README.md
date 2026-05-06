@@ -1,4 +1,6 @@
-Personal portfolio site. Next.js 15 + React 19, TypeScript. Static export enabled.
+### About
+
+A personal portfolio site, built with Next.js, React, TypeScript. Specially designed for developers.
 
 ### Stack
 
