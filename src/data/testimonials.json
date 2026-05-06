@@ -1,0 +1,17 @@
+[
+  {
+    "quote": "Reads framework source the way most people read tweets. Ships fixes upstream and keeps our codebase boring in the best way.",
+    "who": "Tech Lead",
+    "role": "FIGLAB"
+  },
+  {
+    "quote": "Reliable Laravel hand. Picks up an unknown module and a week later he's the one explaining it.",
+    "who": "Senior Engineer",
+    "role": "FIGLAB"
+  },
+  {
+    "quote": "Quietly competent. The PRs are small, the patches are right, the tests are there.",
+    "who": "OSS Maintainer",
+    "role": "Laravel Ecosystem"
+  }
+]
