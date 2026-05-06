@@ -1,0 +1,199 @@
+/* ============================================================
+   EXPERIENCE — terminal career log
+   ============================================================ */
+
+.exp-shell {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 32px;
+  align-items: start;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.exp-index {
+  list-style: none;
+  margin: 0; padding: 0;
+  position: relative;
+}
+.exp-index-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px 1fr 18px;
+  gap: 14px;
+  padding: 18px 14px 18px 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 220ms var(--ease-out), opacity 220ms ease;
+  opacity: 0.55;
+}
+.exp-index-row:hover { opacity: 0.85; background: rgba(255, 45, 61, 0.04); }
+.exp-index-row.is-active {
+  opacity: 1;
+  background: linear-gradient(90deg, rgba(255, 45, 61, 0.08), rgba(255, 45, 61, 0.0) 80%);
+}
+.exp-index-row.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 14px; bottom: 14px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--ember), var(--red), var(--crimson));
+  box-shadow: 0 0 10px rgba(255, 45, 61, 0.6);
+  border-radius: 2px;
+}
+
+.exp-index-marker {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  padding-top: 6px;
+}
+.exp-marker-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(10, 10, 24, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 0 3px rgba(5, 5, 16, 0.92);
+  transition: 280ms var(--ease-spring);
+}
+.exp-marker-line {
+  flex: 1; width: 1px; margin-top: 4px; min-height: 32px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+}
+.exp-index-row.is-active .exp-marker-dot {
+  width: 12px; height: 12px;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--red) 50%, var(--crimson));
+  border-color: var(--ember);
+  box-shadow: 0 0 0 3px rgba(5,5,16,0.92), 0 0 14px rgba(255,45,61,0.7), inset 0 0 4px rgba(255,255,255,0.6);
+}
+.exp-index-row.is-current .exp-marker-dot { border-color: var(--red); }
+.exp-index-row.is-current.is-active .exp-marker-dot { animation: expDotPulse 1.8s ease-in-out infinite; }
+@keyframes expDotPulse {
+  0%,100% { box-shadow: 0 0 0 3px rgba(5,5,16,0.92), 0 0 14px rgba(255,45,61,0.7); }
+  50%     { box-shadow: 0 0 0 3px rgba(5,5,16,0.92), 0 0 22px rgba(255,45,61,1), 0 0 40px rgba(255,45,61,0.6); }
+}
+
+.exp-index-body { min-width: 0; }
+.exp-index-year {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  color: var(--ember); text-transform: uppercase; margin-bottom: 4px;
+}
+.exp-index-row.is-active .exp-index-year { color: var(--red); }
+.exp-index-row:not(.is-active) .exp-index-year { color: var(--ink-2); }
+.exp-index-role {
+  font-family: var(--font-display); font-size: 16px; font-weight: 500;
+  letter-spacing: -0.01em; color: var(--ink-0); line-height: 1.2; margin-bottom: 4px;
+  text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+}
+.exp-index-co {
+  font-family: var(--font-mono); font-size: 12px; color: var(--ink-1);
+  letter-spacing: 0.06em; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+  font-weight: 500;
+}
+.exp-index-row.is-active .exp-index-co { color: var(--ember); }
+.exp-index-arrow { color: var(--red); margin-right: 4px; }
+.exp-index-glyph {
+  font-family: var(--font-mono); font-size: 12px; color: var(--ink-2);
+  align-self: center; text-align: right;
+}
+.exp-index-row.is-active .exp-index-glyph { color: var(--red); }
+.exp-index-row.is-current .exp-index-glyph { color: var(--red); }
+
+/* Detail card */
+.exp-card {
+  position: relative; padding: 32px 36px 26px;
+  border-radius: 10px; overflow: hidden; min-height: 360px; opacity: 1;
+}
+.exp-card.is-flashing { animation: expCardFlash 360ms var(--ease-out) both; }
+@keyframes expCardFlash {
+  0%   { filter: brightness(1.6) saturate(1.6); transform: translateY(4px); }
+  35%  { filter: brightness(1.2); }
+  100% { filter: brightness(1); transform: translateY(0); }
+}
+
+.exp-card-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 18px; padding-bottom: 18px;
+  border-bottom: 1px dashed rgba(255,255,255,0.08);
+  margin-bottom: 22px;
+}
+.exp-card-meta { display: flex; flex-direction: column; gap: 6px; }
+.exp-card-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--red); text-transform: uppercase; }
+.exp-card-status {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+  color: var(--ink-2); display: inline-flex; align-items: center; gap: 8px; text-transform: uppercase;
+}
+.exp-card-status .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-2); }
+.status-current { background: var(--red) !important; box-shadow: 0 0 8px var(--red); animation: expDotPulse 1.8s ease-in-out infinite; }
+.status-active  { background: var(--ember) !important; box-shadow: 0 0 6px var(--ember); }
+.status-past    { background: rgba(255,255,255,0.25) !important; }
+.exp-card-period {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--ink-1);
+  padding: 5px 10px; border: 1px solid rgba(255,45,61,0.25); border-radius: 4px;
+  background: rgba(255,45,61,0.06); text-transform: uppercase;
+}
+
+.exp-card-body { position: relative; }
+.exp-card-co-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px; margin-bottom: 8px;
+}
+.exp-card-co { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.18em; color: var(--ember); text-transform: uppercase; font-weight: 600; }
+.exp-card-loc {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px; color: var(--ink-2);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.exp-card-loc svg { color: var(--red); opacity: 0.8; }
+.exp-card-role {
+  font-family: var(--font-display); font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500; letter-spacing: -0.025em; line-height: 1.05;
+  color: var(--ink-0); margin: 0 0 18px; max-width: 22ch;
+}
+.exp-card-blurb {
+  font-family: var(--font-display); font-size: 15px; line-height: 1.7;
+  color: var(--ink-1); margin: 0 0 22px; max-width: 60ch; min-height: 4em;
+}
+.exp-cursor {
+  display: inline-block; margin-left: 1px; color: var(--red);
+  animation: expCursorBlink 0.9s steps(2) infinite;
+}
+@keyframes expCursorBlink { 50% { opacity: 0; } }
+
+.exp-card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.exp-card-tags .chip {
+  font-size: 10px; letter-spacing: 0.12em;
+  background: rgba(255,45,61,0.08); border-color: rgba(255,45,61,0.25);
+  color: var(--ink-1); padding: 4px 10px;
+}
+.exp-card-foot {
+  margin-top: 26px; padding-top: 14px;
+  border-top: 1px dashed rgba(255,255,255,0.08);
+  display: flex; justify-content: space-between;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+  color: var(--ink-2); text-transform: uppercase;
+}
+.exp-card-id { color: var(--red); }
+
+.exp-card-scan {
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(180deg, transparent 0px, transparent 3px, rgba(255,45,61,0.025) 3px, rgba(255,45,61,0.025) 4px);
+  mix-blend-mode: screen; z-index: 1;
+}
+.exp-card-noise {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,90,60,0.10), transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(184,19,42,0.12), transparent 60%);
+  z-index: 0;
+}
+.exp-card > * { position: relative; z-index: 2; }
+.exp-card > .exp-card-scan,
+.exp-card > .exp-card-noise { z-index: 1; }
+
+@media (max-width: 900px) {
+  .exp-shell { grid-template-columns: 1fr; gap: 20px; }
+  .exp-card { padding: 24px 22px 20px; min-height: 320px; }
+  .exp-card-head { flex-direction: column; gap: 10px; }
+  .exp-card-period { align-self: flex-start; }
+  .exp-card-role { font-size: 26px; }
+  .exp-card-blurb { font-size: 14px; min-height: 5em; }
+}
