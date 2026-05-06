@@ -1,0 +1,62 @@
+[
+  {
+    "id": "laravel-core",
+    "name": "Laravel Framework",
+    "year": "2024–25",
+    "role": "Open-Source Contributor",
+    "desc": "Multiple merged PRs into laravel/framework — fixing port extraction in ServeCommand, improving beforeCommit with the ShouldQueueAfterCommit contract, and patching previousPath() security.",
+    "stack": ["PHP", "Laravel 11/12", "PHPUnit"],
+    "metric": "5 PRs merged · 3 versions touched",
+    "accent": "cyan"
+  },
+  {
+    "id": "laravel-boost",
+    "name": "Laravel Boost",
+    "year": "2025",
+    "role": "Contributor",
+    "desc": "Refactors and bug fixes inside laravel/boost — corrected return-type docs in queue-job guidelines and cleaned model-discovery internals in GuidelineAssist.",
+    "stack": ["PHP", "Laravel", "Static Analysis"],
+    "metric": "3 PRs · 2 merged",
+    "accent": "magenta"
+  },
+  {
+    "id": "request-analytics",
+    "name": "Request Analytics",
+    "year": "2024",
+    "role": "Package Contributor",
+    "desc": "Multiple PRs landed in me-shaon/laravel-request-analytics — extending the package with new filters, fixes, and quality-of-life improvements.",
+    "stack": ["PHP", "Laravel", "Blade"],
+    "metric": "3 PRs · all merged",
+    "accent": "violet"
+  },
+  {
+    "id": "figlab-products",
+    "name": "FIGLAB Products",
+    "year": "2023–now",
+    "role": "Software Engineer",
+    "desc": "Day-job builds — internal tools, dashboards, and customer products at FIGLAB. Laravel + React/Inertia stacks, multi-tenant patterns, queue-driven workflows.",
+    "stack": ["Laravel", "React", "Inertia", "MySQL"],
+    "metric": "Production · 2 yrs shipping",
+    "accent": "cyan"
+  },
+  {
+    "id": "laravel-docs",
+    "name": "Laravel Docs",
+    "year": "2025",
+    "role": "Doc Contributor",
+    "desc": "Patched return-type signature on retryUntil() in laravel/docs — small, but the kind of thing that pays back every time someone reads the queue chapter.",
+    "stack": ["Markdown", "Laravel"],
+    "metric": "PR #11150 · merged",
+    "accent": "magenta"
+  },
+  {
+    "id": "side-quests",
+    "name": "Side-Quests",
+    "year": "ongoing",
+    "role": "Solo",
+    "desc": "Personal experiments — Laravel packages, React component playgrounds, dev-tooling scripts. Most live on GitHub, some make it to friends' production.",
+    "stack": ["Laravel", "React", "TS", "Tailwind"],
+    "metric": "Always cooking",
+    "accent": "violet"
+  }
+]
