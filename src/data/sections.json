@@ -1,0 +1,15 @@
+[
+  { "id": "home",          "label": "HOME" },
+  { "id": "now",           "label": "NOW" },
+  { "id": "experience",    "label": "EXPERIENCE" },
+  { "id": "skills",        "label": "SKILLS" },
+  { "id": "projects",      "label": "WORK" },
+  { "id": "stack",         "label": "STACK" },
+  { "id": "oss",           "label": "OSS" },
+  { "id": "contributions", "label": "SIGNAL" },
+  { "id": "game",          "label": "GAME" },
+  { "id": "writing",       "label": "WRITE" },
+  { "id": "testimonials",  "label": "VOICES" },
+  { "id": "uses",          "label": "RIG" },
+  { "id": "contact",       "label": "CHANNEL" }
+]
