@@ -1,0 +1,38 @@
+[
+  {
+    "period": "2023 — Now",
+    "company": "FIGLAB",
+    "role": "Software Engineer (Full-Stack)",
+    "location": "Dhaka, Bangladesh",
+    "blurb": "Building production Laravel + React/Inertia products. Owning features end-to-end — schema → API → UI → deploy. Steady ship cadence, code reviews, and the occasional 2 a.m. production hotfix.",
+    "tags": ["Laravel", "React", "Inertia", "MySQL", "Queues"],
+    "status": "current"
+  },
+  {
+    "period": "2024 — Now",
+    "company": "Laravel · Open Source",
+    "role": "Core Contributor",
+    "location": "Remote · async",
+    "blurb": "Recurring contributor to laravel/framework, laravel/boost, laravel/docs and ecosystem packages. PRs touching ServeCommand, queue contracts, security in URL handling, and small doc-shaped correctness fixes.",
+    "tags": ["PHP", "Laravel 11/12", "OSS"],
+    "status": "active"
+  },
+  {
+    "period": "2022 — 2023",
+    "company": "Freelance & Contract",
+    "role": "Web Developer",
+    "location": "Remote",
+    "blurb": "Built Laravel applications, REST APIs and React/Vue front-ends for small teams. Learned what good code review feels like, what bad migrations cost, and why the boring stack usually wins.",
+    "tags": ["Laravel", "Vue", "REST"],
+    "status": "past"
+  },
+  {
+    "period": "2018 — 2022",
+    "company": "CIT, Chittagong",
+    "role": "B.Sc. — Computer Science",
+    "location": "Chittagong, BD",
+    "blurb": "Computer Science degree. Picked up the fundamentals — data structures, networks, databases — and started shipping side projects somewhere around year two.",
+    "tags": ["CS", "Algorithms", "Databases"],
+    "status": "past"
+  }
+]
