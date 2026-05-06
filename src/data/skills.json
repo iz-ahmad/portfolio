@@ -1,0 +1,18 @@
+[
+  { "name": "PHP",         "ring": 1, "weight": 95, "color": "cyan" },
+  { "name": "Laravel",     "ring": 1, "weight": 96, "color": "cyan" },
+  { "name": "React",       "ring": 1, "weight": 88, "color": "cyan" },
+  { "name": "MySQL",       "ring": 1, "weight": 90, "color": "cyan" },
+  { "name": "JavaScript",  "ring": 2, "weight": 88, "color": "magenta" },
+  { "name": "Inertia.js",  "ring": 2, "weight": 84, "color": "magenta" },
+  { "name": "Tailwind",    "ring": 2, "weight": 86, "color": "magenta" },
+  { "name": "Vue.js",      "ring": 2, "weight": 78, "color": "magenta" },
+  { "name": "PostgreSQL",  "ring": 2, "weight": 76, "color": "magenta" },
+  { "name": "REST APIs",   "ring": 2, "weight": 88, "color": "magenta" },
+  { "name": "Bootstrap",   "ring": 3, "weight": 80, "color": "violet" },
+  { "name": "HTML/CSS",    "ring": 3, "weight": 92, "color": "violet" },
+  { "name": "Firebase",    "ring": 3, "weight": 70, "color": "violet" },
+  { "name": "Git",         "ring": 3, "weight": 88, "color": "violet" },
+  { "name": "Postman",     "ring": 3, "weight": 82, "color": "violet" },
+  { "name": "Livewire",    "ring": 3, "weight": 72, "color": "violet" }
+]
