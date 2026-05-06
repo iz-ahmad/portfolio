@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2025.09.12",
+    "title": "What I learned shipping my first PR to laravel/framework",
+    "read": "7 min",
+    "url": "https://medium.com/@iz-ahmad"
+  },
+  {
+    "date": "2025.06.30",
+    "title": "ShouldQueueAfterCommit & the case for tiny correctness",
+    "read": "5 min",
+    "url": "https://medium.com/@iz-ahmad"
+  },
+  {
+    "date": "2025.03.18",
+    "title": "Inertia + Laravel: the SPA stack that doesn't fight you",
+    "read": "8 min",
+    "url": "https://medium.com/@iz-ahmad"
+  },
+  {
+    "date": "2024.12.04",
+    "title": "Reading the framework — how I find PR-shaped bugs",
+    "read": "6 min",
+    "url": "https://medium.com/@iz-ahmad"
+  }
+]
