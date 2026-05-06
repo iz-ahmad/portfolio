@@ -4,6 +4,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'IZ-AHMAD — Full-Stack Engineer',
   description: 'I build interfaces and APIs that feel alive — Laravel under the hood, React on top, motion in the cracks.',
+  icons: {
+    icon: '/favicon.png',
+  },
   openGraph: {
     title: 'IZ-AHMAD — Full-Stack Engineer',
     description: 'I build interfaces and APIs that feel alive — Laravel under the hood, React on top, motion in the cracks.',
