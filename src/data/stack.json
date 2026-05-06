@@ -1,0 +1,6 @@
+{
+  "Backend":   ["PHP", "Laravel", "MySQL", "PostgreSQL", "Firebase", "REST APIs"],
+  "Frontend":  ["React", "Vue", "Inertia.js", "JavaScript", "Tailwind", "Bootstrap"],
+  "Tooling":   ["Git", "GitHub", "Postman", "Composer", "Vite", "PHPUnit"],
+  "Workflow":  ["VS Code", "Linux", "DBeaver", "Notion"]
+}
