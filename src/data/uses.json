@@ -1,0 +1,8 @@
+[
+  { "label": "Editor",    "value": "VS Code · Laravel-tuned" },
+  { "label": "OS",        "value": "Ubuntu (WSL2) · macOS at work" },
+  { "label": "DB Tool",   "value": "DBeaver · TablePlus" },
+  { "label": "API",       "value": "Postman · Insomnia" },
+  { "label": "Terminal",  "value": "Zsh + Oh-My-Zsh" },
+  { "label": "Notes",     "value": "Obsidian · pen + paper" }
+]
