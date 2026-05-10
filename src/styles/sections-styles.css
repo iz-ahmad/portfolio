@@ -620,3 +620,51 @@ kbd {
   line-height: 0.85;
 }
 .footer-meta { display: flex; flex-direction: column; gap: 6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-align: right; }
+
+/* ============================================================
+   PATCH: Side-nav overlap fix + Top HUD + Sound toggle
+   ============================================================ */
+
+@media (min-width: 1280px) {
+  body { padding-right: 112px; }
+}
+
+@media (max-width: 1279px) {
+  .side-nav { display: none; }
+}
+
+.side-nav {
+  right: 28px;
+  max-width: 96px;
+}
+
+.nav-dot {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  text-align: right;
+}
+
+.nav-dot-label {
+  white-space: nowrap;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-hud {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+}
+
+@media (max-width: 720px) {
+  .top-hud .hud-side:first-child .hud-key + .hud-val,
+  .top-hud .hud-sep,
+  .top-hud .hud-side:first-child > :nth-child(n+5) { display: none; }
+}
+
+.sound-toggle { z-index: 41; }
+
+@media (max-width: 720px) {
+  .sound-toggle { display: none; }
+}

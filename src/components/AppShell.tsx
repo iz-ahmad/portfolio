@@ -38,6 +38,27 @@ export function AppShell({ contributions }: AppShellProps) {
   const [active, setActive] = useState('home')
   const [loading, setLoading] = useState(true)
 
+  // Capability flags — drive (de)activation of heavy ambient effects.
+  const [richMotion, setRichMotion] = useState(false)
+  const [finePointer, setFinePointer] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const motion = window.matchMedia('(prefers-reduced-motion: no-preference)')
+    const pointer = window.matchMedia('(pointer: fine)')
+    const sync = () => {
+      setRichMotion(motion.matches)
+      setFinePointer(pointer.matches)
+    }
+    sync()
+    motion.addEventListener?.('change', sync)
+    pointer.addEventListener?.('change', sync)
+    return () => {
+      motion.removeEventListener?.('change', sync)
+      pointer.removeEventListener?.('change', sync)
+    }
+  }, [])
+
   // Reveal-on-scroll
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -70,7 +91,10 @@ export function AppShell({ contributions }: AppShellProps) {
 
   const handleDone = useCallback(() => {
     setLoading(false)
-    import('@/lib/sfx').then(({ SFX }) => SFX.play('boot'))
+    // Don't let an SFX failure (chunk error, blocked autoplay, etc.) crash boot.
+    import('@/lib/sfx')
+      .then(({ SFX }) => SFX.play('boot'))
+      .catch(() => { /* noop — sfx is non-essential */ })
   }, [])
 
   return (
@@ -79,9 +103,9 @@ export function AppShell({ contributions }: AppShellProps) {
 
       <BgGrid />
       <div className="bg-noise" aria-hidden />
-      <Starfield />
-      <Scanlines />
-      <CustomCursor />
+      {richMotion && <Starfield />}
+      {richMotion && <Scanlines />}
+      {finePointer && <CustomCursor />}
 
       <TopHud />
       <SoundToggle />

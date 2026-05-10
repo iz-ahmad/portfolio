@@ -352,3 +352,17 @@ body {
     transition-duration: 100ms !important;
   }
 }
+
+/* The default cursor: none lives on body. Only hide the OS cursor when
+   the custom cursor will actually mount (fine pointer + no reduced motion). */
+body { cursor: auto; }
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body { cursor: none; }
+}
+
+/* Cheaper ambient layers on touch / reduced-motion */
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .scanlines { display: none; }
+  .bg-noise  { opacity: 0.03; }
+  .bg-grid   { opacity: 0.5; }
+}
