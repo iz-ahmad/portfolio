@@ -14,6 +14,9 @@ export function StackViz() {
     const wrap = wrapRef.current
     if (!wrap) return
 
+    // Scroll-driven tab switching only on desktop; below 1280px tabs are click-only
+    if (!window.matchMedia('(min-width: 1280px)').matches) return
+
     const onScroll = () => {
       const rect = wrap.getBoundingClientRect()
       const total = wrap.offsetHeight - window.innerHeight
@@ -62,20 +65,17 @@ export function StackViz() {
 
           <div className="stack-grid" role="tabpanel" aria-label={active} key={active}>
             {STACK[active]?.map((tool, i) => (
-              <div
-                key={tool}
-                className="stack-cell glass"
-                style={{ animationDelay: `${i * 55}ms` }}
-                data-cursor="hover"
-                data-cursor-label={tool}
-              >
-                <div className="stack-cell-glow" aria-hidden />
-                <div className="stack-cell-name">{tool}</div>
-                <div className="stack-cell-bar" aria-hidden>
-                  <div className="stack-cell-fill" style={{ width: `${70 + (i * 7) % 25}%` }} />
+                <div
+                  key={tool}
+                  className="stack-cell glass"
+                  style={{ animationDelay: `${i * 55}ms` }}
+                  data-cursor="hover"
+                  data-cursor-label={tool}
+                >
+                  <div className="stack-cell-glow" aria-hidden />
+                  <div className="stack-cell-name">{tool}</div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
 
         </div>
