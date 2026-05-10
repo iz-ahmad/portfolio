@@ -1,0 +1,54 @@
+'use client'
+
+interface MobileNavProps {
+  active: string
+}
+
+const DOCK = [
+  {
+    id: 'home',
+    label: 'HOME',
+    icon: '⌂',
+    group: ['home', 'now'],
+  },
+  {
+    id: 'projects',
+    label: 'WORK',
+    icon: '▣',
+    group: ['experience', 'skills', 'projects', 'stack'],
+  },
+  {
+    id: 'oss',
+    label: 'SIGNAL',
+    icon: '◈',
+    group: ['oss', 'contributions', 'game', 'writing', 'testimonials', 'uses'],
+  },
+  {
+    id: 'contact',
+    label: 'CHANNEL',
+    icon: '◎',
+    group: ['contact'],
+  },
+]
+
+export function MobileNav({ active }: MobileNavProps) {
+  return (
+    <nav className="mobile-dock" aria-label="Quick navigation">
+      {DOCK.map((link) => {
+        const isActive = link.group.includes(active)
+        return (
+          <a
+            key={link.id}
+            href={`#${link.id}`}
+            className={`dock-tab${isActive ? ' active' : ''}`}
+            aria-label={link.label}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            <span className="dock-icon" aria-hidden>{link.icon}</span>
+            <span className="dock-label">{link.label}</span>
+          </a>
+        )
+      })}
+    </nav>
+  )
+}
