@@ -7,6 +7,10 @@ import profile from '@/data/profile.json'
 
 const SKILLS = rawSkills as Skill[]
 
+const CORE_SKILLS     = SKILLS.filter((s) => s.ring === 1)
+const STRONG_SKILLS   = SKILLS.filter((s) => s.ring === 2)
+const FAMILIAR_SKILLS = SKILLS.filter((s) => s.ring === 3)
+
 export function SkillsOrbit() {
   const [, setHover] = useState<Skill | null>(null)
   const [paused, setPaused] = useState(false)
@@ -83,6 +87,43 @@ export function SkillsOrbit() {
           <div className="legend-row"><span className="legend-dot d-magenta" aria-hidden /> STRONG · ring 2</div>
           <div className="legend-row"><span className="legend-dot d-violet" aria-hidden /> FAMILIAR · ring 3</div>
         </aside>
+      </div>
+
+      {/* Mobile chip clusters — shown only at ≤639px via CSS */}
+      <div className="skills-chips" aria-label="Skills by proficiency">
+        <div className="skills-cluster">
+          <div className="cluster-label">
+            <span className="legend-dot d-cyan" aria-hidden />
+            CORE
+          </div>
+          <div className="cluster-chips">
+            {CORE_SKILLS.map((s) => (
+              <span key={s.name} className="chip chip-core">{s.name}</span>
+            ))}
+          </div>
+        </div>
+        <div className="skills-cluster">
+          <div className="cluster-label">
+            <span className="legend-dot d-magenta" aria-hidden />
+            STRONG
+          </div>
+          <div className="cluster-chips">
+            {STRONG_SKILLS.map((s) => (
+              <span key={s.name} className="chip chip-strong">{s.name}</span>
+            ))}
+          </div>
+        </div>
+        <div className="skills-cluster">
+          <div className="cluster-label">
+            <span className="legend-dot d-violet" aria-hidden />
+            FAMILIAR
+          </div>
+          <div className="cluster-chips">
+            {FAMILIAR_SKILLS.map((s) => (
+              <span key={s.name} className="chip chip-familiar">{s.name}</span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

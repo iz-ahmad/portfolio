@@ -17,8 +17,17 @@ export function Experience() {
   const initial = Math.max(0, EXPERIENCES.findIndex((it) => it.status === 'current'))
   const [active, setActive] = useState(initial)
   const [flashKey, setFlashKey] = useState(0)
+  const [isCompactMode, setIsCompactMode] = useState(false)
   const cardRef = useRef<HTMLElement>(null)
   const it = EXPERIENCES[active] ?? EXPERIENCES[0]
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1023px)')
+    const update = () => setIsCompactMode(mq.matches)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
 
   const select = (i: number) => {
     if (i === active) return
@@ -68,7 +77,32 @@ export function Experience() {
         </div>
       </div>
 
-      <div className="exp-shell">
+      {isCompactMode && (
+        <div className="exp-card-grid">
+          {EXPERIENCES.map((entry, i) => (
+            <div
+              key={i}
+              className={`exp-mini-card glass${i === active ? ' is-active' : ''}`}
+              onClick={() => select(i)}
+              role="option"
+              aria-selected={i === active}
+              data-cursor="hover"
+            >
+              <div className="exp-mini-period">{entry.period}</div>
+              <div className="exp-mini-co">{entry.company}</div>
+              <h3 className="exp-mini-role">{entry.role}</h3>
+              <p className="exp-mini-blurb">{entry.blurb}</p>
+              <div className="exp-card-tags">
+                {entry.tags.map((tag) => (
+                  <span key={tag} className="chip">{tag}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {!isCompactMode && <div className="exp-shell">
         <ol className="exp-index" role="listbox" aria-label="Career timeline">
           {EXPERIENCES.map((entry, i) => {
             const isActive = i === active
@@ -150,7 +184,7 @@ export function Experience() {
           <span className="exp-card-scan" aria-hidden />
           <span className="exp-card-noise" aria-hidden />
         </article>
-      </div>
+      </div>}
     </section>
   )
 }

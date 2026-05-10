@@ -125,6 +125,66 @@
 .social-arrow { color: var(--ink-2); font-family: var(--font-mono); transition: transform 200ms; }
 .social-tile:hover .social-arrow { color: var(--cyan); transform: translate(2px,-2px); }
 
+/* ── Mobile bottom dock ──────────────────────────────────────── */
+.mobile-dock {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .mobile-dock {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 50;
+    height: 56px;
+    padding: 0 8px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: rgba(5, 5, 16, 0.92);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border-top: 1px solid var(--hair);
+    align-items: stretch;
+  }
+
+  .dock-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 6px 4px;
+    text-decoration: none;
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: 7px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 200ms;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0;
+  }
+
+  .dock-tab.active { color: var(--ink-0); }
+
+  .dock-icon {
+    font-size: 18px;
+    line-height: 1;
+    color: var(--ink-2);
+    transition: color 200ms, text-shadow 200ms;
+  }
+
+  .dock-tab.active .dock-icon {
+    color: var(--red);
+    text-shadow: 0 0 14px rgba(255, 45, 61, 0.7);
+  }
+}
+
+@media (max-width: 639px) {
+  .sound-toggle { display: none; }
+  .social-grid { grid-template-columns: 1fr; }
+}
+
 /* Skip to content */
 .skip-to-content {
   position: fixed; top: -100%; left: 50%; transform: translateX(-50%);

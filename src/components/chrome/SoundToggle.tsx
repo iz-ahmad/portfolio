@@ -1,13 +1,18 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SFX } from '@/lib/sfx'
 
 export function SoundToggle() {
-  const [muted, setMuted] = useState(() => {
-    if (typeof window === 'undefined') return false
-    return SFX.isMuted()
-  })
+  // Always render as un-muted on the server so SSR matches the first client paint.
+  // Read the real value from localStorage in an effect, after hydration.
+  const [muted, setMuted] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    setMuted(SFX.isMuted())
+  }, [])
 
   const toggle = () => {
     const next = !muted
@@ -16,6 +21,10 @@ export function SoundToggle() {
     if (!next) SFX.play('tick')
   }
 
+  // Until mounted, render the default-state label so SSR/CSR markup is identical.
+  const label = mounted ? (muted ? 'OFF' : 'ON') : 'ON'
+  const icon = mounted ? (muted ? '✕' : '♪') : '♪'
+
   return (
     <button
       className="sound-toggle"
@@ -23,14 +32,15 @@ export function SoundToggle() {
       data-cursor="hover"
       data-cursor-label={muted ? 'Unmute' : 'Mute'}
       aria-label={muted ? 'Unmute sound effects' : 'Mute sound effects'}
+      suppressHydrationWarning
     >
-      <span className="sound-icon">{muted ? '✕' : '♪'}</span>
+      <span className="sound-icon">{icon}</span>
       <span className="sound-eq" aria-hidden>
         <span style={{ animationPlayState: muted ? 'paused' : 'running' }} />
         <span style={{ animationPlayState: muted ? 'paused' : 'running' }} />
         <span style={{ animationPlayState: muted ? 'paused' : 'running' }} />
       </span>
-      <span className="sound-label">SFX {muted ? 'OFF' : 'ON'}</span>
+      <span className="sound-label">SFX {label}</span>
     </button>
   )
 }

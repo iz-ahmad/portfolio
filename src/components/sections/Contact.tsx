@@ -6,7 +6,6 @@ import rawSocial from '@/data/social-links.json'
 import profile from '@/data/profile.json'
 
 const SOCIAL_LINKS = rawSocial as SocialLink[]
-const BUDGETS = ['OSS Collab', 'Laravel PR', 'Question', 'Hello']
 
 function SFX_play(name: string) {
   if (typeof window === 'undefined') return
@@ -15,7 +14,7 @@ function SFX_play(name: string) {
 
 export function Contact() {
   const [sent, setSent] = useState(false)
-  const [form, setForm] = useState({ name: '', email: '', brief: '', budget: 'OSS Collab' })
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -44,66 +43,64 @@ export function Contact() {
           onSubmit={submit}
           action="https://formspree.io/f/your-form-id"
           method="POST"
+          suppressHydrationWarning
         >
-          <div className="form-row">
-            <label htmlFor="contact-name">NAME</label>
-            <input
-              id="contact-name"
-              type="text"
-              name="name"
-              required
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              data-cursor="text"
-              placeholder="Your name"
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="contact-email">EMAIL</label>
-            <input
-              id="contact-email"
-              type="email"
-              name="email"
-              required
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              data-cursor="text"
-              placeholder="you@domain.com"
-            />
-          </div>
-          <div className="form-row">
-            <label>SUBJECT</label>
-            <div className="budget-row" role="group" aria-label="Subject">
-              {BUDGETS.map((b) => (
-                <button
-                  type="button"
-                  key={b}
-                  className={`chip${form.budget === b ? ' chip-on' : ''}`}
-                  onClick={() => { SFX_play('tick'); setForm({ ...form, budget: b }) }}
-                  data-cursor="hover"
-                  aria-pressed={form.budget === b}
-                >
-                  {b}
-                </button>
-              ))}
+          <div className="form-name-row">
+            <div className="form-row">
+              <label htmlFor="contact-name">NAME <span className="form-req" aria-hidden>*</span></label>
+              <input
+                id="contact-name"
+                type="text"
+                name="name"
+                required
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                data-cursor="text"
+                placeholder="Your name"
+              />
+            </div>
+            <div className="form-row">
+              <label htmlFor="contact-email">EMAIL <span className="form-req" aria-hidden>*</span></label>
+              <input
+                id="contact-email"
+                type="email"
+                name="email"
+                required
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                data-cursor="text"
+                placeholder="you@domain.dev"
+              />
             </div>
           </div>
           <div className="form-row">
-            <label htmlFor="contact-message">MESSAGE</label>
+            <label htmlFor="contact-subject">SUBJECT</label>
+            <input
+              id="contact-subject"
+              type="text"
+              name="subject"
+              value={form.subject}
+              onChange={(e) => setForm({ ...form, subject: e.target.value })}
+              data-cursor="text"
+              placeholder="OSS collab / project / hello"
+            />
+          </div>
+          <div className="form-row">
+            <label htmlFor="contact-message">MESSAGE <span className="form-req" aria-hidden>*</span></label>
             <textarea
               id="contact-message"
               name="message"
               required
               rows={4}
-              value={form.brief}
-              onChange={(e) => setForm({ ...form, brief: e.target.value })}
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
               data-cursor="text"
-              placeholder="What's on your mind?"
+              placeholder="Tell me what you're cooking…"
             />
           </div>
           <div className="form-foot">
-            <button type="submit" className="btn btn-primary" data-cursor="hover">
-              {sent ? 'TRANSMITTED ✓' : 'TRANSMIT ▸'}
+            <button type="submit" className="btn btn-primary form-submit" data-cursor="hover">
+              {sent ? 'TRANSMITTED ✓' : 'SEND A SIGNAL ↗'}
             </button>
             <span className="muted">Replies in &lt; 24h on weekdays</span>
           </div>

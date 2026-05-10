@@ -70,6 +70,9 @@ export function Projects() {
     const track = trackRef.current
     if (!wrap || !track) return
 
+    // Filmstrip scroll only on desktop; mobile/tablet use vertical card layout
+    if (!window.matchMedia('(min-width: 1024px)').matches) return
+
     const onScroll = () => {
       const rect = wrap.getBoundingClientRect()
       const total = wrap.offsetHeight - window.innerHeight
