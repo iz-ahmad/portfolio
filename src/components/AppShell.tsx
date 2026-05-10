@@ -8,6 +8,7 @@ import { Scanlines } from '@/components/ambient/Scanlines'
 import { Starfield } from '@/components/ambient/Starfield'
 import { CustomCursor } from '@/components/chrome/CustomCursor'
 import { LoadingScreen } from '@/components/chrome/LoadingScreen'
+import { MobileNav } from '@/components/chrome/MobileNav'
 import { SideNav } from '@/components/chrome/SideNav'
 import { SoundToggle } from '@/components/chrome/SoundToggle'
 import { TopHud } from '@/components/chrome/TopHud'
@@ -43,7 +44,6 @@ export function AppShell({ contributions }: AppShellProps) {
   const [finePointer, setFinePointer] = useState(false)
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
     const motion = window.matchMedia('(prefers-reduced-motion: no-preference)')
     const pointer = window.matchMedia('(pointer: fine)')
     const sync = () => {
@@ -110,6 +110,7 @@ export function AppShell({ contributions }: AppShellProps) {
       <TopHud />
       <SoundToggle />
       <SideNav sections={SECTIONS} active={active} />
+      <MobileNav active={active} />
 
       <main id="main-content">
         <Hero />
