@@ -660,15 +660,17 @@ kbd {
   .top-hud .hud-side:first-child > :nth-child(n+5) { display: none; }
 }
 
-/* On tablet, SoundToggle sits in top-right; hide hud-right to avoid overlap */
-@media (min-width: 640px) and (max-width: 1023px) {
-  .top-hud .hud-right { display: none; }
-}
-
 .sound-toggle { z-index: 41; }
 
 @media (max-width: 639px) {
   .sound-toggle { display: none; }
+}
+
+@media (min-width: 1023px) {
+  .sound-toggle {
+    top: auto !important;
+    bottom: 24px;
+  }
 }
 
 /* ================================================================
@@ -728,7 +730,8 @@ kbd {
   .hero-meta { margin-bottom: 14px; }
   .hero-grid { display: flex; flex-direction: column; gap: 0; }
   .hero-right { order: 0; margin-bottom: 16px; }
-  .hero-left { order: 1; }
+  .hero-right .hero-tag { display: none; }
+  .hero-left { order: 1; width: 100%; }
   .hero-cta-tab { display: none; }
   .hero-stats { margin-top: 16px; padding-top: 14px; grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .hero-cta-main { margin-top: 16px; flex-direction: column; gap: 10px; }
@@ -736,7 +739,7 @@ kbd {
   .boot-body { font-size: 12px; min-height: 130px; padding: 14px; }
   .hero-name { font-size: clamp(44px, 14vw, 72px); margin-bottom: 12px; }
   .hero-role { font-size: 12px; }
-  .hero-tagline { font-size: 14px; margin-bottom: 20px; max-width: 100%; }
+  .hero-tagline { font-size: 14px; margin-bottom: 20px; max-width: 90%; }
   .stat .stat-v { font-size: 26px; }
   .hero-marquee { display: none; }
 }
