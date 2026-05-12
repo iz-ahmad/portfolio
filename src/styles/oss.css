@@ -37,13 +37,13 @@
 .oss-card.oss-w-5 { grid-column: span 4; }
 .oss-card.oss-w-4 { grid-column: span 3; }
 .oss-card.oss-w-3 { grid-column: span 2; }
-@media (max-width: 1100px) {
+@media (max-width: 1023px) {
   .oss-grid { grid-template-columns: repeat(4, 1fr); }
   .oss-card.oss-w-5 { grid-column: span 4; }
   .oss-card.oss-w-4 { grid-column: span 2; }
   .oss-card.oss-w-3 { grid-column: span 2; }
 }
-@media (max-width: 700px) {
+@media (max-width: 639px) {
   .oss-grid { grid-template-columns: 1fr; gap: 14px; }
   .oss-card.oss-w-5, .oss-card.oss-w-4, .oss-card.oss-w-3 { grid-column: span 1; }
 }
