@@ -61,7 +61,7 @@ export function Experience() {
       }
     }, 12)
     return () => clearInterval(id)
-  }, [active, it?.blurb])
+  }, [active])
 
   if (!it) return null
 
@@ -81,11 +81,12 @@ export function Experience() {
         <div className="exp-card-grid">
           {EXPERIENCES.map((entry, i) => (
             <div
-              key={i}
+              key={entry.company + entry.period}
               className={`exp-mini-card glass${i === active ? ' is-active' : ''}`}
               onClick={() => select(i)}
-              role="option"
-              aria-selected={i === active}
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && select(i)}
+              tabIndex={0}
+              aria-current={i === active ? 'step' : undefined}
               data-cursor="hover"
             >
               <div className="exp-mini-period">{entry.period}</div>
@@ -103,12 +104,12 @@ export function Experience() {
       )}
 
       {!isCompactMode && <div className="exp-shell">
-        <ol className="exp-index" role="listbox" aria-label="Career timeline">
+        <ol className="exp-index" role="list" aria-label="Career timeline">
           {EXPERIENCES.map((entry, i) => {
             const isActive = i === active
             return (
               <li
-                key={i}
+                key={entry.company + entry.period}
                 className={[
                   'exp-index-row',
                   isActive ? 'is-active' : '',
@@ -116,8 +117,9 @@ export function Experience() {
                 ].filter(Boolean).join(' ')}
                 onMouseEnter={() => select(i)}
                 onClick={() => select(i)}
-                role="option"
-                aria-selected={isActive}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && select(i)}
+                tabIndex={0}
+                aria-current={isActive ? 'step' : undefined}
                 data-cursor="hover"
               >
                 <span className="exp-index-marker" aria-hidden>
