@@ -45,6 +45,7 @@ export function Contact() {
           method="POST"
           suppressHydrationWarning
         >
+          <div className="hud-label">// OPEN_CHANNEL</div>
           <div className="form-name-row">
             <div className="form-row">
               <label htmlFor="contact-name">NAME <span className="form-req" aria-hidden>*</span></label>
