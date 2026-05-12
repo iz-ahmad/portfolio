@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import profile from '@/data/profile.json'
 
+const MARQUEE_REPEATS = 2
+
 const SCRIPT = [
   { cmd: 'whoami',          out: ['ahmad-cit22 — software engineer @ FIGLAB · full-stack'] },
   { cmd: 'cat ~/about.md',  out: ['# About', 'Full-stack web developer.', 'PHP, Laravel & React day-to-day.', 'Laravel core contributor in spare cycles.', 'Love to learn new stuffs..<3'] },
@@ -66,15 +68,15 @@ export function Hero() {
                 <span className="boot-title">iz-ahmad@portfolio · ~/about</span>
               </div>
               <pre className="boot-body" aria-live="polite">
-                {visible.map((s, i) => (
-                  <div key={i}>
+                {visible.map((s) => (
+                  <div key={s.cmd}>
                     <div className="boot-line boot-prompt">
                       <span className="prompt-sigil">iz@portfolio</span>
                       <span className="prompt-arrow"> ❯ </span>
                       <span className="boot-cmd">{s.cmd}</span>
                     </div>
-                    {s.out.map((o, j) => (
-                      <div key={j} className="boot-line boot-out">{o}</div>
+                    {s.out.map((o) => (
+                      <div key={o} className="boot-line boot-out">{o}</div>
                     ))}
                     <div className="boot-spacer" />
                   </div>
@@ -134,7 +136,7 @@ export function Hero() {
 
       <div className="hero-marquee" aria-hidden>
         <div className="marquee-track">
-          {[0, 1].map((k) => (
+          {Array.from({ length: MARQUEE_REPEATS }, (_, k) => (
             <div className="marquee-row" key={k}>
               {['@ FIGLAB · DHAKA', '★', 'PHP · LARAVEL · REACT', '★', 'LARAVEL CORE CONTRIBUTOR', '★', 'OPEN TO OSS', '★', 'FULL-STACK', '★'].map((t, i) => (
                 <span key={i} className="marquee-item">{t}</span>
