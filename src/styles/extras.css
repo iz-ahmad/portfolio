@@ -185,3 +185,10 @@
   .social-grid { grid-template-columns: 1fr; }
 }
 
+@media (min-width: 1023px) {
+  .sound-toggle {
+    top: auto;
+    bottom: 24px;
+  }
+}
+
