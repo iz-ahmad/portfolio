@@ -11,7 +11,7 @@ const LEVEL_MAP: Record<string, ContributionLevel> = {
 
 async function fetchContributions(): Promise<ContributionGrid> {
   try {
-    const res = await fetch(CONTRIBUTIONS_API, { cache: 'force-cache' })
+    const res = await fetch(CONTRIBUTIONS_API, { next: { revalidate: 86400 } })
     if (!res.ok) throw new Error('fetch failed')
     const json = await res.json()
 

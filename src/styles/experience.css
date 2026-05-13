@@ -189,20 +189,3 @@
 .exp-card > .exp-card-scan,
 .exp-card > .exp-card-noise { z-index: 1; }
 
-@media (max-width: 900px) {
-  .exp-shell { grid-template-columns: 1fr; gap: 20px; }
-  .exp-card { padding: 24px 22px 20px; min-height: 320px; }
-  .exp-card-head { flex-direction: column; gap: 10px; }
-  .exp-card-period { align-self: flex-start; }
-  .exp-card-role { font-size: 26px; }
-  .exp-card-blurb { font-size: 14px; min-height: 5em; }
-}
-
-@media (max-width: 639px) {
-  .exp-shell { gap: 16px; }
-  .exp-index-row { padding: 14px 10px 14px 4px; }
-  .exp-index-role { font-size: 14px; }
-  .exp-card { padding: 18px 16px 16px; min-height: 280px; }
-  .exp-card-role { font-size: 22px; }
-  .exp-card-blurb { font-size: 13px; }
-}

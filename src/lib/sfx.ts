@@ -87,24 +87,3 @@ export const SFX = {
   isMuted() { return _muted },
 }
 
-export function wireGlobalSfx() {
-  if (typeof window === 'undefined') return
-
-  const hovered = new WeakSet<Element>()
-
-  document.addEventListener('mouseover', (e) => {
-    const t = (e.target as Element).closest?.('[data-cursor="hover"]')
-    if (t && !hovered.has(t)) {
-      hovered.add(t)
-      SFX.play('hover')
-    }
-  })
-  document.addEventListener('mouseout', (e) => {
-    const t = (e.target as Element).closest?.('[data-cursor="hover"]')
-    if (t) hovered.delete(t)
-  })
-  document.addEventListener('click', (e) => {
-    const t = (e.target as Element).closest?.('button, a')
-    if (t) SFX.play('click')
-  })
-}

@@ -12,7 +12,6 @@ const STRONG_SKILLS   = SKILLS.filter((s) => s.ring === 2)
 const FAMILIAR_SKILLS = SKILLS.filter((s) => s.ring === 3)
 
 export function SkillsOrbit() {
-  const [, setHover] = useState<Skill | null>(null)
   const [paused, setPaused] = useState(false)
 
   return (
@@ -31,7 +30,7 @@ export function SkillsOrbit() {
         <div
           className={`orbit-stage${paused ? ' paused' : ''}`}
           onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => { setPaused(false); setHover(null) }}
+          onMouseLeave={() => setPaused(false)}
           aria-label="Skill orbit visualization"
         >
           <div className="orbit-ring r1" aria-hidden />
@@ -63,15 +62,11 @@ export function SkillsOrbit() {
                   '--offset': `${offset}deg`,
                   animationDelay: `-${(offset / 360) * speed}s`,
                 } as React.CSSProperties}
-                aria-hidden
               >
                 <button
                   className={`sat sat-${s.color}`}
                   data-cursor="hover"
                   data-cursor-label={s.name}
-                  onMouseEnter={() => setHover(s)}
-                  onMouseLeave={() => setHover(null)}
-
                   aria-label={`${s.name}, proficiency ${s.weight}%`}
                   style={{ '--w': s.weight } as React.CSSProperties}
                 >
