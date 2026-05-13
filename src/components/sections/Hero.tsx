@@ -75,8 +75,8 @@ export function Hero() {
                       <span className="prompt-arrow"> ❯ </span>
                       <span className="boot-cmd">{s.cmd}</span>
                     </div>
-                    {s.out.map((o) => (
-                      <div key={o} className="boot-line boot-out">{o}</div>
+                    {s.out.map((o, j) => (
+                      <div key={j} className="boot-line boot-out">{o}</div>
                     ))}
                     <div className="boot-spacer" />
                   </div>
