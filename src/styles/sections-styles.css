@@ -661,19 +661,6 @@ kbd {
   .top-hud .hud-side:first-child > :nth-child(n+5) { display: none; }
 }
 
-.sound-toggle { z-index: 41; }
-
-@media (max-width: 639px) {
-  .sound-toggle { display: none; }
-}
-
-@media (min-width: 1023px) {
-  .sound-toggle {
-    top: auto;
-    bottom: 24px;
-  }
-}
-
 /* ================================================================
    RESPONSIVE — mobile-first additions
    Only max-width blocks here; desktop (≥1280px) is unchanged.
