@@ -669,7 +669,7 @@ kbd {
 
 @media (min-width: 1023px) {
   .sound-toggle {
-    top: auto !important;
+    top: auto;
     bottom: 24px;
   }
 }
