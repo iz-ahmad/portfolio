@@ -79,7 +79,7 @@ export function Experience() {
                 <span className="exp2-year">{yearLabel(e)}</span>
                 <span className="exp2-status">
                   {e.status === 'current' ? 'Active · Current'
-                    : e.status === 'active' ? 'Active · Ongoing'
+                    : e.status === 'active' ? 'Active'
                     : 'Archived'}
                 </span>
                 <span className="exp2-loc">
