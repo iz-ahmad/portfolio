@@ -79,7 +79,8 @@ export function Projects() {
       const scrolled = -rect.top
       const p = Math.max(0, Math.min(1, scrolled / total))
       setProgress(p)
-      const dist = track.scrollWidth - window.innerWidth + 80
+      const pRight = parseFloat(getComputedStyle(track).paddingRight) || 0
+      const dist = track.scrollWidth + pRight - window.innerWidth + 80
       track.style.transform = `translate3d(${-p * dist}px,0,0)`
     }
     window.addEventListener('scroll', onScroll, { passive: true })
