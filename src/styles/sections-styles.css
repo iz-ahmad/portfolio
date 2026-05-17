@@ -489,66 +489,6 @@ kbd {
 .post-read { font-size: 12px; font-family: var(--font-mono); }
 .post-arrow { transition: transform 200ms; color: var(--ink-2); font-family: var(--font-mono); }
 
-/* Testimonials */
-.testimonial-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-}
-.testimonial-grid.is-scroll {
-  display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-  gap: 20px; padding-bottom: 12px;
-  scrollbar-width: thin; scrollbar-color: rgba(255,45,61,0.3) transparent;
-}
-.testimonial-grid.is-scroll .testi {
-  flex: 0 0 clamp(280px, 32vw, 380px); scroll-snap-align: start;
-}
-.testi {
-  padding: 28px 26px 24px; border-radius: 14px; position: relative;
-  display: flex; flex-direction: column; gap: 16px;
-  overflow: hidden;
-  transition: transform 280ms var(--ease-spring), border-color 220ms;
-}
-.testi:hover { transform: translateY(-4px); border-color: rgba(255,45,61,0.35); }
-
-.testi-accent {
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--red), var(--ember), transparent 80%);
-  border-radius: 14px 14px 0 0;
-}
-.testi-index {
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
-  color: var(--red); text-transform: uppercase;
-}
-.testi-quote-mark {
-  position: absolute; top: 12px; right: 18px;
-  font-family: var(--font-display); font-size: 72px; color: rgba(255,45,61,0.12);
-  line-height: 1; pointer-events: none; user-select: none;
-}
-.testi-quote {
-  font-family: var(--font-display); font-size: 16px; line-height: 1.6;
-  margin: 0; color: var(--ink-1); flex: 1;
-  position: relative; z-index: 1;
-}
-.testi-cap {
-  display: flex; align-items: center; gap: 12px;
-  padding-top: 16px; border-top: 1px dashed rgba(255,255,255,0.07);
-}
-.testi-dot {
-  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
-  background: var(--red); box-shadow: 0 0 8px rgba(255,45,61,0.6);
-}
-.testi-who { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-0); text-transform: uppercase; }
-.testi-role { font-family: var(--font-mono); font-size: 10px; color: var(--ink-2); margin-top: 2px; letter-spacing: 0.08em; }
-
-.testi-nav { display: flex; gap: 8px; align-items: center; }
-.testi-nav-btn {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 1px solid var(--hair-strong); background: var(--glass);
-  font-family: var(--font-mono); font-size: 14px; color: var(--ink-1);
-  cursor: none; display: grid; place-items: center;
-  transition: background 180ms, border-color 180ms, color 180ms;
-}
-.testi-nav-btn:hover { background: rgba(255,45,61,0.10); border-color: var(--red); color: var(--ink-0); }
-
 /* Uses */
 .uses-grid { display: flex; flex-direction: column; gap: 0; }
 .uses-row {
@@ -848,53 +788,6 @@ kbd {
   .stack-scroll-hint { display: none; }
 }
 
-/* ── Experience compact card grid (tablet 2-col, mobile 1-col) ── */
-.exp-card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-@media (max-width: 639px) {
-  .exp-card-grid { grid-template-columns: 1fr; gap: 14px; }
-  .exp-mini-card {
-    border-left: 2px solid rgba(255, 45, 61, 0.35);
-    border-radius: 0 10px 10px 0;
-    padding-left: 18px;
-  }
-  .exp-mini-card.is-active { border-left-color: var(--red); }
-}
-.exp-mini-card {
-  padding: 22px 24px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  cursor: pointer;
-  transition: transform 220ms var(--ease-out), border-color 200ms;
-}
-.exp-mini-card:hover,
-.exp-mini-card.is-active { transform: translateY(-3px); border-color: rgba(255,45,61,0.35); }
-.exp-mini-card.is-active { background: linear-gradient(135deg, rgba(255,45,61,0.07), rgba(255,45,61,0.02)); }
-.exp-mini-period {
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.14em; color: var(--ink-2); text-transform: uppercase;
-}
-.exp-mini-co {
-  font-family: var(--font-mono); font-size: 11px;
-  letter-spacing: 0.14em; color: var(--ember); text-transform: uppercase; font-weight: 600;
-}
-.exp-mini-role {
-  font-family: var(--font-display); font-size: 17px;
-  font-weight: 500; color: var(--ink-0); letter-spacing: -0.01em; line-height: 1.2;
-  margin: 0;
-}
-.exp-mini-blurb {
-  font-family: var(--font-display); font-size: 13px;
-  line-height: 1.55; color: var(--ink-1); margin: 0;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 /* ── Contributions ───────────────────────────────────────────── */
 @media (max-width: 639px) {
   .contrib { padding: 14px; overflow-x: auto; }
@@ -926,15 +819,6 @@ kbd {
 
 @media (min-width: 640px) and (max-width: 1023px) {
   .post-row { grid-template-columns: 90px 1fr 70px 24px; font-size: 18px; }
-}
-
-/* ── Testimonials ────────────────────────────────────────────── */
-@media (max-width: 639px) {
-  .testimonial-grid { grid-template-columns: 1fr !important; }
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  .testimonial-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 /* ── Uses ────────────────────────────────────────────────────── */
