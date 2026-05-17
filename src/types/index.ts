@@ -66,6 +66,12 @@ export interface Testimonial {
   quote: string
   who: string
   role: string
+  /** 2-letter initials shown in the avatar disc. Defaults to first letters of `who`. */
+  initials?: string
+  /** Filmstrip label — short channel name shown next to TX_NNN. */
+  channel?: string
+  /** Signal-bar strength. Defaults to 'full'. */
+  signal?: 'full' | 'med' | 'weak'
 }
 
 export interface Use {
