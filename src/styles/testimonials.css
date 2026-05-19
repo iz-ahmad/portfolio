@@ -1,0 +1,380 @@
+/* ============================================================
+   TESTIMONIALS V2 — "Incoming Transmissions"
+   Filmstrip horizontal scroll on desktop (scroll-driven pin),
+   stacked cards on tablet/mobile.
+   ============================================================ */
+
+.tx-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+/* Desktop: pinned filmstrip — production scroll-pin behaviour. */
+@media (min-width: 1024px) {
+  .tx-wrap   { height: 400vh; }
+  .tx-sticky {
+    position: sticky; top: 0; height: 100vh; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .tx-track-wrap { overflow: hidden; padding-right: 0; }
+  .tx-track     { padding-right: 200px; }
+}
+
+.tx-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 80px var(--gutter) 24px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+  gap: 24px;
+  border-bottom: 1px dashed var(--hair);
+}
+.tx-header-left { min-width: 0; }
+.tx-progress {
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 8px;
+  min-width: 260px;
+}
+.tx-progress-bar {
+  width: 240px; height: 2px; background: var(--hair);
+  position: relative; overflow: hidden;
+}
+.tx-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--red), var(--ember));
+  box-shadow: 0 0 12px var(--red);
+  transition: width 200ms linear;
+}
+.tx-progress-meta {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.tx-progress-meta .muted { color: var(--ink-2); }
+.tx-progress-label {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+/* Filmstrip track */
+.tx-track-wrap {
+  flex: 1;
+  overflow: hidden;
+  padding: 32px var(--gutter) 24px;
+}
+.tx-track {
+  display: flex;
+  gap: 28px;
+  height: 100%;
+  align-items: center;
+  padding-right: 200px;
+  will-change: transform;
+}
+
+/* Each transmission card */
+.tx-card {
+  flex: 0 0 auto;
+  width: clamp(360px, 32vw, 480px);
+  height: clamp(420px, 60vh, 540px);
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 50%, rgba(255,90,60,0.025) 100%),
+    rgba(8, 8, 22, 0.7);
+  backdrop-filter: blur(22px) saturate(150%);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 360ms var(--ease-spring), border-color 220ms ease, box-shadow 240ms ease;
+}
+.tx-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 45, 61, 0.45);
+  box-shadow:
+    0 30px 80px -30px rgba(255, 45, 61, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* CRT-y scanlines + soft noise wash */
+.tx-card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(180deg, transparent 0, transparent 3px, rgba(255,45,61,0.025) 3px, rgba(255,45,61,0.025) 4px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+.tx-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(140% 80% at 0% 0%, rgba(255, 90, 60, 0.08), transparent 50%),
+    radial-gradient(120% 60% at 100% 100%, rgba(184, 19, 42, 0.12), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+.tx-card > * { position: relative; z-index: 2; }
+
+/* Card header strip — TX_001, signal bars */
+.tx-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+  border-bottom: 1px dashed var(--hair);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.tx-id {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--red);
+}
+.tx-id::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 8px var(--red);
+  animation: txPulse 2s ease-in-out infinite;
+}
+@keyframes txPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(1.4); }
+}
+.tx-signal {
+  display: inline-flex; align-items: flex-end; gap: 2px; height: 12px;
+}
+.tx-signal span {
+  width: 3px;
+  background: var(--ember);
+  border-radius: 1px;
+  opacity: 0.85;
+}
+.tx-signal span:nth-child(1) { height: 25%; }
+.tx-signal span:nth-child(2) { height: 50%; }
+.tx-signal span:nth-child(3) { height: 75%; }
+.tx-signal span:nth-child(4) { height: 100%; }
+.tx-signal.weak span:nth-child(3),
+.tx-signal.weak span:nth-child(4) { opacity: 0.18; background: var(--ink-2); }
+.tx-signal.med span:nth-child(4)  { opacity: 0.18; background: var(--ink-2); }
+
+/* Quote body */
+.tx-card-body {
+  flex: 1;
+  padding: 26px 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+}
+.tx-mark {
+  font-family: var(--font-display);
+  font-size: 96px;
+  line-height: 0.6;
+  color: rgba(255, 45, 61, 0.18);
+  margin: 0 0 -28px;
+  pointer-events: none;
+  user-select: none;
+}
+.tx-quote {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--ink-0);
+  margin: 0;
+  flex: 1;
+  font-weight: 400;
+}
+.tx-card:nth-child(3n) .tx-mark { color: rgba(255, 90, 60, 0.18); }
+
+/* Decoded badge */
+.tx-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(255,255,255,0.07);
+}
+.tx-decoded {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--ink-2);
+  text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.tx-decoded::before {
+  content: "";
+  width: 4px; height: 4px;
+  background: var(--ember);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--ember);
+}
+.tx-length {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+  text-transform: uppercase;
+}
+
+/* Card footer — source attribution */
+.tx-card-foot {
+  padding: 18px 22px 22px;
+  border-top: 1px solid var(--hair);
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.tx-card-foot > div { min-width: 0; flex: 1 1 auto; }
+.tx-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-0);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 45, 61, 0.4), rgba(184, 19, 42, 0.25) 60%, transparent 80%),
+    rgba(10, 10, 24, 0.8);
+  border: 1px solid rgba(255, 45, 61, 0.4);
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(255, 45, 61, 0.18);
+}
+.tx-who {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--ink-0);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.tx-role {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+  margin-top: 3px;
+}
+.tx-role span { color: var(--ember); }
+
+/* End card — "end of feed" */
+.tx-end {
+  flex: 0 0 auto;
+  width: 280px;
+  height: clamp(420px, 60vh, 540px);
+  padding: 36px 28px;
+  border-radius: 18px;
+  border: 1px dashed var(--hair-strong);
+  background: rgba(8, 8, 22, 0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.tx-end .hud-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.tx-end .hud-label::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--red); box-shadow: 0 0 8px var(--red);
+}
+.tx-end-msg {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--ink-1);
+}
+.tx-end-msg a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+/* Scroll hint */
+.tx-scroll-hint {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--ink-1);
+  animation: txHint 2s ease-in-out infinite;
+}
+@keyframes txHint {
+  50% { transform: translateX(-50%) translateY(4px); opacity: 0.4; }
+}
+
+/* ── Tablet (640–1023) — vertical stacked 2-col grid ───────── */
+@media (max-width: 1023px) {
+  .tx-wrap { height: auto; }
+  .tx-sticky { position: relative; height: auto; overflow: visible; display: block; }
+  .tx-header { padding: 56px 24px 20px; flex-wrap: wrap; gap: 14px; border-bottom: 1px dashed var(--hair); }
+  .tx-progress { min-width: auto; align-items: flex-start; }
+  .tx-progress-bar { display: none; }
+  .tx-track-wrap { overflow: visible; padding: 24px 24px 40px; }
+  .tx-track {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-right: 0;
+    transform: none !important;
+  }
+  .tx-card {
+    width: 100%;
+    height: auto;
+    min-height: 320px;
+  }
+  .tx-end {
+    grid-column: span 2;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 24px 28px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tx-end-msg { font-size: 16px; flex: 1; }
+  .tx-scroll-hint { display: none; }
+}
+
+/* ── Mobile (≤639) — single column ─────────────────────────── */
+@media (max-width: 639px) {
+  .tx-header { padding: 48px 16px 16px; }
+  .tx-progress-meta { font-size: 18px; }
+  .tx-track-wrap { padding: 16px 16px 32px; }
+  .tx-track { grid-template-columns: 1fr; gap: 14px; }
+  .tx-end { grid-column: span 1; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .tx-card { min-height: 0; }
+  .tx-card-head { padding: 12px 16px; font-size: 9px; }
+  .tx-card-body { padding: 18px 18px 14px; gap: 14px; }
+  .tx-mark { font-size: 64px; margin-bottom: -18px; }
+  .tx-quote { font-size: 15px; line-height: 1.55; }
+  .tx-card-foot { padding: 14px 16px 16px; gap: 12px; }
+  .tx-avatar { width: 36px; height: 36px; font-size: 12px; }
+  .tx-who { font-size: 11px; }
+  .tx-role { font-size: 10px; }
+}

@@ -2,16 +2,41 @@
   {
     "quote": "Reads framework source the way most people read tweets. Ships fixes upstream and keeps our codebase boring in the best way.",
     "who": "Tech Lead",
-    "role": "FIGLAB"
+    "role": "FIGLAB",
+    "initials": "TL",
+    "channel": "INTERNAL",
+    "signal": "full"
   },
   {
     "quote": "Reliable Laravel hand. Picks up an unknown module and a week later he's the one explaining it.",
     "who": "Senior Engineer",
-    "role": "FIGLAB"
+    "role": "FIGLAB",
+    "initials": "SE",
+    "channel": "INTERNAL",
+    "signal": "full"
   },
   {
     "quote": "Quietly competent. The PRs are small, the patches are right, the tests are there.",
     "who": "OSS Maintainer",
-    "role": "Laravel Ecosystem"
+    "role": "Laravel Ecosystem",
+    "initials": "OM",
+    "channel": "OSS_NET",
+    "signal": "med"
+  },
+  {
+    "quote": "Doesn't argue past consensus, doesn't ship until it's clean. Easy to trust with the unglamorous half of the work.",
+    "who": "Product Engineer",
+    "role": "Partner Team",
+    "initials": "PE",
+    "channel": "PARTNER",
+    "signal": "full"
+  },
+  {
+    "quote": "Wrote one of the patches I read first when I'm catching up on the framework changelog.",
+    "who": "Open-Source Dev",
+    "role": "Community",
+    "initials": "OD",
+    "channel": "OSS_NET",
+    "signal": "weak"
   }
 ]

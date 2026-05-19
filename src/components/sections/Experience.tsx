@@ -1,69 +1,42 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import { SFX } from '@/lib/sfx'
+import { useEffect, useRef } from 'react'
 import type { Experience as ExperienceType } from '@/types'
 import rawExperiences from '@/data/experiences.json'
 
 const EXPERIENCES = rawExperiences as ExperienceType[]
 
-function yearLabel(entry: ExperienceType): string {
-  if (entry.status === 'current') return 'NOW'
-  const m = entry.period.match(/(\d{4})/g)
-  return m ? m[m.length - 1] : entry.period
+function yearLabel(e: ExperienceType): string {
+  if (e.status === 'current') return 'NOW'
+  const m = e.period.match(/(\d{4})/g)
+  return m ? m[m.length - 1] : e.period
+}
+
+function fileSlug(co: string): string {
+  return co.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
 
 export function Experience() {
-  const initial = Math.max(0, EXPERIENCES.findIndex((it) => it.status === 'current'))
-  const [active, setActive] = useState(initial)
-  const [flashKey, setFlashKey] = useState(0)
-  const [isCompactMode, setIsCompactMode] = useState(false)
-  const cardRef = useRef<HTMLElement>(null)
-  const it = EXPERIENCES[active] ?? EXPERIENCES[0]
+  const rootRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 1023px)')
-    const update = () => setIsCompactMode(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
+    const root = rootRef.current
+    if (!root) return
+    const rows = root.querySelectorAll<HTMLElement>('.exp2-row')
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-in')
+            io.unobserve(e.target)
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+    )
+    rows.forEach((r) => io.observe(r))
+    return () => io.disconnect()
   }, [])
-
-  const select = (i: number) => {
-    if (i === active) return
-    setActive(i)
-    setFlashKey((k) => k + 1)
-    SFX.play('tick')
-  }
-
-  useEffect(() => {
-    const el = cardRef.current
-    if (!el) return
-    el.classList.remove('is-flashing')
-    void el.offsetWidth
-    el.classList.add('is-flashing')
-  }, [flashKey])
-
-  const [typed, setTyped] = useState('')
-  const tRef = useRef(0)
-  useEffect(() => {
-    if (!it) return
-    setTyped('')
-    tRef.current = 0
-    const full = it.blurb
-    const id = setInterval(() => {
-      tRef.current += 2
-      if (tRef.current >= full.length) {
-        setTyped(full)
-        clearInterval(id)
-      } else {
-        setTyped(full.slice(0, tRef.current))
-      }
-    }, 12)
-    return () => clearInterval(id)
-  }, [active])
-
-  if (!it) return null
 
   return (
     <section id="experience" className="section" aria-label="Career and experience">
@@ -73,120 +46,73 @@ export function Experience() {
           <h2 className="h-display section-title">Career &amp; experience.</h2>
         </div>
         <div className="section-aside">
-          <p>Jobholder, not a freelancer. Day job at FIGLAB, evenings in the Laravel source. Hover an entry to load its record.</p>
+          <p>Jobholder, not a freelancer. Day job at FIGLAB, evenings in the
+          Laravel source. Scroll to load the records.</p>
         </div>
       </div>
 
-      {isCompactMode && (
-        <div className="exp-card-grid">
-          {EXPERIENCES.map((entry, i) => (
-            <div
-              key={entry.company + entry.period}
-              className={`exp-mini-card glass${i === active ? ' is-active' : ''}`}
-              onClick={() => select(i)}
-              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && select(i)}
-              tabIndex={0}
-              aria-current={i === active ? 'step' : undefined}
+      <div className="exp2-meta">
+        <span className="exp2-meta-dot">REC // CAREER_LOG · {EXPERIENCES.length} ENTRIES</span>
+        <div className="exp2-meta-cluster">
+          <span>RANGE <b>2018→NOW</b></span>
+          <span>STATUS <b>ACTIVE</b></span>
+          <span>FMT <b>ASCII/UTF-8</b></span>
+        </div>
+      </div>
+
+      <div className="exp2" ref={rootRef} data-mode="reveal">
+        {EXPERIENCES.map((e, i) => {
+          const idHex = (0xC0DE + i * 17).toString(16).toUpperCase()
+          const path  = `/career/${fileSlug(e.company)}.md`
+          return (
+            <article
+              key={e.company + e.period}
+              className={[
+                'exp2-row',
+                e.status === 'current' ? 'is-current' : '',
+                e.status === 'active'  ? 'is-active'  : '',
+              ].filter(Boolean).join(' ')}
               data-cursor="hover"
             >
-              <div className="exp-mini-period">{entry.period}</div>
-              <div className="exp-mini-co">{entry.company}</div>
-              <h3 className="exp-mini-role">{entry.role}</h3>
-              <p className="exp-mini-blurb">{entry.blurb}</p>
-              <div className="exp-card-tags">
-                {entry.tags.map((tag) => (
-                  <span key={tag} className="chip">{tag}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {!isCompactMode && <div className="exp-shell">
-        <ol className="exp-index" role="list" aria-label="Career timeline">
-          {EXPERIENCES.map((entry, i) => {
-            const isActive = i === active
-            return (
-              <li
-                key={entry.company + entry.period}
-                className={[
-                  'exp-index-row',
-                  isActive ? 'is-active' : '',
-                  entry.status === 'current' ? 'is-current' : '',
-                ].filter(Boolean).join(' ')}
-                onMouseEnter={() => select(i)}
-                onClick={() => select(i)}
-                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && select(i)}
-                tabIndex={0}
-                aria-current={isActive ? 'step' : undefined}
-                data-cursor="hover"
-              >
-                <span className="exp-index-marker" aria-hidden>
-                  <span className="exp-marker-dot" />
-                  {i < EXPERIENCES.length - 1 && <span className="exp-marker-line" />}
+              <div className="exp2-rail">
+                <div className="exp2-period">{e.period}</div>
+                <span className="exp2-year">{yearLabel(e)}</span>
+                <span className="exp2-status">
+                  {e.status === 'current' ? 'Active · Current'
+                    : e.status === 'active' ? 'Active'
+                    : 'Archived'}
                 </span>
-                <div className="exp-index-body">
-                  <div className="exp-index-year">{yearLabel(entry)}</div>
-                  <div className="exp-index-role">{entry.role}</div>
-                  <div className="exp-index-co">
-                    <span className="exp-index-arrow">›</span> {entry.company}
-                  </div>
+                <span className="exp2-loc">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" strokeWidth="2" aria-hidden>
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  {e.location}
+                </span>
+              </div>
+
+              <div className="exp2-body">
+                <div className="exp2-co-row">
+                  <h3 className="exp2-co">{e.company}</h3>
+                  <span className="exp2-id">ID <b>0x{idHex}</b></span>
                 </div>
-                <span className="exp-index-glyph" aria-hidden>
-                  {entry.status === 'current' ? '●' : isActive ? '▸' : '·'}
-                </span>
-              </li>
-            )
-          })}
-        </ol>
-
-        <article className="exp-card glass" ref={cardRef} aria-live="polite">
-          <header className="exp-card-head">
-            <div className="exp-card-meta">
-              <span className="exp-card-tag">{`> entry [${String(active + 1).padStart(2, '0')}/${String(EXPERIENCES.length).padStart(2, '0')}]`}</span>
-              <span className="exp-card-status">
-                <span className={`status-dot status-${it.status}`} />
-                {it.status === 'current' ? 'active · current role'
-                  : it.status === 'active' ? 'active · ongoing'
-                  : 'archived'}
-              </span>
-            </div>
-            <div className="exp-card-period">{it.period}</div>
-          </header>
-
-          <div className="exp-card-body">
-            <div className="exp-card-co-row">
-              <div className="exp-card-co">{it.company}</div>
-              <div className="exp-card-loc">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                {it.location}
+                <div className="exp2-role">›&nbsp;{e.role}</div>
+                <p className="exp2-blurb">{e.blurb}</p>
+                <div className="exp2-tags">
+                  {e.tags.map((t) => <span key={t} className="chip">{t}</span>)}
+                </div>
+                <div className="exp2-foot">
+                  <span className="exp2-foot-path"><span>$</span> cat {path}</span>
+                  <span className="exp2-foot-arrow">[ view record → ]</span>
+                </div>
               </div>
-            </div>
-            <h3 className="exp-card-role">{it.role}</h3>
-            <p className="exp-card-blurb">
-              {typed}
-              {typed.length < it.blurb.length && <span className="exp-cursor" aria-hidden>▌</span>}
-            </p>
-            <div className="exp-card-tags">
-              {it.tags.map((tag) => (
-                <span key={tag} className="chip">{tag}</span>
-              ))}
-            </div>
-          </div>
 
-          <footer className="exp-card-foot">
-            <span className="exp-card-id">id:0x{(0xC0DE + active * 17).toString(16).toUpperCase()}</span>
-            <span className="exp-card-hint">[ hover to focus ]</span>
-          </footer>
-
-          <span className="exp-card-scan" aria-hidden />
-          <span className="exp-card-noise" aria-hidden />
-        </article>
-      </div>}
+              {i < EXPERIENCES.length - 1 && <span className="exp2-thread" aria-hidden />}
+            </article>
+          )
+        })}
+      </div>
     </section>
   )
 }
