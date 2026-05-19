@@ -11,9 +11,10 @@ export function TopHud() {
 
   const t = useClock()
 
-  const hh = mounted && t ? String(t.getUTCHours()).padStart(2, '0') : '--'
-  const mm = mounted && t ? String(t.getUTCMinutes()).padStart(2, '0') : '--'
-  const ss = mounted && t ? String(t.getUTCSeconds()).padStart(2, '0') : '--'
+  const utc6 = mounted && t ? new Date(t.getTime() + 6 * 60 * 60 * 1000) : null
+  const hh = utc6 ? String(utc6.getUTCHours()).padStart(2, '0') : '--'
+  const mm = utc6 ? String(utc6.getUTCMinutes()).padStart(2, '0') : '--'
+  const ss = utc6 ? String(utc6.getUTCSeconds()).padStart(2, '0') : '--'
 
   return (
     <div className="top-hud" role="banner">
