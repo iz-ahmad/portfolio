@@ -1,6 +1,6 @@
 ### About
 
-A personal portfolio site, built with Next.js, React, TypeScript. Specially designed for developers.
+A personal portfolio site of mine, where you get to know what I like and what I do in a nutshell.
 
 ### Stack
 
