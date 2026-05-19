@@ -6,13 +6,17 @@ import profile from '@/data/profile.json'
 const MARQUEE_REPEATS = 2
 
 const SCRIPT = [
-  { cmd: 'whoami',          out: ['ahmad-cit22 — software engineer @ FIGLAB · full-stack'] },
-  { cmd: 'cat ~/about.md',  out: ['# About', 'Full-stack web developer.', 'PHP, Laravel & React day-to-day.', 'Laravel core contributor in spare cycles.', 'Love to learn new stuffs..<3'] },
-  { cmd: 'ls ~/focus/',     out: ['laravel-internals/    react-inertia/', 'open-source/           code-review/'] },
-  { cmd: 'echo $STATUS',    out: ['● EMPLOYED · OPEN TO OSS COLLABS'] },
+  { cmd: 'whoami',          out: ['Nafis Ahmad · software engineer @ FIGLAB'] },
+  { cmd: 'cat ~/about.md',  out: ['# About', '- Full-stack web app developer.', '- PHP, Laravel, React, Vue day-to-day.', '- Open source contributor in spare cycles.', '- Always learning what to learn more! <3'] },
+  { cmd: 'ls ~/focus/',     out: ['php/               laravel-internals/', 'javascript/        agentic-engineering/'] },
+  { cmd: 'echo $STATUS',    out: ['● EMPLOYED · OPEN TO OSS COLLABORATION'] },
 ]
 
-function Stat({ k, v }: { k: string; v: number }) {
+const marqueeItems = ['Working @ FIGLAB', '★', 'PHP · JS', '★', 'LARAVEL · VUE', '★', 'REACT · INERTIA', '★', 'LARAVEL CORE CONTRIBUTOR', '★', 'OPEN TO OSS', '★', 'FULL-STACK', '★']
+
+const API_URL = 'https://github-contributions-api.jogruber.de/v4/iz-ahmad'
+
+function Stat({ k, v }: { k: string; v: number | string }) {
   return (
     <div className="stat">
       <div className="stat-v">{v}</div>
@@ -25,7 +29,7 @@ function CtaLinks() {
   return (
     <>
       <a href="#projects" className="btn btn-primary" data-cursor="hover" data-cursor-label="Browse work">
-        BROWSE WORK <span aria-hidden>↗</span>
+        BROWSE WORKS <span aria-hidden>↗</span>
       </a>
       <a href="#contact" className="btn" data-cursor="hover" data-cursor-label="Open channel">
         OSS COLLAB
@@ -36,12 +40,23 @@ function CtaLinks() {
 
 export function Hero() {
   const [step, setStep] = useState(0)
+  const [commits, setCommits] = useState(profile.commits)
 
   useEffect(() => {
     if (step >= SCRIPT.length) return
     const t = setTimeout(() => setStep(step + 1), 850)
     return () => clearTimeout(t)
   }, [step])
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then(r => r.json())
+      .then(data => {
+        const total = Object.values(data.total as Record<string, number>).reduce((a, b) => a + b, 0)
+        setCommits(total)
+      })
+      .catch(() => {})
+  }, [])
 
   const booted = step >= SCRIPT.length
   const visible = SCRIPT.slice(0, step)
@@ -122,9 +137,8 @@ export function Hero() {
 
         {/* Stats — outside grid; CSS positions it per breakpoint */}
         <div className="hero-stats" aria-label="Quick stats">
-          <Stat k="YRS XP" v={profile.yearsXp} />
-          <Stat k="SHIPPED" v={profile.shipped} />
-          <Stat k="COMMITS" v={profile.commits} />
+          <Stat k="YEARS XP" v={profile.yearsXp} />
+          <Stat k="CONTRIBUTIONS" v={commits} />
           <Stat k="PRS MERGED" v={profile.prsMerged} />
         </div>
 
@@ -138,7 +152,7 @@ export function Hero() {
         <div className="marquee-track">
           {Array.from({ length: MARQUEE_REPEATS }, (_, k) => (
             <div className="marquee-row" key={k}>
-              {['@ FIGLAB · DHAKA', '★', 'PHP · LARAVEL · REACT', '★', 'LARAVEL CORE CONTRIBUTOR', '★', 'OPEN TO OSS', '★', 'FULL-STACK', '★'].map((t, i) => (
+              {marqueeItems.map((t, i) => (
                 <span key={i} className="marquee-item">{t}</span>
               ))}
             </div>

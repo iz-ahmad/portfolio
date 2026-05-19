@@ -13,13 +13,15 @@ export function NowPlaying() {
 
       <div className="now-grid">
         <div className="now-card glass now-card-lg reveal">
-          <div className="hud-label">// NOW_BUILDING</div>
-          <div className="now-title">Production Laravel + React/Inertia products at FIGLAB.</div>
-          <p className="now-desc">Schema, queues, APIs, dashboards. Multi-tenant patterns, background jobs, the boring-good kind of code review. Quiet wins, every sprint.</p>
+          <div className="hud-label">// NOW_CRAFTING</div>
+          <div className="now-title">Production Laravel + Vue/React solutions at FIGLAB.</div>
+          <p className="now-desc">Building reliable backend systems and smooth Vue/React interfaces that work beautifully together. Engineered for scalability, clarity, and long-term product growth.</p>
           <div className="now-stack">
+            <span className="chip">PHP</span>
             <span className="chip">Laravel</span>
-            <span className="chip">Inertia</span>
             <span className="chip">React</span>
+            <span className="chip">Vue</span>
+            <span className="chip">Inertia</span>
             <span className="chip">MySQL</span>
           </div>
           <div className="now-row">

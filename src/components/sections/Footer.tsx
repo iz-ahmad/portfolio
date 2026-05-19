@@ -6,9 +6,8 @@ export function Footer() {
       <div className="footer-inner">
         <div className="footer-mark h-display">{profile.name}</div>
         <div className="footer-meta muted">
-          <span>BUILT WITH REACT · LARAVEL UNDER THE HOOD</span>
-          <span>© 2026 {profile.handle.toUpperCase()} · DHAKA, BD</span>
-          <span>v1.2.0 · holographic_glass.kex</span>
+          <span>DESIGNED & BUILT WITH ❤️ by <a href={profile.github} target="_blank" rel="noopener noreferrer" className="link">NAFIS AHMAD</a> </span>
+          <span>2026 © v1.0.0</span>
         </div>
       </div>
     </footer>

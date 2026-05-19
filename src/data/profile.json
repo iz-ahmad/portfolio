@@ -1,16 +1,18 @@
 {
   "handle": "iz-ahmad",
   "name": "AHMAD",
-  "role": "FULL-STACK ENGINEER",
-  "tagline": "I build interfaces and APIs that feel alive — Laravel under the hood, React on top, motion in the cracks.",
+  "role": "SOFTWARE ENGINEER",
+  "tagline": "Backend-focused engineer building APIs and interfaces that feel alive — Laravel at the core, React/Vue on the surface, motion in the cracks.",
   "location": "DHAKA / BD",
   "utc": "+06:00",
   "email": "n.ahmad.web.cit22@gmail.com",
   "github": "https://github.com/iz-ahmad",
-  "status": "EMPLOYED · OPEN TO OSS",
+  "githubRepo": "https://github.com/iz-ahmad/portfolio",
+  "status": "EMPLOYED",
   "company": "FIGLAB",
   "yearsXp": 4,
-  "shipped": 22,
+  "shipped": 1,
   "commits": 2400,
-  "prsMerged": 9
+  "prsMerged": "600+",
+  "ossPrsMerged": 10
 }
