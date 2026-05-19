@@ -67,7 +67,7 @@ export function Contributions({ data }: ContributionsProps) {
             ))}
             <span className="muted">&nbsp;More</span>
           </div>
-          <div className="muted">{profile.commits}+ commits · {profile.prsMerged} OSS PRs merged</div>
+          <div className="muted">{profile.commits}+ commits · {profile.ossPrsMerged}+ OSS PRs merged</div>
         </div>
       </div>
     </section>
