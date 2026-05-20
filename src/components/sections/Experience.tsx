@@ -9,7 +9,7 @@ const EXPERIENCES = rawExperiences as ExperienceType[]
 function yearLabel(e: ExperienceType): string {
   if (e.status === 'current') return 'NOW'
   const m = e.period.match(/(\d{4})/g)
-  return m ? m[m.length - 1] : e.period
+  return m ? m[m.length - 2] : e.period
 }
 
 function fileSlug(co: string): string {
@@ -45,7 +45,7 @@ export function Experience() {
           <h2 className="h-display section-title">Career &amp; experience.</h2>
         </div>
         <div className="section-aside">
-          <p>Jobholder, not a freelancer. Day job at FIGLAB, evenings in the
+          <p>A timeline of roles, impact, and growth. Day job at FIGLAB, evenings in the
           Laravel source.</p>
         </div>
       </div>
