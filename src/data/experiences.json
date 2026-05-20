@@ -1,6 +1,6 @@
 [
   {
-    "period": "2023 — Now",
+    "period": "2025 — Now",
     "company": "FIGLAB",
     "role": "Software Engineer (Full-Stack)",
     "location": "Dhaka, Bangladesh",
@@ -9,30 +9,30 @@
     "status": "current"
   },
   {
-    "period": "2024 — Now",
-    "company": "Laravel · Open Source",
+    "period": "2023 — Now",
+    "company": "Laravel · Open Source Contributor",
     "role": "Core Contributor",
     "location": "Remote · async",
-    "blurb": "Recurring contributor to laravel/framework, laravel/boost, laravel/docs and ecosystem packages. PRs touching ServeCommand, queue contracts, security in URL handling, and small doc-shaped correctness fixes.",
-    "tags": ["PHP", "Laravel 11/12", "OSS"],
+    "blurb": "Recurring contributor to laravel/framework, laravel/boost, laravel/docs and ecosystem packages.",
+    "tags": ["PHP", "Laravel 11/12/13", "OSS"],
     "status": "active"
   },
   {
-    "period": "2022 — 2023",
-    "company": "Freelance & Contract",
-    "role": "Web Developer",
-    "location": "Remote",
-    "blurb": "Built Laravel applications, REST APIs and React/Vue front-ends for small teams. Learned what good code review feels like, what bad migrations cost, and why the boring stack usually wins.",
-    "tags": ["Laravel", "Vue", "REST"],
+    "period": "2024 — 2025",
+    "company": "Xgenious",
+    "role": "Software Engineer (Backend)",
+    "location": "Onsite",
+    "blurb": "Built Laravel applications, REST APIs. Learned what good code review feels like, what bad migrations cost, and why the boring stack usually wins.",
+    "tags": ["Laravel", "REST", "MySQL", "AJAX"],
     "status": "past"
   },
   {
-    "period": "2018 — 2022",
-    "company": "CIT, Chittagong",
-    "role": "B.Sc. — Computer Science",
-    "location": "Chittagong, BD",
-    "blurb": "Computer Science degree. Picked up the fundamentals — data structures, networks, databases — and started shipping side projects somewhere around year two.",
-    "tags": ["CS", "Algorithms", "Databases"],
+    "period": "2023 — 2024",
+    "company": "IMBD Agency Ltd",
+    "role": "Software Engineer (Backend)",
+    "location": "Onsite",
+    "blurb": "Built Laravel applications, REST APIs. Learned what good code review feels like, what bad migrations cost, and why the boring stack usually wins.",
+    "tags": ["Laravel", "REST", "MySQL", "AJAX"],
     "status": "past"
   }
 ]
