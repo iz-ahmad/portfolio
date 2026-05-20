@@ -25,7 +25,6 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-2);
-  border: 1px dashed var(--hair);
   border-radius: 6px;
   background: rgba(5, 5, 16, 0.4);
 }
