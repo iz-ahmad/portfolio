@@ -16,7 +16,6 @@ export function SideNav({ sections, active }: SideNavProps) {
           href={`#${s.id}`}
           className={`nav-dot${active === s.id ? ' active' : ''}`}
           data-cursor="hover"
-          data-cursor-label={s.label}
           aria-current={active === s.id ? 'page' : undefined}
         >
           <span className="nav-dot-num">{String(i).padStart(2, '0')}</span>
