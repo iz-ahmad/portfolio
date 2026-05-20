@@ -21,7 +21,7 @@ export function SkillsOrbit() {
           <h2 className="h-display section-title">Tools, in orbit.</h2>
         </div>
         <div className="section-aside">
-          <p>Distance = depth. Closer rings = deeper reach. Hover a satellite to lock the orbit.</p>
+          <p>Distance = depth. Closer rings = deeper reach. Hover to pause the orbit.</p>
         </div>
       </div>
 
