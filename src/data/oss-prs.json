@@ -8,27 +8,27 @@
     "status": "merged",
     "tag": "fix",
     "url": "https://github.com/laravel/framework/pull/53538",
-    "weight": 5
+    "weight": 4
   },
   {
     "repo": "laravel/framework",
     "num": 56445,
     "branch": "12.x",
-    "title": "beforeCommit honors ShouldQueueAfterCommit",
+    "title": "beforeCommit() honors ShouldQueueAfterCommit",
     "desc": "beforeCommit now executes correctly even when the job uses the ShouldQueueAfterCommit contract — closes the gap between transactional intent and queue lifecycle.",
     "status": "merged",
     "tag": "feat",
     "url": "https://github.com/laravel/framework/pull/56445",
-    "weight": 5
+    "weight": 4
   },
   {
     "repo": "laravel/framework",
     "num": 57487,
     "branch": "12.x",
-    "title": "Security: previousPath() can return external URL",
+    "title": "Fix security vulnerability in previousPath() method",
     "desc": "Reported and patched a security vuln where previousPath() could leak external URLs back to the caller. Fix discussed; ultimately superseded.",
     "status": "closed",
-    "tag": "sec",
+    "tag": "fix",
     "url": "https://github.com/laravel/framework/pull/57487",
     "weight": 4
   },
@@ -37,11 +37,11 @@
     "num": 11150,
     "branch": "13.x",
     "title": "retryUntil() return type → DateTimeInterface",
-    "desc": "Doc fix — retryUntil() returns DateTimeInterface, not concrete DateTime. Small, but pays back every time someone reads the queue chapter.",
+    "desc": "retryUntil() returns DateTimeInterface, not concrete DateTime. Small, but pays back every time someone reads the queue chapter.",
     "status": "merged",
     "tag": "docs",
     "url": "https://github.com/laravel/docs/pull/11150",
-    "weight": 3
+    "weight": 4
   },
   {
     "repo": "laravel/boost",
@@ -52,7 +52,18 @@
     "status": "merged",
     "tag": "fix",
     "url": "https://github.com/laravel/boost/pull/748",
-    "weight": 3
+    "weight": 4
+  },
+  {
+    "repo": "laravel/framework",
+    "num": 56371,
+    "branch": "12.x",
+    "title": "Prevent saving default models without keys",
+    "desc": "Model instances created via withDefault() were being saved without valid foreign keys set, when using the automaticallyEagerLoadRelationships(). Proposed fix, later the automaticallyEagerLoading feature was deprecated.",
+    "status": "closed",
+    "tag": "fix",
+    "url": "https://github.com/laravel/framework/pull/56371",
+    "weight": 4
   },
   {
     "repo": "laravel/boost",
@@ -69,11 +80,11 @@
     "repo": "me-shaon/laravel-request-analytics",
     "num": 79,
     "branch": "main",
-    "title": "Request Analytics: 3 PRs",
-    "desc": "Three PRs landed (#79, #80, #81) — feature work and quality-of-life fixes for the request analytics package.",
+    "title": "Laravel Request Analytics",
+    "desc": "Several PRs landed — feature work and quality-of-life fixes for the request analytics package.",
     "status": "merged",
     "tag": "pkg",
     "url": "https://github.com/me-shaon/laravel-request-analytics/pull/79",
-    "weight": 3
+    "weight": 4
   }
 ]
