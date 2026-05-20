@@ -11,8 +11,8 @@
   "status": "EMPLOYED",
   "company": "FIGLAB",
   "yearsXp": 4,
-  "shipped": 1,
-  "commits": 2400,
+  "shipped": "15+",
+  "commits": 5430,
   "prsMerged": "600+",
-  "ossPrsMerged": 10
+  "ossPrsMerged": "10+"
 }
