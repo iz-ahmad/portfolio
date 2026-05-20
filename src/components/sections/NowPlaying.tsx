@@ -3,7 +3,6 @@ export function NowPlaying() {
     <section id="now" className="section" aria-label="Current status">
       <div className="section-head">
         <div>
-          <div className="section-num">// 02 / CURRENT_STATE</div>
           <h2 className="h-display section-title">Right now.</h2>
         </div>
         <div className="section-aside">
