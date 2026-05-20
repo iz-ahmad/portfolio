@@ -51,22 +51,22 @@
 }
 .nav-dot-num { color: var(--ink-3); width: 18px; }
 .nav-dot-tick {
-  width: 18px; height: 1px; background: var(--ink-3);
+  width: 16px; height: 1px; background: var(--ink-3);
   transition: width 200ms, background 200ms;
 }
 .nav-dot-label { opacity: 0; transition: opacity 200ms; }
 .nav-dot:hover,
 .nav-dot.active { color: var(--ink-0); }
 .nav-dot:hover .nav-dot-tick,
-.nav-dot.active .nav-dot-tick { width: 36px; background: var(--red); box-shadow: 0 0 8px var(--red); }
-.nav-dot:hover .nav-dot-label,
-.nav-dot.active .nav-dot-label { opacity: 1; }
+.nav-dot.active .nav-dot-tick { width: 24px; background: var(--red); box-shadow: 0 0 8px var(--red); }
+.nav-dot.active .nav-dot-label { opacity: .6; }
+.nav-dot:hover .nav-dot-label { opacity: 1; }
 
 /* Hero */
 .hero {
   position: relative; z-index: 2;
   min-height: 100vh;
-  padding: 140px var(--gutter) 40px;
+  padding: 100px var(--gutter) 40px;
   max-width: var(--max-w);
   margin: 0 auto;
 }
@@ -117,7 +117,7 @@
 
 .hero-tag { margin-bottom: 14px; }
 .hero-name {
-  font-size: clamp(52px, 9vw, 130px);
+  font-size: clamp(52px, 9vw, 124px);
   margin: 0 0 18px; line-height: 0.92;
   font-weight: 600;
   background: linear-gradient(180deg, #fff 0%, #c8c8d8 100%);
@@ -177,8 +177,8 @@
 .now-card-lg { grid-column: span 4; grid-row: span 2; }
 .now-title { font-family: var(--font-display); font-size: 20px; margin: 4px 0; line-height: 1.3; letter-spacing: -0.01em; }
 .now-card-lg .now-title { font-size: clamp(22px, 2.2vw, 30px); }
-.now-mono { font-family: var(--font-mono); font-size: 14px !important; color: var(--red); }
-.now-desc { font-size: 14px; color: var(--ink-1); line-height: 1.5; margin: 0 0 8px 0; }
+.now-mono { font-family: var(--font-mono); font-size: 14px !important; }
+.now-desc { font-size: 14px; color: var(--ink-1); line-height: 1.5; margin: 0 0 18px 0; }
 .now-stack { display: flex; gap: 8px; flex-wrap: wrap; }
 .now-sub { font-size: 11px; letter-spacing: 0.08em; }
 .now-row { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--ink-1); margin-top: auto; padding-top: 8px; border-top: 1px dashed var(--hair); }
@@ -597,12 +597,12 @@ kbd {
   white-space: nowrap;
   max-width: none;
   overflow: visible;
-  padding: 4px 10px;
+  padding: 4px 6px;
   background: rgba(5, 5, 16, 0.92);
   border: 1px solid var(--hair-strong);
   border-radius: 6px;
   font-size: 10px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   backdrop-filter: blur(10px);
   pointer-events: none;
   opacity: 0;
