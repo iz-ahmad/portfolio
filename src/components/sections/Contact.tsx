@@ -26,7 +26,6 @@ export function Contact() {
     <section id="contact" className="section" aria-label="Contact">
       <div className="section-head">
         <div>
-          <div className="section-num">// 13 / OPEN_CHANNEL</div>
           <h2 className="h-display section-title">Send a transmission.</h2>
         </div>
         <div className="section-aside">
