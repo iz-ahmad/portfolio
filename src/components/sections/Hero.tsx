@@ -64,10 +64,6 @@ export function Hero() {
   return (
     <section id="home" className="hero" aria-label="Introduction">
       <div className="hero-inner">
-        <div className="hero-meta">
-          <span className="hud-label">// 00 / IDENTITY</span>
-        </div>
-
         {/*
           hero-grid has display:contents at ≥1024px so its children
           (hero-left, hero-right) participate directly in hero-inner's

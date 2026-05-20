@@ -51,7 +51,6 @@ export function Testimonials() {
       <div className="tx-sticky">
         <div className="tx-header">
           <div className="tx-header-left">
-            <div className="section-num">// 11 / TRANSMISSIONS</div>
             <h2 className="h-display section-title">Words from the team.</h2>
           </div>
           <div className="tx-progress"

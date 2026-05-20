@@ -1,6 +1,6 @@
 [
   { "id": "home",          "label": "HOME" },
-  { "id": "now",           "label": "NOW" },
+  { "id": "now",           "label": "CURRENTLY" },
   { "id": "experience",    "label": "EXPERIENCE" },
   { "id": "skills",        "label": "SKILLS" },
   { "id": "projects",      "label": "WORK" },

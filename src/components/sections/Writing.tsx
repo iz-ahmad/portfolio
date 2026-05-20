@@ -8,7 +8,6 @@ export function Writing() {
     <section id="writing" className="section" aria-label="Writing">
       <div className="section-head">
         <div>
-          <div className="section-num">// 10 / DISPATCHES</div>
           <h2 className="h-display section-title">Things I wrote down.</h2>
         </div>
       </div>

@@ -93,7 +93,6 @@ export function Projects() {
       <div className="filmstrip-sticky">
         <div className="filmstrip-header">
           <div>
-            <div className="section-num">// 05 / FIELD_LOG</div>
             <h2 className="h-display section-title">Selected work.</h2>
           </div>
           <div className="filmstrip-progress" aria-label={`Project ${Math.round(progress * (PROJECTS.length - 1)) + 1} of ${PROJECTS.length}`}>

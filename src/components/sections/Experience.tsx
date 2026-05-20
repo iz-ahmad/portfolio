@@ -42,12 +42,11 @@ export function Experience() {
     <section id="experience" className="section" aria-label="Career and experience">
       <div className="section-head">
         <div>
-          <div className="section-num">// 03 / CAREER_LOG</div>
           <h2 className="h-display section-title">Career &amp; experience.</h2>
         </div>
         <div className="section-aside">
           <p>Jobholder, not a freelancer. Day job at FIGLAB, evenings in the
-          Laravel source. Scroll to load the records.</p>
+          Laravel source.</p>
         </div>
       </div>
 
