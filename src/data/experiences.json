@@ -5,17 +5,8 @@
     "role": "Software Engineer (Full-Stack)",
     "location": "Dhaka, Bangladesh",
     "blurb": "Building production Laravel + React/Inertia products. Owning features end-to-end — schema → API → UI → deploy. Steady ship cadence, code reviews, and the occasional 2 a.m. production hotfix.",
-    "tags": ["Laravel", "React", "Inertia", "MySQL", "Queues"],
+    "tags": ["Laravel", "React", "Vue", "MySQL", "Queues"],
     "status": "current"
-  },
-  {
-    "period": "2023 — Now",
-    "company": "Laravel · Open Source Contributor",
-    "role": "Core Contributor",
-    "location": "Remote · async",
-    "blurb": "Recurring contributor to laravel/framework, laravel/boost, laravel/docs and ecosystem packages.",
-    "tags": ["PHP", "Laravel 11/12/13", "OSS"],
-    "status": "active"
   },
   {
     "period": "2024 — 2025",
@@ -23,7 +14,7 @@
     "role": "Software Engineer (Backend)",
     "location": "Onsite",
     "blurb": "Built Laravel applications, REST APIs. Learned what good code review feels like, what bad migrations cost, and why the boring stack usually wins.",
-    "tags": ["Laravel", "REST", "MySQL", "AJAX"],
+    "tags": ["Laravel", "REST", "PGSQL", "AJAX"],
     "status": "past"
   },
   {
@@ -34,5 +25,14 @@
     "blurb": "Built Laravel applications, REST APIs. Learned what good code review feels like, what bad migrations cost, and why the boring stack usually wins.",
     "tags": ["Laravel", "REST", "MySQL", "AJAX"],
     "status": "past"
+  },
+  {
+    "period": "2023 — Now",
+    "company": "Laravel · Open Source Contributor",
+    "role": "Core Contributor",
+    "location": "Remote · async",
+    "blurb": "Recurring contributor to laravel/framework, laravel/boost, laravel/docs and ecosystem packages.",
+    "tags": ["PHP", "Laravel 11/12/13", "OSS"],
+    "status": "active"
   }
 ]
