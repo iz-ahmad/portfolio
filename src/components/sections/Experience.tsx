@@ -42,7 +42,6 @@ export function Experience() {
     <section id="experience" className="section" aria-label="Career and experience">
       <div className="section-head">
         <div>
-          <div className="section-num">// 03 / CAREER_LOG</div>
           <h2 className="h-display section-title">Career &amp; experience.</h2>
         </div>
         <div className="section-aside">
