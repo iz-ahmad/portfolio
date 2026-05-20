@@ -44,7 +44,6 @@ export function StackViz() {
         <div className="stack-inner section">
           <div className="section-head">
             <div>
-              <div className="section-num">// 06 / STACK_VIZ</div>
               <h2 className="h-display section-title">The kit I reach for.</h2>
             </div>
             <div className="stack-tabs" role="tablist" aria-label="Stack categories">

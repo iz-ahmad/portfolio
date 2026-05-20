@@ -8,8 +8,10 @@ export function Uses() {
     <section id="uses" className="section" aria-label="Uses / Rig">
       <div className="section-head">
         <div>
-          <div className="section-num">// 12 / RIG</div>
-          <h2 className="h-display section-title">What I use.</h2>
+          <h2 className="h-display section-title">My Toolkit.</h2>
+        </div>
+        <div className="section-aside">
+          <p>A curated set of tools and environments I rely on for work and daily life.</p>
         </div>
       </div>
       <div className="uses-grid">

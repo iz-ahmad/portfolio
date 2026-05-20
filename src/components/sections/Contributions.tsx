@@ -25,7 +25,6 @@ export function Contributions({ data }: ContributionsProps) {
     <section id="contributions" className="section" aria-label="GitHub contribution graph">
       <div className="section-head">
         <div>
-          <div className="section-num">// 08 / SIGNAL_LOG</div>
           <h2 className="h-display section-title">Last 12 months on GitHub.</h2>
         </div>
         <div className="section-aside">

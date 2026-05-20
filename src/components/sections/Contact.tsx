@@ -26,12 +26,11 @@ export function Contact() {
     <section id="contact" className="section" aria-label="Contact">
       <div className="section-head">
         <div>
-          <div className="section-num">// 13 / OPEN_CHANNEL</div>
           <h2 className="h-display section-title">Send a transmission.</h2>
         </div>
         <div className="section-aside">
           <p>
-            Currently employed at FIGLAB &mdash; not for freelance, but happy to talk OSS, Laravel, code review. Or skip the form:{' '}
+            Currently employed at FIGLAB &mdash; not for freelance, but happy to talk OSS, Laravel, code review. Or reach me directly:{' '}
             <a className="link" href={`mailto:${profile.email}`} data-cursor="hover">{profile.email}</a>
           </p>
         </div>

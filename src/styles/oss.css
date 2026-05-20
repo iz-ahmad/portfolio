@@ -49,8 +49,8 @@
 }
 
 .oss-card {
-  position: relative; display: flex; flex-direction: column; gap: 10px;
-  padding: 20px 22px 18px; border-radius: 10px;
+  position: relative; display: flex; flex-direction: column; gap: 8px;
+  padding: 16px 18px 14px; border-radius: 10px;
   text-decoration: none; color: inherit; cursor: pointer;
   isolation: isolate;
   transition: transform 320ms var(--ease-spring), border-color 220ms, box-shadow 240ms;
@@ -105,14 +105,14 @@
 }
 
 .oss-card-title {
-  font-family: var(--font-display); font-size: 18px; letter-spacing: -0.01em;
+  font-family: var(--font-mono); font-size: 18px; letter-spacing: -0.01em;
   font-weight: 500; color: var(--ink-0); margin: 4px 0 0; line-height: 1.25;
 }
 .oss-card.oss-w-5 .oss-card-title { font-size: 22px; }
 .oss-card-desc { font-family: var(--font-display); font-size: 13px; line-height: 1.6; color: var(--ink-1); margin: 0; max-width: 56ch; }
 
 .oss-card-foot {
-  margin-top: auto; padding-top: 12px;
+  margin-top: auto; padding-top: 10px;
   display: flex; justify-content: space-between; align-items: center;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--ink-2);

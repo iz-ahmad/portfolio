@@ -17,14 +17,14 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'IZ-AHMAD — Full-Stack Engineer',
-  description: 'I build interfaces and APIs that feel alive — Laravel under the hood, React on top, motion in the cracks.',
+  title: 'Nafis Ahmad · Software Engineer',
+  description: 'I build interfaces and APIs that feel alive - Laravel under the hood, React on top, motion in the cracks.',
   icons: {
     icon: '/favicon.png',
   },
   openGraph: {
-    title: 'IZ-AHMAD — Full-Stack Engineer',
-    description: 'I build interfaces and APIs that feel alive — Laravel under the hood, React on top, motion in the cracks.',
+    title: 'Nafis Ahmad · Software Engineer',
+    description: 'I build interfaces and APIs that feel alive - Laravel under the hood, React on top, motion in the cracks.',
     type: 'website',
   },
 }

@@ -39,7 +39,7 @@ export function AppShell({ contributions }: AppShellProps) {
   const [active, setActive] = useState('home')
   const [loading, setLoading] = useState(true)
 
-  // Capability flags — drive (de)activation of heavy ambient effects.
+  // Capability flags
   const [richMotion, setRichMotion] = useState(false)
   const [finePointer, setFinePointer] = useState(false)
 
@@ -118,12 +118,11 @@ export function AppShell({ contributions }: AppShellProps) {
         <Experience />
         <SkillsOrbit />
         <Projects />
-        <StackViz />
         <OssContributions />
         <Contributions data={contributions} />
-        <BugSnake />
         <Writing />
         <Testimonials />
+        <BugSnake />
         <Uses />
         <Contact />
       </main>

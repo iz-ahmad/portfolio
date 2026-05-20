@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 
 const PHASES = [
-  'init holographic_glass.kex',
-  'mounting profile / iz-ahmad',
+  'init holographic glasses',
+  'mounting profile: iz-ahmad',
   'calibrating orbital cursor',
   'loading neon shaders',
   'system ready',

@@ -1,15 +1,14 @@
 [
   { "id": "home",          "label": "HOME" },
-  { "id": "now",           "label": "NOW" },
+  { "id": "now",           "label": "CURRENTLY" },
   { "id": "experience",    "label": "EXPERIENCE" },
   { "id": "skills",        "label": "SKILLS" },
-  { "id": "projects",      "label": "WORK" },
-  { "id": "stack",         "label": "STACK" },
+  { "id": "projects",      "label": "WORKS" },
   { "id": "oss",           "label": "OSS" },
-  { "id": "contributions", "label": "SIGNAL" },
-  { "id": "game",          "label": "GAME" },
-  { "id": "writing",       "label": "WRITE" },
+  { "id": "contributions", "label": "COMMITS" },
+  { "id": "writing",       "label": "WRITINGS" },
   { "id": "testimonials",  "label": "VOICES" },
-  { "id": "uses",          "label": "RIG" },
-  { "id": "contact",       "label": "CHANNEL" }
+  { "id": "game",          "label": "GAME" },
+  { "id": "uses",          "label": "TOOLKIT" },
+  { "id": "contact",       "label": "CONTACT" }
 ]
