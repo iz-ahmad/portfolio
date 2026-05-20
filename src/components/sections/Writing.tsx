@@ -10,6 +10,9 @@ export function Writing() {
         <div>
           <h2 className="h-display section-title">Things I wrote down.</h2>
         </div>
+        <div className="section-aside">
+          <p>A collection of my thoughts, experiences, and learnings on various topics.</p>
+        </div>
       </div>
       <ul className="post-list">
         {POSTS.map((p, i) => (
