@@ -30,7 +30,7 @@ export function Contact() {
         </div>
         <div className="section-aside">
           <p>
-            Currently employed at FIGLAB &mdash; not for freelance, but happy to talk OSS, Laravel, code review. Or skip the form:{' '}
+            Currently employed at FIGLAB &mdash; not for freelance, but happy to talk OSS, Laravel, code review. Or reach me directly:{' '}
             <a className="link" href={`mailto:${profile.email}`} data-cursor="hover">{profile.email}</a>
           </p>
         </div>
