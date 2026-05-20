@@ -34,7 +34,7 @@ export function OssContributions() {
           <h2 className="h-display section-title">Open source — signed, sealed, merged.</h2>
         </div>
         <div className="section-aside">
-          <p>Selected PRs into <code className="oss-mono">laravel/framework</code>, <code className="oss-mono">laravel/boost</code>, <code className="oss-mono">laravel/docs</code> and ecosystem packages. Small, correct, in-tree.</p>
+          <p>Selected PRs into <code className="oss-mono">laravel/framework</code>, <code className="oss-mono">laravel/boost</code>, <code className="oss-mono">laravel/docs</code> and ecosystem packages. Small, correct, merged upstream.</p>
         </div>
       </div>
 
