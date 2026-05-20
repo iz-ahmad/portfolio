@@ -31,41 +31,38 @@ export function NowPlaying() {
         </div>
 
         <div className="now-card glass reveal">
-          <div className="hud-label"><span className="now-pulse" /> READING_SOURCE</div>
-          <div className="now-title">laravel/framework</div>
-          <div className="muted now-sub">PR-shaped bugs · queues, requests</div>
-          <div className="now-eq" aria-hidden>
-            <span /><span /><span /><span /><span /><span /><span />
-          </div>
+          <div className="hud-label"><span className="now-pulse" /> // NOW_READING</div>
+          <div className="now-title">Laravel Beyond CRUD</div>
+          <div className="muted now-sub">Brent Roose · Freek Van der Herten</div>
         </div>
 
         <div className="now-card glass reveal">
           <div className="hud-label">// NOW_LEARNING</div>
-          <div className="now-title">Deeper Laravel internals</div>
-          <div className="muted now-sub">Service container · queue lifecycle</div>
+          <div className="now-title">System Design · DevOps</div>
+          {/* <div className="muted now-sub">s</div> */}
           <div className="now-row">
             <span className="muted">PROGRESS</span>
-            <div className="now-bar"><div className="now-fill" style={{ width: '55%' }} /></div>
-            <span>55%</span>
+            <div className="now-bar"><div className="now-fill" style={{ width: '65%' }} /></div>
+            <span>65%</span>
           </div>
         </div>
 
         <div className="now-card glass reveal">
-          <div className="hud-label">// OSS_QUEUE</div>
-          <div className="now-title">Pending PRs &amp; reviews</div>
-          <div className="muted now-sub">laravel/boost · ecosystem packages</div>
+          <div className="hud-label">// NOW_EXPORING</div>
+          <div className="now-title">Deeper Laravel internals</div>
+          <div className="muted now-sub">Service container · queue lifecycle</div>
         </div>
 
         <div className="now-card glass reveal">
           <div className="hud-label">// AVAILABILITY</div>
-          <div className="now-title glow-cyan">Employed · Open to OSS</div>
-          <div className="muted now-sub">Not for freelance · happy to collab on OSS</div>
+          <div className="now-title">Employed · Open to OSS</div>
+          <div className="muted now-sub">Happy to collab on Open Source</div>
         </div>
 
         <div className="now-card glass reveal">
           <div className="hud-label">// LATEST_PR</div>
-          <div className="now-title now-mono">fix(docs): retryUntil() return type</div>
-          <div className="muted now-sub">laravel/docs#11150 · merged</div>
+          <div className="now-title now-mono">beforeCommit() honors ShouldQueueAfterCommit</div>
+          <div className="muted now-sub">laravel/framework#56445 · merged</div>
         </div>
       </div>
     </section>
