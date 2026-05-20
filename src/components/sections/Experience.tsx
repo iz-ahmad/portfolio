@@ -46,7 +46,7 @@ export function Experience() {
         </div>
         <div className="section-aside">
           <p>Jobholder, not a freelancer. Day job at FIGLAB, evenings in the
-          Laravel source. Scroll to load the records.</p>
+          Laravel source.</p>
         </div>
       </div>
 
