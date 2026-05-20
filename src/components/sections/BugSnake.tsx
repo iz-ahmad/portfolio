@@ -210,7 +210,6 @@ export function BugSnake() {
     <section id="game" className="section" aria-label="Bug Snake game">
       <div className="section-head">
         <div>
-          <div className="section-num">// 09 / BUG_EATER</div>
           <h2 className="h-display section-title">Eat the bugs.</h2>
         </div>
         <div className="section-aside">
