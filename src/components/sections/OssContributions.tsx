@@ -31,7 +31,6 @@ export function OssContributions() {
     <section id="oss" className="section" aria-label="Open source contributions">
       <div className="section-head">
         <div>
-          <div className="section-num">// 07 / UPSTREAM_LOG</div>
           <h2 className="h-display section-title">Open source — signed, sealed, merged.</h2>
         </div>
         <div className="section-aside">
