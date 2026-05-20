@@ -79,7 +79,7 @@
 .tx-card {
   flex: 0 0 auto;
   width: clamp(360px, 32vw, 480px);
-  height: clamp(420px, 60vh, 540px);
+  height: clamp(380px, 52vh, 480px);
   position: relative;
   border-radius: 18px;
   overflow: hidden;
@@ -169,18 +169,18 @@
 /* Quote body */
 .tx-card-body {
   flex: 1;
-  padding: 26px 28px 18px;
+  padding: 20px 24px 14px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
   position: relative;
 }
 .tx-mark {
   font-family: var(--font-display);
-  font-size: 96px;
+  font-size: 72px;
   line-height: 0.6;
   color: rgba(255, 45, 61, 0.18);
-  margin: 0 0 -28px;
+  margin: 0 0 -20px;
   pointer-events: none;
   user-select: none;
 }
@@ -276,7 +276,7 @@
 .tx-end {
   flex: 0 0 auto;
   width: 280px;
-  height: clamp(420px, 60vh, 540px);
+  height: clamp(380px, 52vh, 480px);
   padding: 36px 28px;
   border-radius: 18px;
   border: 1px dashed var(--hair-strong);
