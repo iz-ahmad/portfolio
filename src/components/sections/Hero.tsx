@@ -40,7 +40,7 @@ function CtaLinks() {
 
 export function Hero() {
   const [step, setStep] = useState(0)
-  const [commits, setCommits] = useState(profile.commits)
+  const [commits, setCommits] = useState(profile.commits + '+')
 
   useEffect(() => {
     if (step >= SCRIPT.length) return
@@ -53,7 +53,7 @@ export function Hero() {
       .then(r => r.json())
       .then(data => {
         const total = Object.values(data.total as Record<string, number>).reduce((a, b) => a + b, 0)
-        setCommits(total)
+        setCommits(total + '+')
       })
       .catch(() => {})
   }, [])
@@ -64,11 +64,10 @@ export function Hero() {
   return (
     <section id="home" className="hero" aria-label="Introduction">
       <div className="hero-inner">
-        {/*
-          hero-grid has display:contents at ≥1024px so its children
-          (hero-left, hero-right) participate directly in hero-inner's
-          grid-template-areas layout.
-        */}
+        <div className="hero-meta">
+          <span className="hud-label">// IDENTITY</span>
+        </div>
+
         <div className="hero-grid">
           <div className="hero-left">
             <div className="boot-window glass">
@@ -124,18 +123,18 @@ export function Hero() {
             </div>
             <p className="hero-tagline">{profile.tagline}</p>
 
-            {/* Tablet CTAs — visible only on tablet (640-1023px) via CSS */}
             <div className={`hero-cta hero-cta-tab${booted ? ' show' : ''}`}>
               <CtaLinks />
             </div>
           </div>
         </div>
 
-        {/* Stats — outside grid; CSS positions it per breakpoint */}
+        {/* Stats — outside grid */}
         <div className="hero-stats" aria-label="Quick stats">
           <Stat k="YEARS XP" v={profile.yearsXp} />
           <Stat k="CONTRIBUTIONS" v={commits} />
           <Stat k="PRS MERGED" v={profile.prsMerged} />
+          <Stat k="SHIPPED" v={profile.shipped} />
         </div>
 
         {/* Primary CTAs — desktop (left col) + mobile (below stats); hidden on tablet */}
