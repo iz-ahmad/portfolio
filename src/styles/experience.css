@@ -18,8 +18,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 10px 14px;
-  margin-bottom: 8px;
+  /* padding: 10px 14px; */
+  /* margin-bottom: 8px; */
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
@@ -376,6 +376,6 @@
   .exp2-blurb { font-size: 14px; line-height: 1.6; }
   .exp2-id { display: none; }
   .exp2-foot { font-size: 9px; flex-wrap: wrap; gap: 8px; }
-  .exp2-meta { font-size: 9px; padding: 8px 12px; }
+  .exp2-meta { font-size: 9px; }
   .exp2-meta-cluster { gap: 10px; }
 }
