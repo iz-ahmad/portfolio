@@ -18,7 +18,7 @@ export function SkillsOrbit() {
     <section id="skills" className="section" aria-label="Skills orbit">
       <div className="section-head">
         <div>
-          <h2 className="h-display section-title">Capabilities I have.</h2>
+          <h2 className="h-display section-title">Skills I own.</h2>
         </div>
         <div className="section-aside">
           <p>The technologies and frameworks I rely on to turn ideas into reliable solutions.</p>
