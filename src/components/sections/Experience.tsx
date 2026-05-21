@@ -50,16 +50,14 @@ export function Experience() {
         </div>
       </div>
 
-      <div className="exp2-meta">
-        <span className="exp2-meta-dot">REC // CAREER_LOG · {EXPERIENCES.length} ENTRIES</span>
-        <div className="exp2-meta-cluster">
-          <span>RANGE <b>2018→NOW</b></span>
-          <span>STATUS <b>ACTIVE</b></span>
-          <span>FMT <b>ASCII/UTF-8</b></span>
-        </div>
-      </div>
-
       <div className="exp2" ref={rootRef} data-mode="reveal">
+        <div className="exp2-meta">
+          <span className="exp2-meta-dot">CAREER_LOG · {EXPERIENCES.length} ENTRIES</span>
+          <div className="exp2-meta-cluster">
+            <span>RANGE <b>2022🠒NOW</b></span>
+          </div>
+        </div>
+
         {EXPERIENCES.map((e, i) => {
           const idHex = (0xC0DE + i * 17).toString(16).toUpperCase()
           const path  = `/career/${fileSlug(e.company)}.md`
@@ -79,7 +77,7 @@ export function Experience() {
                 <span className="exp2-status">
                   {e.status === 'current' ? 'Active · Current'
                     : e.status === 'active' ? 'Active'
-                    : 'Archived'}
+                    : 'Concluded'}
                 </span>
                 <span className="exp2-loc">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
