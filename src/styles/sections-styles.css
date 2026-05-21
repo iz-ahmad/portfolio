@@ -636,7 +636,7 @@ kbd {
 /* ── Section base ────────────────────────────────────────────── */
 @media (max-width: 639px) {
   .section { padding: 56px 16px 48px; }
-  .section-head { margin-bottom: 28px; flex-direction: column; gap: 10px; }
+  .section-head { margin-bottom: 28px; align-items: baseline; flex-direction: column; gap: 10px; }
   .section-title { font-size: clamp(26px, 8vw, 42px); margin-top: 4px; }
   .section-aside { max-width: 100%; font-size: 13px; }
 }
