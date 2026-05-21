@@ -24,7 +24,7 @@ export function OssContributions() {
   const stats = useMemo(() => {
     const merged = OSS_PRS.filter((p) => p.status === 'merged').length
     const repos = new Set(OSS_PRS.map((p) => p.repo)).size
-    return { total: OSS_PRS.length + 2, merged: merged + 2, repos }
+    return { total: OSS_PRS.length + 5, merged: merged + 4, repos }
   }, [])
 
   return (
@@ -34,19 +34,14 @@ export function OssContributions() {
           <h2 className="h-display section-title">Open source — signed, sealed, merged.</h2>
         </div>
         <div className="section-aside">
-          <p>Selected PRs into <code className="oss-mono">laravel/framework</code>, <code className="oss-mono">laravel/boost</code>, <code className="oss-mono">laravel/docs</code> and ecosystem packages. Small, correct, merged upstream.</p>
+          <p>Some of my PRs into <code className="oss-mono">laravel/framework</code>, <code className="oss-mono">laravel/boost</code>, <code className="oss-mono">laravel/docs</code> and ecosystem packages. Small, correct, merged upstream.</p>
         </div>
       </div>
 
       <div className="oss-stats" role="list" aria-label="Contribution stats">
         <div className="oss-stat" role="listitem">
-          <span className="oss-stat-num glow-cyan">{stats.merged}</span>
+          <span className="oss-stat-num glow-cyan">{stats.merged}+</span>
           <span className="oss-stat-key">PRs merged</span>
-        </div>
-        <span className="oss-stat-sep" aria-hidden>/</span>
-        <div className="oss-stat" role="listitem">
-          <span className="oss-stat-num">{stats.repos}</span>
-          <span className="oss-stat-key">repos touched</span>
         </div>
         <span className="oss-stat-sep" aria-hidden>/</span>
         <div className="oss-stat" role="listitem">
@@ -58,7 +53,7 @@ export function OssContributions() {
           <span className="oss-stat-num oss-stat-live">
             <span className="oss-stat-pulse" aria-hidden /> open to OSS
           </span>
-          <span className="oss-stat-key">always cooking</span>
+          <span className="oss-stat-key">always eager</span>
         </div>
       </div>
 
