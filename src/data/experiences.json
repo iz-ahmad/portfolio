@@ -4,8 +4,8 @@
     "company": "FIGLAB",
     "role": "Software Engineer (Full-Stack)",
     "location": "Dhaka, Bangladesh",
-    "blurb": "Building production Laravel + React/Inertia products. Owning features end-to-end — schema → API → UI → deploy. Steady ship cadence, code reviews, and the occasional 2 a.m. production hotfix.",
-    "tags": ["Laravel", "React", "Vue", "MySQL", "Queues"],
+    "blurb": "Building production-grade backend systems with PHP-Laravel, paired with smooth Vue and React interfaces.",
+    "tags": ["PHP", "Laravel", "React", "Vue", "MySQL"],
     "status": "current"
   },
   {
@@ -13,26 +13,26 @@
     "company": "Xgenious",
     "role": "Software Engineer (Backend)",
     "location": "Onsite",
-    "blurb": "Built Laravel applications, REST APIs. Learned what good code review feels like, what bad migrations cost, and why the boring stack usually wins.",
-    "tags": ["Laravel", "REST", "PGSQL", "AJAX"],
+    "blurb": "Built Laravel applications, REST APIs, AI-powered products with RAG systems.",
+    "tags": ["PHP", "Laravel", "REST", "PGSQL", "RAG"],
     "status": "past"
   },
   {
     "period": "2023 — 2024",
     "company": "IMBD Agency Ltd",
-    "role": "Software Engineer (Backend)",
+    "role": "Full Stack Web Developer",
     "location": "Onsite",
     "blurb": "Built Laravel applications, REST APIs. Learned what good code review feels like, what bad migrations cost, and why the boring stack usually wins.",
-    "tags": ["Laravel", "REST", "MySQL", "AJAX"],
+    "tags": ["Laravel", "JavaScript", "MySQL", "AJAX"],
     "status": "past"
   },
   {
-    "period": "2023 — Now",
-    "company": "Laravel · Open Source Contributor",
-    "role": "Core Contributor",
-    "location": "Remote · async",
-    "blurb": "Recurring contributor to laravel/framework, laravel/boost, laravel/docs and ecosystem packages.",
-    "tags": ["PHP", "Laravel 11/12/13", "OSS"],
-    "status": "active"
+    "period": "2022 — 2023",
+    "company": "Institute of Global Professionals",
+    "role": "Frontend Developer",
+    "location": "Remote",
+    "blurb": "Built web interfaces using React.",
+    "tags": ["Frontend", "React", "JavaScript", "Node.js"],
+    "status": "past"
   }
 ]
