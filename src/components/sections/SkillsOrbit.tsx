@@ -18,10 +18,10 @@ export function SkillsOrbit() {
     <section id="skills" className="section" aria-label="Skills orbit">
       <div className="section-head">
         <div>
-          <h2 className="h-display section-title">Skills, in orbit.</h2>
+          <h2 className="h-display section-title">Capabilities I have.</h2>
         </div>
         <div className="section-aside">
-          <p>Distance = depth. Closer rings = deeper reach. Hover to pause the orbit.</p>
+          <p>The technologies and frameworks I rely on to turn ideas into reliable solutions.</p>
         </div>
       </div>
 
