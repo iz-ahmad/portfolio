@@ -540,11 +540,34 @@ kbd {
   border-color: var(--red);
   box-shadow: 0 0 0 3px rgba(255, 45, 61, 0.12);
 }
+.form-row input:disabled, .form-row textarea:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.form-err {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--red);
+  margin-top: 2px;
+}
+.form-err-global { margin-top: 4px; }
+.form-reset {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: none;
+}
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 .budget-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .budget-row .chip { cursor: none; }
 .form-foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 .contact-side { padding: 28px; border-radius: 14px; display: flex; flex-direction: column; gap: 14px; }
-.contact-loc { margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--hair); }
+.contact-loc { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hair); }
 .loc-val { font-family: var(--font-display); font-size: 18px; margin-top: 6px; }
 
 /* Footer */
@@ -861,8 +884,8 @@ kbd {
 
 @media (max-width: 639px) {
   .contact-grid { grid-template-columns: 1fr; }
-  .contact-form { order: 1; padding: 20px; }
-  .contact-side { order: 2; }
+  .contact-form { order: 1; padding: 16px; }
+  .contact-side { order: 2; padding: 28px 16px; }
   .social-grid { grid-template-columns: 1fr; }
   .social-tile { grid-template-columns: 36px 1fr 16px; }
   .form-name-row { grid-template-columns: 1fr; }
@@ -878,7 +901,7 @@ kbd {
 
 /* ── Footer ──────────────────────────────────────────────────── */
 @media (max-width: 639px) {
-  .footer { padding: 40px 16px 80px; }
+  .footer { padding: 30px 16px; margin-top: 20px; }
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
   .footer-meta { text-align: left; }
   .footer-mark { font-size: clamp(40px, 12vw, 72px); }
