@@ -2,36 +2,40 @@
   {
     "period": "2025 — Now",
     "company": "FIGLAB",
+    "companyWebsite": "https://figlab.io/",
     "role": "Software Engineer (Full-Stack)",
-    "location": "Dhaka, Bangladesh",
-    "blurb": "Building production-grade backend systems with PHP-Laravel, paired with smooth Vue and React interfaces.",
+    "location": "Dhaka, BD",
+    "blurb": "Building production-grade backend systems with PHP and Laravel; paired with Vue and React for polished frontend interfaces.",
     "tags": ["PHP", "Laravel", "React", "Vue", "MySQL"],
     "status": "current"
   },
   {
     "period": "2024 — 2025",
     "company": "Xgenious",
+    "companyWebsite": "https://xgenious.com/",
     "role": "Software Engineer (Backend)",
-    "location": "Onsite",
-    "blurb": "Built Laravel applications, REST APIs, AI-powered products with RAG systems.",
+    "location": "Dhaka, BD",
+    "blurb": "Engineered backend systems, REST APIs, and AI-powered Laravel products with RAG-based architectures, emphasizing clean system design and scalability.",
     "tags": ["PHP", "Laravel", "REST", "PGSQL", "RAG"],
     "status": "past"
   },
   {
     "period": "2023 — 2024",
     "company": "IMBD Agency Ltd",
+    "companyWebsite": "https://www.imbdagency.com/",
     "role": "Full Stack Web Developer",
-    "location": "Onsite",
-    "blurb": "Built Laravel applications, REST APIs. Learned what good code review feels like, what bad migrations cost, and why the boring stack usually wins.",
+    "location": "Dhaka, BD",
+    "blurb": "Delivered full-stack Laravel applications and APIs while strengthening engineering skills through real-world problem solving and team collaboration.",
     "tags": ["Laravel", "JavaScript", "MySQL", "AJAX"],
     "status": "past"
   },
   {
     "period": "2022 — 2023",
     "company": "Institute of Global Professionals",
+    "companyWebsite": "http://globaligp.com/",
     "role": "Frontend Developer",
     "location": "Remote",
-    "blurb": "Built web interfaces using React.",
+    "blurb": "Developed responsive frontend interfaces with React and modern JavaScript technologies, focusing on smooth UI/UX",
     "tags": ["Frontend", "React", "JavaScript", "Node.js"],
     "status": "past"
   }
