@@ -36,6 +36,7 @@ export interface Project {
 export interface Experience {
   period: string
   company: string
+  companyWebsite: string
   role: string
   location: string
   blurb: string
