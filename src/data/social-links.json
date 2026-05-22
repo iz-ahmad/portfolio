@@ -10,14 +10,14 @@
     "key": "linkedin",
     "label": "LinkedIn",
     "handle": "in/iz-ahmad",
-    "url": "https://linkedin.com/in/iz-ahmad",
+    "url": "https://linkedin.com/in/nafis-abdullah/",
     "icon": "in"
   },
   {
     "key": "x",
     "label": "X / Twitter",
     "handle": "@iz_ahmad",
-    "url": "https://x.com/iz_ahmad",
+    "url": "https://x.com/iz_ahmad_",
     "icon": "𝕏"
   },
   {
@@ -26,13 +26,6 @@
     "handle": "n.ahmad.web.cit22@gmail.com",
     "url": "mailto:n.ahmad.web.cit22@gmail.com",
     "icon": "@"
-  },
-  {
-    "key": "laravel",
-    "label": "Laravel PRs",
-    "handle": "framework · boost · docs",
-    "url": "https://github.com/laravel/framework/pulls?q=author%3Aiz-ahmad",
-    "icon": "L"
   },
   {
     "key": "rss",
