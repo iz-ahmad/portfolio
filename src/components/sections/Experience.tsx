@@ -101,7 +101,7 @@ export function Experience() {
                 <div className="exp2-foot">
                   <span className="exp2-foot-path"><span>$</span> cat {path}</span>
                   <span className="exp2-foot-arrow">
-                    <a href={e.companyWebsite} target="_blank" className="">[ View Company → ]</a>
+                    <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer">[ View Company → ]</a>
                   </span>
                 </div>
               </div>
