@@ -125,7 +125,7 @@ export function Projects() {
                   <div className="film-stack">
                     {p.stack.map((s) => <span key={s} className="chip">{s}</span>)}
                   </div>
-                  <div className="film-metric"><span className="muted" aria-hidden>▸</span> {p.metric}</div>
+                  {/* <div className="film-metric"><span className="muted" aria-hidden>▸</span> {p.metric}</div> */}
                 </div>
               </article>
             ))}

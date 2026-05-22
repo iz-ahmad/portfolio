@@ -35,16 +35,20 @@
   display: flex; align-items: center; gap: 4px; color: var(--ink-0);
   text-shadow: 0 0 32px rgba(255,45,61,0.5);
 }
-.loader-bracket { color: var(--ember); }
+.loader-bracket { color: var(--ember); margin-bottom: 12px; }
 .loader-mark-text {
   background: linear-gradient(180deg, #fff, var(--ember));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-background-clip: text; 
+  background-clip: text; 
+  color: transparent;
+  /* margin-top: 8px; */
 }
 .loader-cursor {
-  display: inline-block; width: 10px; height: clamp(28px, 5vw, 56px);
+  display: inline-block; width: 8px; height: clamp(28px, 5vw, 56px);
   background: var(--red); margin-left: 6px;
   animation: blink 1s steps(2) infinite;
   box-shadow: 0 0 12px var(--red);
+  /* margin-top: 8px; */
 }
 .loader-sub { font-family: var(--font-mono); font-size: 11px; color: var(--ink-2); letter-spacing: 0.2em; text-transform: uppercase; }
 .loader-bar { width: 100%; height: 3px; background: var(--hair); border-radius: 2px; overflow: hidden; margin-top: 8px; }
@@ -102,7 +106,7 @@
 
 /* Social tiles */
 .side-tagline { font-family: var(--font-display); font-size: 16px; color: var(--ink-1); margin: 4px 0 14px; }
-.social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 10px; }
 .social-tile {
   display: grid; grid-template-columns: 36px 1fr 16px;
   align-items: center; gap: 12px; padding: 12px 14px;
@@ -131,6 +135,8 @@
 }
 
 @media (max-width: 1023px) {
+  .loader-cursor { width: 5px; }
+  .loader-bracket { margin-bottom: 8px; }
   .mobile-dock {
     display: flex;
     position: fixed;

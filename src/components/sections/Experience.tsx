@@ -54,7 +54,7 @@ export function Experience() {
         <div className="exp2-meta">
           <span className="exp2-meta-dot">CAREER_LOG · {EXPERIENCES.length} ENTRIES</span>
           <div className="exp2-meta-cluster">
-            <span>RANGE <b>2022🠒NOW</b></span>
+            <span>RANGE <b>2022 → NOW</b></span>
           </div>
         </div>
 
@@ -92,7 +92,6 @@ export function Experience() {
               <div className="exp2-body">
                 <div className="exp2-co-row">
                   <h3 className="exp2-co">{e.company}</h3>
-                  <span className="exp2-id">ID <b>0x{idHex}</b></span>
                 </div>
                 <div className="exp2-role">›&nbsp;{e.role}</div>
                 <p className="exp2-blurb">{e.blurb}</p>
@@ -101,7 +100,9 @@ export function Experience() {
                 </div>
                 <div className="exp2-foot">
                   <span className="exp2-foot-path"><span>$</span> cat {path}</span>
-                  <span className="exp2-foot-arrow">[ view record → ]</span>
+                  <span className="exp2-foot-arrow">
+                    <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer">[ View Company → ]</a>
+                  </span>
                 </div>
               </div>
 

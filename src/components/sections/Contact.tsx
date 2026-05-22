@@ -1,11 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import type { SocialLink } from '@/types'
 import rawSocial from '@/data/social-links.json'
 import profile from '@/data/profile.json'
 
 const SOCIAL_LINKS = rawSocial as SocialLink[]
+const FORMSPREE_ID = 'xojbwqdv'
 
 function SFX_play(name: string) {
   if (typeof window === 'undefined') return
@@ -13,14 +15,22 @@ function SFX_play(name: string) {
 }
 
 export function Contact() {
-  const [sent, setSent] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [state, handleSubmit, reset] = useForm(FORMSPREE_ID)
 
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault()
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     SFX_play('send')
-    setSent(true)
+    handleSubmit(e)
   }
+
+  const sendAnother = () => {
+    reset()
+    setForm({ name: '', email: '', subject: '', message: '' })
+  }
+
+  const submitting = state.submitting
+  const succeeded = state.succeeded
+  const btnLabel = succeeded ? 'TRANSMITTED ✓' : submitting ? 'TRANSMITTING…' : 'SEND A SIGNAL ↗'
 
   return (
     <section id="contact" className="section" aria-label="Contact">
@@ -30,7 +40,7 @@ export function Contact() {
         </div>
         <div className="section-aside">
           <p>
-            Currently employed at FIGLAB &mdash; not for freelance, but happy to talk OSS, Laravel, code review. Or reach me directly:{' '}
+            Talk on Coffee, Code, or Collaboration. Use this form, or reach me directly:{' '}
             <a className="link" href={`mailto:${profile.email}`} data-cursor="hover">{profile.email}</a>
           </p>
         </div>
@@ -39,10 +49,9 @@ export function Contact() {
       <div className="contact-grid">
         <form
           className="contact-form glass"
-          onSubmit={submit}
-          action="https://formspree.io/f/your-form-id"
-          method="POST"
+          onSubmit={onSubmit}
           suppressHydrationWarning
+          noValidate={succeeded}
         >
           <div className="hud-label">// OPEN_CHANNEL</div>
           <div className="form-name-row">
@@ -55,9 +64,11 @@ export function Contact() {
                 required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
+                disabled={submitting || succeeded}
                 data-cursor="text"
                 placeholder="Your name"
               />
+              <ValidationError field="name" prefix="Name" errors={state.errors} className="form-err" />
             </div>
             <div className="form-row">
               <label htmlFor="contact-email">EMAIL <span className="form-req" aria-hidden>*</span></label>
@@ -68,9 +79,11 @@ export function Contact() {
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
+                disabled={submitting || succeeded}
                 data-cursor="text"
                 placeholder="you@domain.dev"
               />
+              <ValidationError field="email" prefix="Email" errors={state.errors} className="form-err" />
             </div>
           </div>
           <div className="form-row">
@@ -79,11 +92,14 @@ export function Contact() {
               id="contact-subject"
               type="text"
               name="subject"
+              required
               value={form.subject}
               onChange={(e) => setForm({ ...form, subject: e.target.value })}
+              disabled={submitting || succeeded}
               data-cursor="text"
-              placeholder="OSS collab / project / hello"
+              placeholder="OSS collab / project / hello!"
             />
+            <ValidationError field="subject" prefix="Subject" errors={state.errors} className="form-err" />
           </div>
           <div className="form-row">
             <label htmlFor="contact-message">MESSAGE <span className="form-req" aria-hidden>*</span></label>
@@ -94,15 +110,35 @@ export function Contact() {
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
+              disabled={submitting || succeeded}
               data-cursor="text"
               placeholder="Tell me what you're cooking…"
             />
+            <ValidationError field="message" prefix="Message" errors={state.errors} className="form-err" />
           </div>
+          <ValidationError errors={state.errors} prefix="Error:" className="form-err form-err-global" />
           <div className="form-foot">
-            <button type="submit" className="btn btn-primary form-submit" data-cursor="hover">
-              {sent ? 'TRANSMITTED ✓' : 'SEND A SIGNAL ↗'}
+            <button
+              type="submit"
+              className="btn btn-primary form-submit"
+              data-cursor="hover"
+              disabled={submitting || succeeded}
+              aria-busy={submitting}
+            >
+              {btnLabel}
             </button>
-            <span className="muted">Replies in &lt; 24h on weekdays</span>
+            {succeeded ? (
+              <button
+                type="button"
+                className="link form-reset"
+                data-cursor="hover"
+                onClick={sendAnother}
+              >
+                Send another ↗
+              </button>
+            ) : (
+              <span className="muted">Replies in &lt; 24h on weekdays</span>
+            )}
           </div>
         </form>
 
