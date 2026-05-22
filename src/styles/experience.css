@@ -311,6 +311,10 @@
   color: var(--ink-2);
   transition: color 220ms ease, transform 220ms ease;
 }
+.exp2-foot-arrow a {
+  color: inherit;
+  text-decoration: none;
+}
 .exp2-row:hover .exp2-foot-arrow {
   color: var(--red);
   transform: translateX(4px);
