@@ -102,7 +102,7 @@
 
 /* Social tiles */
 .side-tagline { font-family: var(--font-display); font-size: 16px; color: var(--ink-1); margin: 4px 0 14px; }
-.social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .social-tile {
   display: grid; grid-template-columns: 36px 1fr 16px;
   align-items: center; gap: 12px; padding: 12px 14px;
