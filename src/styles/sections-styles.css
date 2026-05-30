@@ -308,12 +308,12 @@
   position: relative;
   border-radius: 18px;
   overflow: hidden;
+  contain: layout paint;
 }
 .film-card-bg {
   position: absolute; inset: -10%;
   pointer-events: none;
   background: radial-gradient(circle at 40% 30%, rgba(255, 45, 61, 0.25), transparent 60%);
-  transition: transform 200ms linear;
 }
 .film-cyan .film-card-bg { background: radial-gradient(circle at 40% 30%, rgba(255, 45, 61, 0.30), transparent 60%); }
 .film-magenta .film-card-bg { background: radial-gradient(circle at 60% 30%, rgba(255, 90, 60, 0.25), transparent 60%); }
@@ -341,8 +341,8 @@
 }
 .film-meta { display: flex; gap: 12px; align-items: center; }
 .film-title { font-family: var(--font-display); font-size: 28px; font-weight: 500; margin: 0; }
-.film-desc { font-size: 13px; color: var(--ink-1); line-height: 1.5; margin: 0; }
-.film-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px;}
+.film-desc { font-size: 13px; color: var(--ink-1); line-height: 1.6; margin: 0; }
+.film-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 10px;}
 
 @media (max-width: 1279px) {
   .film-stack { padding-top: 10px;}  
@@ -679,7 +679,7 @@ kbd {
 }
 
 /* ── Hero desktop: grid-areas to position stats + CTAs ──────── */
-@media (min-width: 1024px) {
+@media (min-width: 1279px) {
   .hero-inner {
     display: grid;
     grid-template-columns: 1.05fr 1.2fr;
