@@ -53,7 +53,8 @@ function FilmMock({ idx }: { idx: number }) {
 export function Projects() {
   const wrapRef = useRef<HTMLElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
-  const [progress, setProgress] = useState(0)
+  const fillRef = useRef<HTMLDivElement>(null)
+  const [idx, setIdx] = useState(1)
 
   useEffect(() => {
     const wrap = wrapRef.current
@@ -61,21 +62,62 @@ export function Projects() {
     if (!wrap || !track) return
 
     // Filmstrip scroll only on desktop; mobile/tablet use vertical card layout
-    if (!window.matchMedia('(min-width: 1024px)').matches) return
+    if (!window.matchMedia('(min-width: 1279px)').matches) return
 
-    const onScroll = () => {
+    const bgEls = Array.from(track.querySelectorAll<HTMLDivElement>('.film-card-bg'))
+    const fill = fillRef.current
+    const max = Math.max(1, PROJECTS.length - 1)
+    const pRight = parseFloat(getComputedStyle(track).paddingRight) || 0
+
+    let raf = 0
+    let pending = false
+    let lastIdx = -1
+    let scrollEndTimer = 0
+
+    const update = () => {
+      pending = false
       const rect = wrap.getBoundingClientRect()
       const total = wrap.offsetHeight - window.innerHeight
       const scrolled = -rect.top
-      const p = Math.max(0, Math.min(1, scrolled / total))
-      setProgress(p)
-      const pRight = parseFloat(getComputedStyle(track).paddingRight) || 0
+      const p = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0
+
       const dist = track.scrollWidth + pRight - window.innerWidth + 80
       track.style.transform = `translate3d(${-p * dist}px,0,0)`
+
+      if (fill) fill.style.width = `${p * 100}%`
+
+      for (let i = 0; i < bgEls.length; i++) {
+        bgEls[i].style.transform = `translate3d(${(p - i / max) * 60}px,0,0)`
+      }
+
+      const nextIdx = Math.round(p * max) + 1
+      if (nextIdx !== lastIdx) {
+        lastIdx = nextIdx
+        setIdx(nextIdx)
+      }
     }
+
+    const onScroll = () => {
+      if (!pending) {
+        pending = true
+        raf = requestAnimationFrame(update)
+      }
+      bgEls.forEach(el => { el.style.willChange = 'transform' })
+      clearTimeout(scrollEndTimer)
+      scrollEndTimer = window.setTimeout(() => {
+        bgEls.forEach(el => { el.style.willChange = 'auto' })
+      }, 200)
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    update()
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(raf)
+      clearTimeout(scrollEndTimer)
+      bgEls.forEach(el => { el.style.willChange = 'auto' })
+    }
   }, [])
 
   return (
@@ -85,12 +127,12 @@ export function Projects() {
           <div>
             <h2 className="h-display section-title">Selected work.</h2>
           </div>
-          <div className="filmstrip-progress" aria-label={`Project ${Math.round(progress * (PROJECTS.length - 1)) + 1} of ${PROJECTS.length}`}>
+          <div className="filmstrip-progress" aria-label={`Project ${idx} of ${PROJECTS.length}`}>
             <div className="fp-bar" aria-hidden>
-              <div className="fp-fill" style={{ width: `${progress * 100}%` }} />
+              <div ref={fillRef} className="fp-fill" />
             </div>
             <div className="fp-meta">
-              <span>{String(Math.round(progress * (PROJECTS.length - 1)) + 1).padStart(2, '0')}</span>
+              <span>{String(idx).padStart(2, '0')}</span>
               <span className="muted"> / {String(PROJECTS.length).padStart(2, '0')}</span>
             </div>
           </div>
@@ -100,7 +142,7 @@ export function Projects() {
           <div ref={trackRef} className="filmstrip-track">
             {PROJECTS.map((p, i) => (
               <article key={p.id} className={`film-card film-${p.accent}`} data-cursor="hover" data-cursor-label="View project">
-                <div className="film-card-bg" style={{ transform: `translateX(${(progress - i / (PROJECTS.length - 1)) * 60}px)` }} aria-hidden />
+                <div className="film-card-bg" aria-hidden />
                 <div className="film-card-num" aria-hidden>{String(i + 1).padStart(2, '0')}</div>
                 <a href={p.link} target="_blank" rel="noopener noreferrer" className="film-card-link">
                   <div className="film-card-mock" aria-hidden>
