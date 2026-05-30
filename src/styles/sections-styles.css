@@ -140,7 +140,7 @@
 }
 .hero-stats {
   display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 16px; padding-top: 24px;
+  gap: 16px; padding-top: 18px;
   border-top: 1px dashed var(--hair);
 }
 .stat .stat-v { font-family: var(--font-display); font-size: 36px; font-weight: 500; color: var(--ink-0); letter-spacing: -0.02em; }
