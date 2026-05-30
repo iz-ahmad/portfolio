@@ -69,19 +69,27 @@ export function Projects() {
     const max = Math.max(1, PROJECTS.length - 1)
     const pRight = parseFloat(getComputedStyle(track).paddingRight) || 0
 
+    let wrapHeight = wrap.offsetHeight
+    let trackWidth = track.scrollWidth
+    let wrapTop = wrap.getBoundingClientRect().top + window.scrollY
+
+    const handleResize = () => {
+      wrapHeight = wrap.offsetHeight
+      trackWidth = track.scrollWidth
+      wrapTop = wrap.getBoundingClientRect().top + window.scrollY
+    }
+
     let raf = 0
     let pending = false
     let lastIdx = -1
-    let scrollEndTimer = 0
 
     const update = () => {
       pending = false
-      const rect = wrap.getBoundingClientRect()
-      const total = wrap.offsetHeight - window.innerHeight
-      const scrolled = -rect.top
+      const scrolled = window.scrollY - wrapTop
+      const total = wrapHeight - window.innerHeight
       const p = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0
 
-      const dist = track.scrollWidth + pRight - window.innerWidth + 80
+      const dist = trackWidth + pRight - window.innerWidth + 80
       track.style.transform = `translate3d(${-p * dist}px,0,0)`
 
       if (fill) fill.style.width = `${p * 100}%`
@@ -102,21 +110,16 @@ export function Projects() {
         pending = true
         raf = requestAnimationFrame(update)
       }
-      bgEls.forEach(el => { el.style.willChange = 'transform' })
-      clearTimeout(scrollEndTimer)
-      scrollEndTimer = window.setTimeout(() => {
-        bgEls.forEach(el => { el.style.willChange = 'auto' })
-      }, 200)
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', handleResize, { passive: true })
     update()
 
     return () => {
       window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', handleResize)
       cancelAnimationFrame(raf)
-      clearTimeout(scrollEndTimer)
-      bgEls.forEach(el => { el.style.willChange = 'auto' })
     }
   }, [])
 
@@ -125,7 +128,7 @@ export function Projects() {
       <div className="filmstrip-sticky">
         <div className="filmstrip-header">
           <div>
-            <h2 className="h-display section-title">Selected work.</h2>
+            <h2 className="h-display section-title">Some of my works.</h2>
           </div>
           <div className="filmstrip-progress" aria-label={`Project ${idx} of ${PROJECTS.length}`}>
             <div className="fp-bar" aria-hidden>
