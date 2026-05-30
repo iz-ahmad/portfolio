@@ -31,6 +31,7 @@ export interface Project {
   stack: string[]
   metric: string
   accent: 'cyan' | 'magenta' | 'violet'
+  link: string
 }
 
 export interface Experience {
