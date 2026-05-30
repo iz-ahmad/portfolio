@@ -7,7 +7,7 @@ const MARQUEE_REPEATS = 2
 
 const SCRIPT = [
   { cmd: 'whoami',          out: ['Nafis Ahmad · software engineer @ FIGLAB'] },
-  { cmd: 'cat ~/about.md',  out: ['# About', '- Full-stack web app developer.', '- PHP, Laravel, React, Vue day-to-day.', '- Open source contributor in spare cycles.', '- Always learning what to learn more! <3'] },
+  { cmd: 'cat ~/about.md',  out: ['- Full-stack web app developer.', '- PHP, Laravel, React, Vue day-to-day.', '- Open source contributor in spare cycles.', '- Always learning what to learn more! <3'] },
   { cmd: 'ls ~/focus/',     out: ['php/               laravel-internals/', 'javascript/        agentic-engineering/'] },
   { cmd: 'echo $STATUS',    out: ['● EMPLOYED · OPEN TO OSS COLLABORATION'] },
 ]
@@ -96,13 +96,6 @@ export function Hero() {
                     <span className="prompt-sigil">iz@portfolio</span>
                     <span className="prompt-arrow"> ❯ </span>
                     <span className="boot-caret" aria-hidden />
-                  </div>
-                )}
-                {booted && (
-                  <div className="boot-line boot-prompt">
-                    <span className="prompt-sigil">iz@portfolio</span>
-                    <span className="prompt-arrow"> ❯ </span>
-                    <span className="boot-cmd boot-blink">_</span>
                   </div>
                 )}
               </pre>
