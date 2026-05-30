@@ -7,10 +7,11 @@
   { "name": "PostgreSQL",  "ring": 1, "weight": 88, "color": "cyan" },
 
   { "name": "Inertia.js",  "ring": 2, "weight": 84, "color": "magenta" },
-  { "name": "Alpine.js",  "ring": 2, "weight": 84, "color": "magenta" },
-  { "name": "Tailwind",    "ring": 2, "weight": 86, "color": "magenta" },
+  { "name": "Alpine.js",   "ring": 2, "weight": 84, "color": "magenta" },
   { "name": "Vue.js",      "ring": 2, "weight": 78, "color": "magenta" },
+  { "name": "TypeScript",  "ring": 2, "weight": 78, "color": "magenta" },
   { "name": "NextJS",      "ring": 2, "weight": 84, "color": "magenta" },
+  { "name": "Tailwind",    "ring": 2, "weight": 86, "color": "magenta" },
   { "name": "REST APIs",   "ring": 2, "weight": 88, "color": "magenta" },
   { "name": "RAG",         "ring": 2, "weight": 88, "color": "magenta" },
   { "name": "MCP",         "ring": 2, "weight": 88, "color": "magenta" },
@@ -21,6 +22,6 @@
   { "name": "Git",         "ring": 3, "weight": 88, "color": "violet" },
   { "name": "Postman",     "ring": 3, "weight": 82, "color": "violet" },
   { "name": "Insomnia",    "ring": 3, "weight": 82, "color": "violet" },
-  { "name": "Claude Code", "ring": 3, "weight": 82, "color": "violet" },
+  { "name": "Agentic Engineering", "ring": 3, "weight": 82, "color": "violet" },
   { "name": "Docker",      "ring": 3, "weight": 82, "color": "violet" }
 ]
