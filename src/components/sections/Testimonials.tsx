@@ -13,6 +13,10 @@ function SignalBars({ strength = 'full' }: { strength?: 'full' | 'med' | 'weak' 
   return <span className={cls} aria-hidden><span /><span /><span /><span /></span>
 }
 
+function initialsOf(who: string) {
+  return who.split(/\s+/).map(p => p[0]).join('').slice(0, 2).toUpperCase()
+}
+
 interface TxCardProps {
   t: Testimonial
   i: number
@@ -28,7 +32,7 @@ const TxCard = memo(function TxCard({ t, i }: TxCardProps) {
       </div>
       <div className="tx-card-body">
         <span className="tx-mark" aria-hidden>&ldquo;</span>
-        <blockquote className={`tx-quote ${t.quote.length < 200 ? 'small-text' : ''}`}>{t.quote}</blockquote>
+        <blockquote className={`tx-quote ${t.quote.length < 200 ? 'short-quote' : ''}`}>{t.quote}</blockquote>
         <div className="tx-meta-row">
           <span className="tx-decoded">
             Decoded · {t.quote.length} chars
@@ -36,15 +40,19 @@ const TxCard = memo(function TxCard({ t, i }: TxCardProps) {
         </div>
       </div>
       <div className="tx-card-foot">
-        <img
-          className="tx-avatar"
-          src={`/images/avatars/${t.avatar}`}
-          alt={t.who ?? ''}
-          width={42}
-          height={42}
-          loading="lazy"
-          decoding="async"
-        />
+        {t.avatar ? (
+          <img
+            className="tx-avatar"
+            src={`/images/avatars/${t.avatar}`}
+            alt={t.who ?? ''}
+            width={42}
+            height={42}
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <span className="tx-avatar" aria-hidden>{t.initials ?? initialsOf(t.who)}</span>
+        )}
         <div>
           <div className="tx-who">{t.who}</div>
           <div className="tx-role"><span>@</span> {t.role}</div>
