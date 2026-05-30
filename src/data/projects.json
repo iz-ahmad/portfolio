@@ -16,7 +16,7 @@
     "year": "2025",
     "role": "Backend Engineer",
     "desc": "Built core backend systems for an AI-powered support and ticketing SaaS platform with RAG pipelines, semantic search, vector embeddings, chatbot training flows, CRM automation, and scalable multi-subscriptions architecture.",
-    "stack": ["Laravel", "PostgreSQL", "pgvector", "OpenAI", "JS"],
+    "stack": ["Laravel", "PostgreSQL", "pgvector", "OpenAI", "AJAX"],
     "metric": "Serving 100+ businesses",
     "accent": "violet",
     "link": "https://helpnest.xgenious.com/"
@@ -26,19 +26,19 @@
     "name": "Studio Metrodesk",
     "year": "2026",
     "role": "Full-Stack Engineer",
-    "desc": "Developed and optimized enterprise-facing platforms for a global photo editing company focused on scalable workflows, high-volume operations, large and bulk file transfers, and conversion-focused experiences.",
-    "stack": ["Laravel", "React", "MySQL", "Tailwind"],
+    "desc": "Developed and optimized the enterprise-facing platform for a global photo editing company focused on scalable workflows, high-volume operations, large and bulk file transfers, and conversion-focused experiences.",
+    "stack": ["Laravel", "PHP", "Vue", "MySQL", "Tailwind"],
     "metric": "4,000+ global client ecosystem",
     "accent": "blue",
     "link": "https://studiometrodesk.com/"
   },
   {
     "id": "imbd-crm",
-    "name": "Agency CRM",
+    "name": "Marketing Agency CRM",
     "year": "2024",
     "role": "Backend Engineer",
     "desc": "Built internal CRM systems with lead management, follow-up automation, role-based permissions, customer tracking, scheduling flows, and operational dashboards.",
-    "stack": ["Laravel", "MySQL", "Blade", "AJAX"],
+    "stack": ["Laravel", "PHP", "MySQL", "Blade", "jQuery"],
     "metric": "Production workflow automation",
     "accent": "emerald",
     "link": "https://crm.imbdagency.com/"
@@ -54,24 +54,24 @@
     "accent": "orange",
     "link": "https://gobyfabrifest.com/"
   },
-    {
+  {
     "id": "pdts",
-    "name": "PDTS",
+    "name": "PDTS LMS",
     "year": "2023",
     "role": "Full-Stack Developer",
     "desc": "Built the backend of a driving school LMS platform with student management, course progression tracking, lesson scheduling, quiz assessments, and admin workflows for instructors and learners.",
-    "stack": ["PHP", "Laravel", "MySQL", "Blade", "JavaScript"],
+    "stack": ["PHP", "Laravel", "MySQL", "jQuery", "JavaScript"],
     "metric": "LMS system for driving education workflow",
     "accent": "cyan",
     "link": "https://pdts.com.bd/"
   },
   {
     "id": "nfs-chat",
-    "name": "ChitChat App",
+    "name": "ChitChat Messenger",
     "year": "2022",
     "role": "Frontend Developer",
     "desc": "[Hobby Project] Developed a real-time inspired chat interface using React and Redux with modern UI interactions and component-driven frontend architecture.",
-    "stack": ["React", "Redux", "JavaScript", "Firebase"],
+    "stack": ["React", "Redux", "Tailwind", "Firebase"],
     "metric": "Realtime UI experimentation",
     "accent": "pink",
     "link": "https://nfs-chat-app-react-redux.netlify.app/"
@@ -80,9 +80,9 @@
     "id": "zindagi-trust",
     "name": "Zindagi Trust",
     "year": "2022",
-    "role": "Frontend Contributor",
+    "role": "Frontend Developer",
     "desc": "Contributed to user-facing web experiences for an impact-driven nonprofit organization with emphasis on accessibility, clarity, and responsiveness.",
-    "stack": ["HTML", "CSS", "JavaScript"],
+    "stack": ["CSS", "React", "Express", "Node.js"],
     "metric": "Nonprofit digital presence",
     "accent": "red",
     "link": "https://www.zindagitrust.org/"
