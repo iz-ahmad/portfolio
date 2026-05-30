@@ -196,7 +196,7 @@
   flex: 1;
   font-weight: 400;
 }
-.tx-quote.small-text {
+.tx-quote.short-quote {
   font-size: 20px;
 }
 .tx-card:nth-child(3n) .tx-mark { color: rgba(255, 90, 60, 0.18); }
@@ -366,7 +366,7 @@
   .tx-end-msg { font-size: 16px; flex: 1; }
   .tx-scroll-hint { display: none; }
   .tx-quote { font-size: 15px; }
-  .tx-quote.small-text { font-size: 17px; }  
+  .tx-quote.short-quote { font-size: 17px; }  
 }
 
 /* ── Mobile (≤639) — single column ─────────────────────────── */
@@ -381,7 +381,7 @@
   .tx-card-body { padding: 18px 18px 14px; gap: 14px; }
   .tx-mark { font-size: 64px; margin-bottom: -18px; }
   .tx-quote { font-size: 14px; line-height: 1.55; }
-  .tx-quote.small-text { font-size: 15px; }  
+  .tx-quote.short-quote { font-size: 15px; }  
   .tx-card-foot { padding: 14px 16px 16px; gap: 12px; }
   .tx-avatar { width: 36px; height: 36px; font-size: 12px; }
   .tx-who { font-size: 11px; }
