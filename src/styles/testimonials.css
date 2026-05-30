@@ -330,7 +330,7 @@
 }
 
 /* ── Tablet (640–1023) — vertical stacked 2-col grid ───────── */
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .tx-wrap { height: auto; }
   .tx-sticky { position: relative; height: auto; overflow: visible; display: block; }
   .tx-header { padding: 56px 24px 20px; flex-wrap: wrap; gap: 14px; border-bottom: 1px dashed var(--hair); }

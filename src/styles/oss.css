@@ -37,7 +37,7 @@
 .oss-card.oss-w-5 { grid-column: span 4; }
 .oss-card.oss-w-4 { grid-column: span 3; }
 .oss-card.oss-w-3 { grid-column: span 2; }
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .oss-grid { grid-template-columns: repeat(4, 1fr); }
   .oss-card.oss-w-5 { grid-column: span 4; }
   .oss-card.oss-w-4 { grid-column: span 2; }
@@ -134,6 +134,10 @@
 .oss-bracket-bl { bottom: 6px; left: 6px;    border-right: 0; border-top: 0; }
 .oss-bracket-br { bottom: 6px; right: 6px;   border-left: 0;  border-top: 0; }
 .oss-card.is-hover .oss-bracket { opacity: 1; }
+
+@media (max-width: 1279px) {
+  .oss-bracket { display: none; }
+}
 
 .oss-card-scan {
   position: absolute; inset: 0; pointer-events: none;
