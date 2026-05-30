@@ -74,6 +74,7 @@ export interface Testimonial {
   channel?: string
   /** Signal-bar strength. Defaults to 'full'. */
   signal?: 'full' | 'med' | 'weak'
+  avatar?: string
 }
 
 export interface Use {

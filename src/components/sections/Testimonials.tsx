@@ -77,14 +77,15 @@ export function Testimonials() {
                 </div>
                 <div className="tx-card-body">
                   <span className="tx-mark" aria-hidden>&ldquo;</span>
-                  <blockquote className="tx-quote">{t.quote}</blockquote>
+                  <blockquote className={`tx-quote ${t.quote.length < 200 ? 'small-text' : ''}`}>{t.quote}</blockquote>
                   <div className="tx-meta-row">
-                    <span className="tx-decoded">Decoded · {t.quote.length} chars</span>
-                    <span className="tx-length">REL · 09:14</span>
+                    <span className="tx-decoded">
+                      Decoded · {t.quote.length} chars
+                    </span>
                   </div>
                 </div>
                 <div className="tx-card-foot">
-                  <span className="tx-avatar" aria-hidden>{t.initials ?? initialsOf(t.who)}</span>
+                  <img className="tx-avatar" src={`/images/avatars/${t.avatar}`} alt={t.who ?? ''} />
                   <div>
                     <div className="tx-who">{t.who}</div>
                     <div className="tx-role"><span>@</span> {t.role}</div>
@@ -95,8 +96,9 @@ export function Testimonials() {
             <div className="tx-end">
               <div className="hud-label">// END_OF_FEED</div>
               <div className="tx-end-msg">
-                More on file. <a href="#contact" className="link">Get in touch.</a>
+                Verify testimonials on <a href="https://www.linkedin.com/in/nafis-abdullah/" target="_blank" rel="noopener noreferrer" className="link">LinkedIn.</a>
               </div>
+              
             </div>
           </div>
         </div>
