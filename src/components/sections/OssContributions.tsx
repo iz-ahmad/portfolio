@@ -24,17 +24,17 @@ export function OssContributions() {
   const stats = useMemo(() => {
     const merged = OSS_PRS.filter((p) => p.status === 'merged').length
     const repos = new Set(OSS_PRS.map((p) => p.repo)).size
-    return { total: OSS_PRS.length + 5, merged: merged + 4, repos }
+    return { total: OSS_PRS.length + 5, merged: merged + 5, repos }
   }, [])
 
   return (
     <section id="oss" className="section" aria-label="Open source contributions">
       <div className="section-head">
         <div>
-          <h2 className="h-display section-title">Open source — signed, sealed, merged.</h2>
+          <h2 className="h-display section-title">Open source contributions.</h2>
         </div>
         <div className="section-aside">
-          <p>Some of my PRs into <code className="oss-mono">laravel core</code> and other ecosystem packages. Small, correct, merged upstream.</p>
+          <p>Explore some of my PRs into <code className="oss-mono">laravel core</code> and other ecosystem packages.</p>
         </div>
       </div>
 
@@ -53,7 +53,7 @@ export function OssContributions() {
           <span className="oss-stat-num oss-stat-live">
             <span className="oss-stat-pulse" aria-hidden /> open to OSS
           </span>
-          <span className="oss-stat-key">always eager</span>
+          <span className="oss-stat-key">always eager for</span>
         </div>
       </div>
 
