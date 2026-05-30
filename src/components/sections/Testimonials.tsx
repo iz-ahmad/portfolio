@@ -96,9 +96,8 @@ export function Testimonials() {
             <div className="tx-end">
               <div className="hud-label">// END_OF_FEED</div>
               <div className="tx-end-msg">
-                Verify testimonials on <a href="https://www.linkedin.com/in/nafis-abdullah/" target="_blank" rel="noopener noreferrer" className="link">LinkedIn.</a>
+                View full testimonials on <a href="https://www.linkedin.com/in/nafis-abdullah/" target="_blank" rel="noopener noreferrer" className="link">LinkedIn.</a>
               </div>
-              
             </div>
           </div>
         </div>
