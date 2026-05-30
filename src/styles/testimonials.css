@@ -79,7 +79,7 @@
 .tx-card {
   flex: 0 0 auto;
   width: clamp(360px, 32vw, 480px);
-  min-height: 420px;
+  min-height: 455px;
   height: auto;
   position: relative;
   border-radius: 18px;
@@ -187,13 +187,16 @@
 }
 .tx-quote {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 17px;
   line-height: 1.55;
   letter-spacing: -0.01em;
   color: var(--ink-0);
   margin: 0;
   flex: 1;
   font-weight: 400;
+}
+.tx-quote.small-text {
+  font-size: 20px;
 }
 .tx-card:nth-child(3n) .tx-mark { color: rgba(255, 90, 60, 0.18); }
 
@@ -329,8 +332,8 @@
   50% { transform: translateX(-50%) translateY(4px); opacity: 0.4; }
 }
 
-/* ── Tablet (640–1023) — vertical stacked 2-col grid ───────── */
-@media (max-width: 1023px) {
+/* ── Tablet (640–1279) — vertical stacked 2-col grid ───────── */
+@media (max-width: 1279px) {
   .tx-wrap { height: auto; }
   .tx-sticky { position: relative; height: auto; overflow: visible; display: block; }
   .tx-header { padding: 56px 24px 20px; flex-wrap: wrap; gap: 14px; border-bottom: 1px dashed var(--hair); }
@@ -347,7 +350,7 @@
   .tx-card {
     width: 100%;
     height: auto;
-    min-height: 320px;
+    min-height: 430px;
   }
   .tx-end {
     grid-column: span 2;
@@ -361,7 +364,8 @@
   }
   .tx-end-msg { font-size: 16px; flex: 1; }
   .tx-scroll-hint { display: none; }
-  .tx-quote { font-size: 17px; }
+  .tx-quote { font-size: 15px; }
+  .tx-quote.small-text { font-size: 17px; }  
 }
 
 /* ── Mobile (≤639) — single column ─────────────────────────── */
@@ -375,7 +379,8 @@
   .tx-card-head { padding: 12px 16px; font-size: 9px; }
   .tx-card-body { padding: 18px 18px 14px; gap: 14px; }
   .tx-mark { font-size: 64px; margin-bottom: -18px; }
-  .tx-quote { font-size: 15px; line-height: 1.55; }
+  .tx-quote { font-size: 14px; line-height: 1.55; }
+  .tx-quote.small-text { font-size: 15px; }  
   .tx-card-foot { padding: 14px 16px 16px; gap: 12px; }
   .tx-avatar { width: 36px; height: 36px; font-size: 12px; }
   .tx-who { font-size: 11px; }

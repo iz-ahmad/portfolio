@@ -1,42 +1,128 @@
 [
   {
-    "quote": "Reads framework source the way most people read tweets. Ships fixes upstream and keeps our codebase boring in the best way.",
-    "who": "Tech Lead",
-    "role": "FIGLAB",
-    "initials": "TL",
-    "channel": "INTERNAL",
-    "signal": "full"
+    "quote": "Nafis is person with good heart also very hard workings. Wish you all the best for your future endeavours.",
+    "who": "Sharifur Rahman",
+    "role": "CEO, Xgenious",
+    "initials": "SR",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "sharifur.jpeg"
   },
   {
-    "quote": "Reliable Laravel hand. Picks up an unknown module and a week later he's the one explaining it.",
-    "who": "Senior Engineer",
-    "role": "FIGLAB",
+    "quote": "An exceptionally skilled developer with a strong grasp of both frontend-backend skills. His coding structure is clean, organized, and follows best practices. I admire his problem-solving approach; tackles challenges in a logical and efficient manner...his curiosity and willingness to explore new...not afraid to step out of his comfort zone...",
+    "who": "Md Zahid",
+    "role": "Team Lead & Software Engineer, FIGLAB",
+    "initials": "MZ",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "zahid.jpeg"
+  },
+  {
+    "quote": "Nafis is a skilled PHP and Laravel developer with excellent problem-solving skills and a solid understanding of backend development. He also has good experience with AI and RAG systems, showing his interest in learning and working with new technologies. I wish him all the best for his future journey and continued success.",
+    "who": "Abdullah al Noman",
+    "role": "Software Engineer, Xgenious",
+    "initials": "AN",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "noman.jpeg"
+  },
+  {
+    "quote": "Had the opportunity to work with Nafis during his time at our company as a Software Engineer. He is a sincere and dedicated professional who focuses strongly on completing his assigned responsibilities. He is calm, well-behaved, and maintains a respectful attitude. He prefers to work independently and is consistent...",
+    "who": "Kamrul Ibn Zaman",
+    "role": "Project Manager, Xgenious",
+    "initials": "KZ",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "kamrul.jpeg"
+  },
+  {
+    "quote": "I did not work directly with Nafis Abdullah, but as part of the leadership team, I observed his conduct and approach within the company. He approaches his responsibilities with focus and a steady, professional attitude. He is courteous and maintains a respectful presence in interactions with colleagues. He has the potential to grow further...",
+    "who": "Aysha Parvin Nitu",
+    "role": "Business Development Manager, Xgenious",
+    "initials": "AP",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "aysha.jpeg"
+  },
+  {
+    "quote": "Nafis vai is a talented and dedicated developer. He's very friendly, approachable, and easy to work with. I've always admired his commitment to delivering quality work and his humble attitude.",
+    "who": "Md Shohidul Islam Razu",
+    "role": "Software Engineer, Xgenious",
+    "initials": "MR",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "razu.jpeg"
+  },
+  {
+    "quote": "I had the chance to work with Nafis bhai during my internship, and honestly, he made my experience so much smoother. My first project was under his guidance, and I learned a lot from him. He was always there to help, gave me useful feedback, and patiently reviewed my code whenever I got stuck. I appreciate how approachable and supportive he was...",
+    "who": "Dipto Sarkar",
+    "role": "Software Engineer, Xgenious",
+    "initials": "DS",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "dipto.jpeg"
+  },
+  {
+    "quote": "Nafis vai is one of the most reliable and friendly teammates I’ve worked with. Always respectful, solution-oriented, and great at creating a positive team vibe. On top of that, he knows Laravel and AI tech inside out. A true asset to any team.",
+    "who": "Saimoom Shovon",
+    "role": "Support Engineer, Xgenious",
+    "initials": "SS",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "saimoom.jpeg"
+  },
+  {
+    "quote": "Nafis Abdullah is a very helpful guy, as I was working with him for a long time. He has amazing knowledge about PHP & Laravel & also he has the ability to work within a time frame, which is most important for the company & users.",
+    "who": "Abdulla Al Nahian",
+    "role": "Software Engineer, Xgenious",
+    "initials": "AN",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "nahian.jpeg"
+  },
+  {
+    "quote": "Nafis bhai is an awesome Back-End Developer with impressive AI knowledge. Super helpful, smart, and always up for solving complex challenges with ease.",
+    "who": "Khairul Bashar Shamim",
+    "role": "Product Marketing Strategist, Taskip",
+    "initials": "KS",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "shamim.jpeg"
+  },
+  {
+    "quote": "Nafis Abdullah Bhai is honestly one of the nicest people I've worked with. He's humble, funny, and always ready to help others. Even with his psychology background, he's become a really skilled Laravel developer, which shows how hardworking and passionate he is. He cares about writing good code, pays attention to small details, even contributes to OSS...",
+    "who": "Rakibul Hasan",
+    "role": "Software Engineer, Xgenious",
+    "initials": "RH",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "rakib.jpeg"
+  },
+  {
+    "quote": "I had the pleasure of working with Nafis Bhai, and I can confidently say he’s one of the most cordial, helpful, and committed professionals I’ve come across. As a backend developer, his skills are top-notch — not only is he technically sound, but he also brings a calm and collaborative energy. His dedication, clear communication, ability to deliver on commitments...",
+    "who": "Abir Rahman",
+    "role": "Senior Marketing Manager, IMBD Agency",
+    "initials": "AR",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "abir.jpeg"
+  },
+  {
+    "quote": "He is a great guy! Had the scope to work and learn from him. Well behaved and always trying to showcase his best.",
+    "who": "MD EMON SHARKAR",
+    "role": "Full-stack Web Developer, IMBD Agency",
+    "initials": "ES",
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "emon.jpeg"
+  },
+  {
+    "quote": "He is a good team player as we have worked on the same team. He helped me a lot with my work and he can manage clients so well. It was a nice journey working with him.",
+    "who": "Shahedul Islam Efty",
+    "role": "WordPress Developer, IMBD Agency",
     "initials": "SE",
-    "channel": "INTERNAL",
-    "signal": "full"
-  },
-  {
-    "quote": "Quietly competent. The PRs are small, the patches are right, the tests are there.",
-    "who": "OSS Maintainer",
-    "role": "Laravel Ecosystem",
-    "initials": "OM",
-    "channel": "OSS_NET",
-    "signal": "med"
-  },
-  {
-    "quote": "Doesn't argue past consensus, doesn't ship until it's clean. Easy to trust with the unglamorous half of the work.",
-    "who": "Product Engineer",
-    "role": "Partner Team",
-    "initials": "PE",
-    "channel": "PARTNER",
-    "signal": "full"
-  },
-  {
-    "quote": "Wrote one of the patches I read first when I'm catching up on the framework changelog.",
-    "who": "Open-Source Dev",
-    "role": "Community",
-    "initials": "OD",
-    "channel": "OSS_NET",
-    "signal": "weak"
+    "channel": "LINKEDIN",
+    "signal": "full",
+    "avatar": "efty.jpeg"
   }
 ]

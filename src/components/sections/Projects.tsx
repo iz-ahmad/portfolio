@@ -29,20 +29,10 @@ function FilmMock({ idx }: { idx: number }) {
       {[...Array(8)].map((_,i)=>(
         <rect key={i} x={16} y={20+i*20} width={120 + (i%3)*40} height="10" fill="#ff5a3c" opacity={0.15+(i%4)*0.18}/>
       ))}
-      <rect x="180" y="20" width="124" height="160" rx="8" fill="none" stroke="#fff" strokeOpacity="0.2"/>
-      <text x="190" y="45" fontFamily="monospace" fontSize="10" fill="#fafafa" opacity="0.7">SELECT * FROM</text>
-      <text x="190" y="60" fontFamily="monospace" fontSize="10" fill="#ff2d3d">  pulses;</text>
     </svg>,
     <svg key={2} viewBox="0 0 320 200" className="mock-svg" aria-hidden>
       <path d="M 0 100 Q 80 40 160 100 T 320 100" fill="none" stroke="#b8132a" strokeWidth="1.2" opacity="0.7"/>
       <path d="M 0 120 Q 80 60 160 120 T 320 120" fill="none" stroke="#ff2d3d" strokeWidth="1.2" opacity="0.7"/>
-    </svg>,
-    <svg key={3} viewBox="0 0 320 200" className="mock-svg" aria-hidden>
-      <rect x="40" y="20" width="240" height="160" rx="14" fill="none" stroke="#fff" strokeOpacity="0.2"/>
-      {['Mon 9:14am  Today felt thin.','Tue 11:02am  Notes from a meeting.','Wed 8:55pm  A small breakthrough.'].map((t,i)=>(
-        <text key={i} x="56" y={56+i*32} fontFamily="monospace" fontSize="10" fill="#fafafa" opacity="0.85">{t}</text>
-      ))}
-      <circle cx="280" cy="36" r="4" fill="#ff2d3d"/>
     </svg>,
     <svg key={4} viewBox="0 0 320 200" className="mock-svg" aria-hidden>
       <polyline points="0,150 30,120 60,140 90,90 120,110 150,70 180,80 210,40 240,60 270,30 300,50 320,20" fill="none" stroke="#ff5a3c" strokeWidth="2"/>
@@ -112,21 +102,22 @@ export function Projects() {
               <article key={p.id} className={`film-card film-${p.accent}`} data-cursor="hover" data-cursor-label="View project">
                 <div className="film-card-bg" style={{ transform: `translateX(${(progress - i / (PROJECTS.length - 1)) * 60}px)` }} aria-hidden />
                 <div className="film-card-num" aria-hidden>{String(i + 1).padStart(2, '0')}</div>
-                <div className="film-card-mock" aria-hidden>
-                  <FilmMock idx={i} />
-                </div>
-                <div className="film-card-body glass">
-                  <div className="film-meta">
-                    <span className="hud-label">{p.year}</span>
-                    <span className="muted">{p.role}</span>
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className="film-card-link">
+                  <div className="film-card-mock" aria-hidden>
+                    <FilmMock idx={i} />
                   </div>
-                  <h3 className="film-title">{p.name}</h3>
-                  <p className="film-desc">{p.desc}</p>
-                  <div className="film-stack">
-                    {p.stack.map((s) => <span key={s} className="chip">{s}</span>)}
+                  <div className="film-card-body glass">
+                    <div className="film-meta">
+                      <span className="hud-label">{p.year}</span>
+                      <span className="muted">{p.role}</span>
+                    </div>
+                    <h3 className="film-title">{p.name}</h3>
+                    <p className="film-desc">{p.desc}</p>
+                    <div className="film-stack">
+                      {p.stack.map((s) => <span key={s} className="chip">{s}</span>)}
+                    </div>
                   </div>
-                  {/* <div className="film-metric"><span className="muted" aria-hidden>▸</span> {p.metric}</div> */}
-                </div>
+                </a>
               </article>
             ))}
             <div className="film-end glass">

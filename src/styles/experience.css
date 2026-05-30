@@ -331,8 +331,8 @@
   background: linear-gradient(180deg, rgba(255, 45, 61, 0.4), transparent);
 }
 
-/* ── Tablet (640–1023) ─────────────────────────────────────── */
-@media (max-width: 1023px) {
+/* ── Tablet (640–1279) ─────────────────────────────────────── */
+@media (max-width: 1279px) {
   .exp2-row {
     grid-template-columns: 160px 1fr;
     gap: 24px;

@@ -4,10 +4,11 @@
     "name": "Laravel Turbo Seeder",
     "year": "2026",
     "role": "Creator & Maintainer",
-    "desc": "Built a high-performance Laravel seeding package capable of generating millions of records in seconds using optimized bulk inserts, native CSV imports, streaming I/O, and memory-efficient data pipelines for large-scale testing environments.",
+    "desc": "Built a high-performance Laravel seeding package capable of generating millions of DB records in seconds using optimized bulk inserts, native CSV imports, streaming I/O, and memory-efficient data pipelines.",
     "stack": ["PHP", "Laravel", "MySQL", "PostgreSQL", "CLI"],
     "metric": "1M+ records seeded in ~9-60s",
-    "accent": "amber"
+    "accent": "amber",
+    "link": "https://github.com/iz-ahmad/laravel-turbo-seeder/"
   },
   {
     "id": "helpnest-ai",
@@ -16,18 +17,20 @@
     "role": "Backend Engineer",
     "desc": "Built core backend systems for an AI-powered support and ticketing SaaS platform with RAG pipelines, semantic search, vector embeddings, chatbot training flows, CRM automation, and scalable multi-subscriptions architecture.",
     "stack": ["Laravel", "PostgreSQL", "pgvector", "OpenAI", "JS"],
-    "metric": "61+ production commits",
-    "accent": "violet"
+    "metric": "Serving 100+ businesses",
+    "accent": "violet",
+    "link": "https://helpnest.xgenious.com/"
   },
   {
     "id": "studio-metrodesk",
     "name": "Studio Metrodesk",
     "year": "2026",
     "role": "Full-Stack Engineer",
-    "desc": "Developed and optimized enterprise-facing platforms for a global photo editing company focused on scalable workflows, high-volume operations, and conversion-focused experiences.",
+    "desc": "Developed and optimized enterprise-facing platforms for a global photo editing company focused on scalable workflows, high-volume operations, large and bulk file transfers, and conversion-focused experiences.",
     "stack": ["Laravel", "React", "MySQL", "Tailwind"],
     "metric": "4,000+ global client ecosystem",
-    "accent": "blue"
+    "accent": "blue",
+    "link": "https://studiometrodesk.com/"
   },
   {
     "id": "imbd-crm",
@@ -37,37 +40,41 @@
     "desc": "Built internal CRM systems with lead management, follow-up automation, role-based permissions, customer tracking, scheduling flows, and operational dashboards.",
     "stack": ["Laravel", "MySQL", "Blade", "AJAX"],
     "metric": "Production workflow automation",
-    "accent": "emerald"
+    "accent": "emerald",
+    "link": "https://crm.imbdagency.com/"
   },
   {
-    "id": "fabric-fest",
+    "id": "fabri-fest",
     "name": "GoByFabrifest",
     "year": "2023",
     "role": "Full-Stack Developer",
     "desc": "Worked on a modern e-commerce platform ensuring efficient backend system, custom frontend experiences, and optimized customer interaction flows.",
     "stack": ["Laravel", "JavaScript", "Bootstrap", "MySQL"],
     "metric": "Brand-focused commerce platform",
-    "accent": "orange"
+    "accent": "orange",
+    "link": "https://gobyfabrifest.com/"
   },
     {
     "id": "pdts",
     "name": "PDTS",
     "year": "2023",
-    "role": "Backend / Full-Stack Engineer",
-    "desc": "Built and maintained a driving school LMS platform with student management, course progression tracking, lesson scheduling, quiz assessments, and admin workflows for instructors and learners.",
+    "role": "Full-Stack Developer",
+    "desc": "Built the backend of a driving school LMS platform with student management, course progression tracking, lesson scheduling, quiz assessments, and admin workflows for instructors and learners.",
     "stack": ["PHP", "Laravel", "MySQL", "Blade", "JavaScript"],
     "metric": "LMS system for driving education workflow",
-    "accent": "cyan"
+    "accent": "cyan",
+    "link": "https://pdts.com.bd/"
   },
   {
     "id": "nfs-chat",
     "name": "ChitChat App",
     "year": "2022",
     "role": "Frontend Developer",
-    "desc": "Developed a real-time inspired chat interface using React and Redux with modern UI interactions and component-driven frontend architecture.",
+    "desc": "[Hobby Project] Developed a real-time inspired chat interface using React and Redux with modern UI interactions and component-driven frontend architecture.",
     "stack": ["React", "Redux", "JavaScript", "Firebase"],
     "metric": "Realtime UI experimentation",
-    "accent": "pink"
+    "accent": "pink",
+    "link": "https://nfs-chat-app-react-redux.netlify.app/"
   },
   {
     "id": "zindagi-trust",
@@ -77,6 +84,7 @@
     "desc": "Contributed to user-facing web experiences for an impact-driven nonprofit organization with emphasis on accessibility, clarity, and responsiveness.",
     "stack": ["HTML", "CSS", "JavaScript"],
     "metric": "Nonprofit digital presence",
-    "accent": "red"
+    "accent": "red",
+    "link": "https://www.zindagitrust.org/"
   }
 ]

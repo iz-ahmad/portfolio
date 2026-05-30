@@ -1,26 +1,26 @@
 [
   {
-    "date": "2025.09.12",
-    "title": "What I learned shipping my first PR to laravel/framework",
-    "read": "7 min",
-    "url": "https://medium.com/@iz-ahmad"
-  },
-  {
-    "date": "2025.06.30",
-    "title": "ShouldQueueAfterCommit & the case for tiny correctness",
-    "read": "5 min",
-    "url": "https://medium.com/@iz-ahmad"
-  },
-  {
-    "date": "2025.03.18",
-    "title": "Inertia + Laravel: the SPA stack that doesn't fight you",
+    "date": "2025.12.24",
+    "title": "Is PHP Dying, or Finally Letting Go of Its Past?",
     "read": "8 min",
-    "url": "https://medium.com/@iz-ahmad"
+    "url": "https://medium.com/@iz-ahmad/is-php-dying-or-finally-letting-go-of-its-past-65a8f5f55c6b"
   },
   {
-    "date": "2024.12.04",
-    "title": "Reading the framework — how I find PR-shaped bugs",
+    "date": "2025.12.10",
+    "title": "PHP 8.5 Unlocked: 6 Killer Features That Erase Your Code Debt",
     "read": "6 min",
-    "url": "https://medium.com/@iz-ahmad"
+    "url": "https://medium.com/@iz-ahmad/php-8-5-unlocked-6-killer-features-that-erase-your-code-debt-744be0178be0"
+  },
+  {
+    "date": "2026.05.20",
+    "title": "Speed vs Quality? Finding the Right Balance in Software Delivery",
+    "read": "4 min",
+    "url": "https://medium.com/@iz-ahmad/speed-vs-quality-finding-the-right-balance-in-software-delivery-f684b7f380b5"
+  },
+  {
+    "date": "2026.05.08",
+    "title": "PHP কি সত্যিই মারা যাচ্ছে? নাকি পুরোনো অতীত ঝেড়ে নতুন পথে এগোচ্ছে?",
+    "read": "6 min",
+    "url": "https://medium.com/@iz-ahmad/php-%E0%A6%95%E0%A6%BF-%E0%A6%B8%E0%A6%A4%E0%A7%8D%E0%A6%AF%E0%A6%BF%E0%A6%87-%E0%A6%AE%E0%A6%BE%E0%A6%B0%E0%A6%BE-%E0%A6%97%E0%A7%87%E0%A6%9B%E0%A7%87-f4c3af2831e3"
   }
 ]
