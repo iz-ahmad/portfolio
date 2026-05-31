@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: 'Nafis Ahmad · Software Engineer',
   description: 'I build interfaces and APIs that feel alive - Laravel under the hood, React on top, motion in the cracks.',
   icons: {
-    icon: '/favicon.png',
+    icon: '/favicon.jpg',
   },
   openGraph: {
     title: 'Nafis Ahmad · Software Engineer',
