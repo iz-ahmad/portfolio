@@ -167,6 +167,10 @@
 .link { color: var(--red); text-decoration: none; border-bottom: 1px solid currentColor; }
 
 /* Now Playing */
+@media (min-width: 640px) and (max-width: 1279px) {
+  #now { display: none; }
+}
+
 .now-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -299,6 +303,9 @@
 .fp-bar { width: 240px; height: 2px; background: var(--hair); position: relative; overflow: hidden; }
 .fp-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--ember)); box-shadow: 0 0 12px var(--red); }
 .fp-meta { font-family: var(--font-mono); font-size: 28px; }
+@media (max-width: 1279px) {
+  .filmstrip-progress, .fp-meta { display: none; }
+}
 .filmstrip-track-wrap { flex: 1; overflow: hidden; padding: 0 var(--gutter); }
 .filmstrip-track { display: flex; gap: 28px; height: 100%; align-items: center; padding-right: 200px; will-change: transform; }
 .film-card {
@@ -668,6 +675,7 @@ kbd {
   .section-head { margin-bottom: 28px; align-items: baseline; flex-direction: column; gap: 10px; }
   .section-title { font-size: clamp(26px, 8vw, 42px); margin-top: 4px; }
   .section-aside { max-width: 100%; font-size: 13px; }
+  .section-aside p { margin-top: 0; margin-bottom: 0; }
 }
 
 @media (min-width: 640px) and (max-width: 1279px) {
@@ -763,7 +771,7 @@ kbd {
     color: var(--ink-1); padding-bottom: 8px;
     border-bottom: 1px dashed var(--hair);
   }
-  .cluster-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cluster-chips { display: flex; flex-wrap: wrap; gap: 12px 10px; }
   .chip-core {
     border-color: var(--red);
     background: rgba(255,45,61,0.12);
@@ -827,7 +835,7 @@ kbd {
 
 @media (max-width: 639px) {
   .filmstrip-wrap { padding: 0 16px; }
-  .filmstrip-header { padding-top: 48px; padding-bottom: 16px; }
+  .filmstrip-header { padding-top: 48px; padding-bottom: 16px; border-bottom: 1px dashed var(--hair); margin-bottom: 20px; }
   .film-card { display: flex; flex-direction: column; height: auto; }
   .film-card-mock { flex-shrink: 0; }
   .film-card-body { flex: 1; height: auto; }

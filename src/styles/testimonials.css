@@ -338,7 +338,7 @@
   .tx-wrap { height: auto; }
   .tx-sticky { position: relative; height: auto; overflow: visible; display: block; }
   .tx-header { padding: 56px 24px 20px; flex-wrap: wrap; gap: 14px; border-bottom: 1px dashed var(--hair); }
-  .tx-progress { min-width: auto; align-items: flex-start; }
+  .tx-progress { display: none; }
   .tx-progress-bar { display: none; }
   .tx-track-wrap { overflow: visible; padding: 24px 24px 40px; }
   .tx-track {
