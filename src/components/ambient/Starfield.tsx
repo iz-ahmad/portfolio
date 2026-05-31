@@ -49,7 +49,7 @@ export function Starfield() {
         const px = s.x + mx * s.z * 18 * dpr
         const py = s.y + my * s.z * 18 * dpr - ((sy * 0.05 * s.z) % h)
         const tw = (Math.sin(s.tw) + 1) * 0.5
-        const a = (0.4 + tw * 0.6) / s.z
+        const a = (0.4 + tw * 0.6) / s.z * 0.6
         let color = `rgba(255,255,255,${a})`
         if (s.hue === 'cyan') color = `rgba(255,45,61,${a})`
         if (s.hue === 'magenta') color = `rgba(255,90,60,${a})`
