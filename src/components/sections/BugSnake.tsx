@@ -71,6 +71,7 @@ export function BugSnake() {
     let bug: Bug = spawnBug(snake)
     let particles: Particle[] = []
     let scoreLocal = 0
+    let lastScore = 0
     let speed = 130, last = 0, alive = true
 
     function spawnBug(s: Point[]): Bug {
@@ -185,7 +186,12 @@ export function BugSnake() {
       })
       ctx.globalAlpha=1
 
-      setScore(scoreLocal)
+      // Only re-render React when the score actually changes — the canvas
+      // is drawn imperatively, so the rAF loop shouldn't trigger a render/frame.
+      if (scoreLocal !== lastScore) {
+        lastScore = scoreLocal
+        setScore(scoreLocal)
+      }
 
       if (alive) {
         raf = requestAnimationFrame(tick)
