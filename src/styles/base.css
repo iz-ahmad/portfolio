@@ -59,7 +59,6 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  cursor: none;
   background:
     radial-gradient(1200px 800px at 80% -10%, rgba(184, 19, 42, 0.18), transparent 60%),
     radial-gradient(1000px 700px at 0% 30%, rgba(255, 90, 60, 0.10), transparent 55%),
