@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import type { OssPR } from '@/types'
 import rawPrs from '@/data/oss-prs.json'
 
@@ -19,8 +19,6 @@ function tagClass(tag: string) {
 }
 
 export function OssContributions() {
-  const [hovered, setHovered] = useState<number | null>(null)
-
   const stats = useMemo(() => {
     const merged = OSS_PRS.filter((p) => p.status === 'merged').length
     const repos = new Set(OSS_PRS.map((p) => p.repo)).size
@@ -67,11 +65,9 @@ export function OssContributions() {
             className={[
               'oss-card glass',
               `oss-w-${pr.weight}`,
-              hovered === i ? 'is-hover' : '',
               pr.status === 'closed' ? 'is-closed' : '',
             ].filter(Boolean).join(' ')}
-            onMouseEnter={() => { setHovered(i); SFX_play('tick') }}
-            onMouseLeave={() => setHovered(null)}
+            onMouseEnter={() => SFX_play('tick')}
             data-cursor="hover"
             data-cursor-label={`#${pr.num}`}
             aria-label={`${pr.title} — ${pr.status}`}
