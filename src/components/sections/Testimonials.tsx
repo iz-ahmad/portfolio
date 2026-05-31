@@ -72,7 +72,7 @@ export function Testimonials() {
     const wrap  = wrapRef.current
     const track = trackRef.current
     if (!wrap || !track) return
-    if (!window.matchMedia('(min-width: 1279px)').matches) return
+    if (!window.matchMedia('(min-width: 1280px)').matches) return
 
     const fill = fillRef.current
     const max = Math.max(1, TESTIMONIALS.length - 1)

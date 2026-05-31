@@ -62,7 +62,7 @@ export function Projects() {
     if (!wrap || !track) return
 
     // Filmstrip scroll only on desktop; mobile/tablet use vertical card layout
-    if (!window.matchMedia('(min-width: 1279px)').matches) return
+    if (!window.matchMedia('(min-width: 1280px)').matches) return
 
     const bgEls = Array.from(track.querySelectorAll<HTMLDivElement>('.film-card-bg'))
     const fill = fillRef.current
