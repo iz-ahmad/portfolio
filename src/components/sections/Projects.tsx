@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import type { Project } from '@/types'
 import rawProjects from '@/data/projects.json'
 
@@ -161,6 +162,15 @@ export function Projects() {
                     <div className="film-stack">
                       {p.stack.map((s) => <span key={s} className="chip">{s}</span>)}
                     </div>
+                    {p.page && (
+                      <Link
+                        href={p.page}
+                        className="film-metric"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        View details →
+                      </Link>
+                    )}
                   </div>
                 </a>
               </article>
