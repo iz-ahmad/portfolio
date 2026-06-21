@@ -10,6 +10,7 @@ import { TurboHowFast } from '@/components/packages/TurboSeeder/TurboHowFast'
 import { TurboQuickStart } from '@/components/packages/TurboSeeder/TurboQuickStart'
 import { TurboFeatures } from '@/components/packages/TurboSeeder/TurboFeatures'
 import { TurboFooterCta } from '@/components/packages/TurboSeeder/TurboFooterCta'
+import { RevealObserver } from '@/components/packages/TurboSeeder/RevealObserver'
 import data from '@/data/turbo-seeder.json'
 
 export const metadata: Metadata = {
@@ -75,6 +76,7 @@ export default function TurboSeederPage() {
         </header>
 
         <main id="main-content">
+          <RevealObserver />
           <TurboHero />
           <TurboProblem />
           <TurboHowFast />
