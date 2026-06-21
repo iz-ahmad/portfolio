@@ -162,17 +162,14 @@ export function Projects() {
                     <div className="film-stack">
                       {p.stack.map((s) => <span key={s} className="chip">{s}</span>)}
                     </div>
-                    {p.page && (
-                      <Link
-                        href={p.page}
-                        className="film-metric"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        View details →
-                      </Link>
-                    )}
+                    {!p.page && <span className="film-metric">{p.metric}</span>}
                   </div>
                 </a>
+                {p.page && (
+                  <Link href={p.page} className="film-metric film-page-link">
+                    View details →
+                  </Link>
+                )}
               </article>
             ))}
             <div className="film-end glass">
