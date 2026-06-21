@@ -373,6 +373,7 @@
 }
 .chip-on { background: var(--red); color: #000; border-color: var(--red); }
 .film-metric { font-family: var(--font-mono); font-size: 11px; color: var(--red); letter-spacing: 0.08em; margin-top: 4px; }
+.film-page-link { position: absolute; bottom: 32px; left: 22px; z-index: 10; text-decoration: none; }
 .film-end {
   flex: 0 0 auto; width: 300px; height: 60vh;
   display: flex; flex-direction: column; justify-content: center; gap: 16px;
@@ -837,6 +838,7 @@ kbd {
   .film-card-body { position: relative; height: auto; padding: 14px 16px 22px; }
   .film-end { width: 100%; height: auto; min-height: 0; padding: 24px 28px; }
   .scroll-hint { display: none !important; }
+  .film-page-link { position: static; display: block; padding: 4px 16px 14px; }
 }
 
 @media (min-width: 640px) and (max-width: 1279px) {
