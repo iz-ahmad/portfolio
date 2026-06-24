@@ -4,15 +4,8 @@
    ============================================================ */
 
 /* Standalone page overrides — reset portfolio-shell body styles */
+html:has(.ts-page),
 body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
-
-/* Restore cursor on this standalone page (base.css hides it globally) */
-@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  body:has(.ts-page) { cursor: auto; }
-  body:has(.ts-page) a,
-  body:has(.ts-page) button,
-  body:has(.ts-page) [role="button"] { cursor: pointer; }
-}
 
 .ts-page {
   position: relative;
@@ -314,232 +307,140 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   margin: 18px 0 0;
 }
 
-.ts-race-wrap {
+/* ── Problem — Static Split Panel ────────────────────────── */
+.ts-cmp-split {
   margin-top: 34px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.10);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01) 60%, rgba(255, 45, 61, 0.03));
-  padding: clamp(18px, 3vw, 28px);
+  overflow: hidden;
   backdrop-filter: blur(22px) saturate(150%);
   -webkit-backdrop-filter: blur(22px) saturate(150%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(255, 45, 61, 0.04),
-    0 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.ts-race-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.ts-race-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--ink-2);
-  text-transform: uppercase;
-}
-
-.ts-race-label-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
-  flex-shrink: 0;
-}
-
-.ts-run-btn {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: 1px solid var(--accent);
-  background: rgba(255, 45, 61, 0.10);
-  color: var(--accent);
-  cursor: pointer;
-  transition: background 200ms ease;
-}
-
-.ts-run-btn:hover { background: rgba(255, 45, 61, 0.18); }
-
-.ts-race {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: stretch;
-  gap: 16px;
-}
-
-.ts-race-card {
-  position: relative;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+.ts-cmp-left {
+  padding: clamp(22px, 3vw, 36px);
   background: rgba(255, 255, 255, 0.02);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  padding: 22px;
+  border-right: 1px dashed rgba(255, 255, 255, 0.09);
 }
 
-.ts-race-card-turbo {
-  border-color: rgba(255, 45, 61, 0.45);
-  background:
-    linear-gradient(135deg, rgba(255, 45, 61, 0.09), rgba(255, 255, 255, 0.012) 58%, rgba(255, 90, 60, 0.05));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 0 34px rgba(255, 45, 61, 0.16);
-}
-
-.ts-race-card-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.ts-race-name {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  line-height: 1.4;
-  text-transform: uppercase;
-  color: var(--ink-1);
-}
-
-.ts-race-name-turbo { color: var(--ink-0); }
-
-.ts-status-chip {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.ts-status-chip-turbo { color: var(--accent); }
-
-.ts-status-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--ink-2);
-  flex-shrink: 0;
-}
-
-.ts-status-dot-accent {
-  background: var(--accent);
-  box-shadow: 0 0 6px var(--accent);
-}
-
-.ts-race-sub {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--ink-2);
-  margin-top: 9px;
-}
-
-.ts-clock {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(38px, 5.4vw, 56px);
-  letter-spacing: -0.02em;
-  color: #9a9ab0;
-  margin: 16px 0 2px;
-  font-variant-numeric: tabular-nums;
-}
-
-.ts-clock-accent {
-  color: var(--accent);
-  text-shadow: 0 0 20px rgba(255, 45, 61, 0.4);
-}
-
-.ts-race-caption {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--ink-2);
-  margin-bottom: 16px;
-}
-
-.ts-bar-track {
+.ts-cmp-right {
+  padding: clamp(22px, 3vw, 36px);
+  background: linear-gradient(135deg, rgba(255, 45, 61, 0.08), rgba(255, 255, 255, 0.01) 55%, rgba(255, 90, 60, 0.04));
   position: relative;
-  height: 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
 
-.ts-bar-fill {
+.ts-cmp-glow {
   position: absolute;
-  top: 0; left: 0;
-  height: 100%; width: 100%;
-  transform-origin: left center;
-  transform: scaleX(0);
-  background: linear-gradient(90deg, #3a0d14, #7d1a26);
-  border-radius: 0;
+  inset: 0;
+  background: radial-gradient(340px 180px at 90% 10%, rgba(255, 45, 61, 0.18), transparent 70%);
+  pointer-events: none;
 }
 
-.ts-bar-fill-turbo {
-  background: linear-gradient(90deg, var(--accent), #ff5a3c);
-  box-shadow: 0 0 16px rgba(255, 45, 61, 0.6);
-}
+.ts-cmp-right-inner { position: relative; }
 
-.ts-turbo-rate {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--accent);
-  margin-top: 12px;
-  letter-spacing: 0.03em;
-}
-
-.ts-vs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 0 2px;
-}
-
-.ts-vs-num {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(28px, 3vw, 42px);
-  color: var(--accent);
-  text-shadow: 0 0 22px rgba(255, 45, 61, 0.5);
-  line-height: 1;
-}
-
-.ts-vs-label {
+.ts-cmp-panel-label {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-2);
+  margin-bottom: 18px;
 }
+
+.ts-cmp-panel-label-accent {
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.ts-cmp-accent-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  flex-shrink: 0;
+  animation: ts-pulse 2.4s ease-in-out infinite;
+}
+
+.ts-cmp-big-metric {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(46px, 6vw, 72px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #9a9ab0;
+}
+
+.ts-cmp-big-metric-accent {
+  color: var(--accent);
+  text-shadow: 0 0 28px rgba(255, 45, 61, 0.35);
+}
+
+.ts-cmp-metric-unit {
+  font-size: 0.38em;
+  font-weight: 500;
+  letter-spacing: 0;
+  vertical-align: 0.12em;
+  color: var(--ink-2);
+}
+
+.ts-cmp-big-metric-accent .ts-cmp-metric-unit { color: inherit; }
+
+.ts-cmp-metric-caption {
+  font-size: 12px;
+  color: var(--ink-2);
+  margin-top: 8px;
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+.ts-cmp-metric-caption-muted { color: #9a9ab0; }
+
+.ts-cmp-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.ts-cmp-bullet {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+
+.ts-cmp-bullet-prefix {
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+
+.ts-cmp-bullet-win { color: var(--ink-1); }
+.ts-cmp-bullet-win .ts-cmp-bullet-prefix { color: var(--accent); }
 
 /* comparison table */
 .ts-cmp-table {
-  margin-top: 18px;
+  margin-top: 14px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   overflow: hidden;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .ts-cmp-row {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.8fr 1fr 1fr;
 }
 
 .ts-cmp-row-header { background: rgba(255, 255, 255, 0.03); }
@@ -569,6 +470,11 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: 14px;
   color: #9a9ab0;
   padding: 13px 16px;
+}
+
+.ts-cmp-cell-std-strike {
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 255, 255, 0.20);
 }
 
 .ts-cmp-cell-turbo {
@@ -904,9 +810,11 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .ts-hero-grid { grid-template-columns: 1fr; gap: 34px; }
+  .ts-hero-grid  { grid-template-columns: 1fr; gap: 34px; }
   .ts-fast-grid  { grid-template-columns: repeat(2, 1fr); }
   .ts-feat-grid  { grid-template-columns: repeat(2, 1fr); }
+  .ts-cmp-split  { grid-template-columns: 1fr; }
+  .ts-cmp-left   { border-right: none; border-bottom: 1px dashed rgba(255, 255, 255, 0.09); }
 }
 
 @media (max-width: 860px) {
@@ -916,8 +824,6 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 @media (max-width: 680px) {
   .ts-fast-grid { grid-template-columns: 1fr; }
   .ts-feat-grid { grid-template-columns: 1fr; }
-  .ts-race      { grid-template-columns: 1fr; }
-  .ts-vs        { flex-direction: row; gap: 10px; padding: 6px 0; }
 
   .ts-install { max-width: 100%; }
   .ts-install code { white-space: normal; word-break: break-word; }
