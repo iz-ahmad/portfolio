@@ -16,7 +16,9 @@ export function RevealObserver() {
           }
         })
       },
-      { threshold: 0.08 }
+      // rootMargin fires 120px before the element enters the viewport so
+      // backdrop-filter compositing happens off-screen, eliminating first-scroll jank
+      { rootMargin: '0px 0px 120px 0px', threshold: 0 }
     )
 
     els.forEach((el) => io.observe(el))
