@@ -145,7 +145,7 @@ export function Projects() {
         <div className="filmstrip-track-wrap">
           <div ref={trackRef} className="filmstrip-track">
             {PROJECTS.map((p, i) => (
-              <article key={p.id} className={`film-card film-${p.accent}`} data-cursor="hover" data-cursor-label="View project">
+              <article key={p.id} className={`film-card film-${p.accent}${p.page ? ' film-card--linked' : ''}`} data-cursor="hover" data-cursor-label="View project">
                 <div className="film-card-bg" aria-hidden />
                 <div className="film-card-num" aria-hidden>{String(i + 1).padStart(2, '0')}</div>
                 <a href={p.link} target="_blank" rel="noopener noreferrer" className="film-card-link">
