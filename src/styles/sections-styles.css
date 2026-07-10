@@ -353,8 +353,6 @@
   display: flex; flex-direction: column; gap: 8px;
   border-top: 1px solid var(--hair);
   background: rgba(10,10,24,0.7);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
   border-radius: 0;
 }
 .film-meta { display: flex; gap: 12px; align-items: center; }
@@ -373,9 +371,6 @@
 }
 .chip-on { background: var(--red); color: #000; border-color: var(--red); }
 .film-metric { font-family: var(--font-mono); font-size: 11px; color: var(--red); letter-spacing: 0.08em; margin-top: 4px; }
-/* "View details" link sits outside the outer <a> to avoid nested anchor; absolutely positioned in the cleared zone */
-.film-page-link { position: absolute; bottom: 18px; left: 22px; z-index: 10; text-decoration: none; }
-/* Reserve bottom space in the card body so the chips don't collide with the link */
 .film-card--linked .film-card-body { padding-bottom: 48px; }
 .film-end {
   flex: 0 0 auto; width: 300px; height: 60vh;
@@ -841,7 +836,6 @@ kbd {
   .film-card-body { position: relative; height: auto; padding: 14px 16px 22px; }
   .film-end { width: 100%; height: auto; min-height: 0; padding: 24px 28px; }
   .scroll-hint { display: none !important; }
-  .film-page-link { position: static; display: block; padding: 4px 16px 14px; }
 }
 
 @media (min-width: 640px) and (max-width: 1279px) {
