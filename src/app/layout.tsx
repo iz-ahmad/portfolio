@@ -46,7 +46,12 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/favicon.jpg',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: TITLE,
@@ -57,9 +62,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/large-preview.jpg',
-        width: 394,
-        height: 394,
+        url: '/large-preview.png',
+        width: 512,
+        height: 512,
         alt: TITLE,
       },
     ],
