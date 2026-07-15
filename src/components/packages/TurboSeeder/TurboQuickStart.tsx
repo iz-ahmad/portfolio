@@ -157,14 +157,17 @@ export function TurboQuickStart() {
       </div>
 
       <p className="ts-code-caption">
-        Two data paths —{' '}
+        Two data generation paths —{' '}
         <span style={{ color: 'var(--ink-1)' }}>fromFactory()</span> (reuse your factory) or{' '}
-        <span style={{ color: 'var(--ink-1)' }}>generate()</span> (raw closure) — combine freely
-        with two strategies: <span style={{ color: 'var(--ink-1)' }}>bulk INSERT</span> or{' '}
-        <span style={{ color: 'var(--ink-1)' }}>native CSV</span>. Any path works with any strategy.{' '}
-        <a href={data.docsUrl} target="_blank" rel="noopener noreferrer" className="ts-caption-link">
-          See the docs →
-        </a>
+        <span style={{ color: 'var(--ink-1)' }}>generate()</span> (raw closure) — which can be combined freely
+        with —
+        <p>
+          Two seeding strategies: <span style={{ color: 'var(--ink-1)' }}>bulk INSERT</span> or{' '}
+          <span style={{ color: 'var(--ink-1)' }}>native CSV strategy</span>. Any path works with any strategy.{' '}
+          <a href={data.docsUrl} target="_blank" rel="noopener noreferrer" className="ts-caption-link">
+            Explore the docs →
+          </a>
+        </p>
       </p>
     </section>
   )
