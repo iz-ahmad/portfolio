@@ -11,7 +11,7 @@ export function TurboProblem() {
       <h2 className="ts-section-h2">Default seeders weren't built for scale.</h2>
 
       <p className="ts-problem-sub">
-        Seeding 500K–1M+ records for realistic load testing can take{' '}
+        Seeding 500K-1M+ records for realistic load testing can take{' '}
         <strong style={{ color: 'var(--ink-0)' }}>30+ minutes</strong> and unbounded memory —
         slowing every iteration. Turbo Seeder eliminates that bottleneck.
       </p>
@@ -22,7 +22,7 @@ export function TurboProblem() {
         <div className="ts-cmp-left">
           <div className="ts-cmp-panel-label">Standard Laravel seeder</div>
           <div className="ts-cmp-big-metric">
-            30<span className="ts-cmp-metric-unit"> min</span>
+            30-40<span className="ts-cmp-metric-unit"> min</span>
           </div>
           <div className="ts-cmp-metric-caption">to seed 1,000,000 rows</div>
           <ul className="ts-cmp-bullets">
@@ -42,10 +42,10 @@ export function TurboProblem() {
               Turbo Seeder · CSV strategy
             </div>
             <div className="ts-cmp-big-metric ts-cmp-big-metric-accent">
-              15<span className="ts-cmp-metric-unit"> sec</span>
+              ~20<span className="ts-cmp-metric-unit"> sec</span>
             </div>
             <div className="ts-cmp-metric-caption ts-cmp-metric-caption-muted">
-              same 1,000,000 rows · ~120× faster
+              same 1,000,000 rows · ~100x faster
             </div>
             <ul className="ts-cmp-bullets">
               <li className="ts-cmp-bullet ts-cmp-bullet-win"><span className="ts-cmp-bullet-prefix" aria-hidden>✓</span>Raw bulk INSERT — no Eloquent</li>
