@@ -42,7 +42,7 @@ export function TurboFooterCta() {
             onClick={handleCopy}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleCopy() }}
           >
-            <code style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: 'var(--ink-0)' }}>
+            <code>
               <span className="ts-install-sigil">$</span> composer require iz-ahmad/laravel-turbo-seeder
             </code>
             <span className="ts-copy-label">{copyLabel}</span>
