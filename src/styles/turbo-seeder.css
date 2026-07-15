@@ -59,6 +59,11 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   gap: 10px;
 }
 
+.ts-nav-btn {
+  font-size: 11px;
+  padding: 11px 16px;
+}
+
 /* ── Section chrome ─────────────────────────────────────── */
 .ts-section {
   padding: clamp(40px, 7vh, 90px) 0;
@@ -227,6 +232,8 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .ts-install-sigil { color: var(--accent); }
@@ -899,6 +906,17 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 
 .ts-cta-install:hover { border-color: var(--accent); }
 
+.ts-cta-install code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-0);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .ts-cta-actions {
   display: flex;
   align-items: center;
@@ -936,7 +954,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .ts-hero-grid  { grid-template-columns: 1fr; gap: 34px; }
+  .ts-hero-grid  { grid-template-columns: minmax(0, 1fr); gap: 34px; }
   .ts-fast-grid  { grid-template-columns: repeat(2, 1fr); }
   .ts-feat-grid  { grid-template-columns: repeat(2, 1fr); }
   .ts-cmp-split  { grid-template-columns: 1fr; }
@@ -955,11 +973,11 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   .ts-fast-grid { grid-template-columns: 1fr; }
   .ts-feat-grid { grid-template-columns: 1fr; }
 
-  .ts-install { max-width: 100%; }
-  .ts-install code { white-space: normal; word-break: break-word; }
+  .ts-install { max-width: 100%; padding: 12px 14px; gap: 10px; }
+  .ts-install code { font-size: 11px; }
 
-  .ts-cta-install { max-width: 100%; }
-  .ts-cta-install code { white-space: normal; word-break: break-word; }
+  .ts-cta-install { max-width: 100%; width: 100%; padding: 12px 14px; gap: 10px; }
+  .ts-cta-install code { font-size: 11px; }
 
   .ts-cmp-row { grid-template-columns: 1.4fr 1fr 1fr; }
   .ts-cmp-cell-head { padding: 10px 8px; font-size: 9px; letter-spacing: 0.05em; }
@@ -972,4 +990,13 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   .ts-hero {
     padding-top: 12px;
   }
+
+  .ts-nav-btn { font-size: 9px; padding: 9px 12px; letter-spacing: 0.1em; gap: 6px; }
+
+  .ts-cta-actions .btn { font-size: 10px; padding: 11px 16px; letter-spacing: 0.12em; }
+
+  .ts-tab-bar { padding: 8px 10px; gap: 6px; }
+  .ts-tab { font-size: 10px; padding: 7px 10px; }
+  .ts-tab-hint { display: none; }
+  .ts-code-block { padding: 14px; font-size: 11px; line-height: 1.7; }
 }
