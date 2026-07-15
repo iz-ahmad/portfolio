@@ -11,7 +11,7 @@ export function TurboFooterCta() {
   const resetTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   function handleCopy() {
-    try { navigator.clipboard.writeText(CMD) } catch { /* ignore */ }
+    try { navigator.clipboard.writeText(CMD) } catch {}
     setCopyLabel('Copied ✓')
     clearTimeout(resetTimerRef.current)
     resetTimerRef.current = setTimeout(() => setCopyLabel('Click to copy'), 1600)

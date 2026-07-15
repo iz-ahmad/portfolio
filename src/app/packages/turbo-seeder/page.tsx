@@ -17,7 +17,7 @@ import data from '@/data/turbo-seeder.json'
 export const metadata: Metadata = {
   title: 'Laravel Turbo Seeder — seed millions of records in seconds',
   description:
-    'A high-performance Laravel database seeder for production-scale data generation — 1M+ records in ~15s with under 200MB memory.',
+    'A high-performance Laravel database seeder for production-scale data generation — 1M+ records in ~20s with under 200MB memory.',
   keywords: [
     'Laravel Turbo Seeder',
     'Laravel seeder',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Laravel Turbo Seeder — seed millions of records in seconds',
     description:
-      'A high-performance Laravel database seeder for production-scale data generation — 1M+ records in ~15s with under 200MB memory.',
+      'A high-performance Laravel database seeder for production-scale data generation — 1M+ records in ~20s with under 200MB memory.',
     type: 'website',
   },
 }

@@ -3,23 +3,23 @@
   "githubUrl": "https://github.com/iz-ahmad/laravel-turbo-seeder/",
   "docsUrl": "https://github.com/iz-ahmad/laravel-turbo-seeder/#readme",
   "metrics": [
-    { "value": "~15s", "label": "1M rows", "accent": true },
+    { "value": "~20s", "label": "1M rows", "accent": true },
     { "value": "< 200 MB", "label": "Peak memory", "accent": false },
-    { "value": "2–4×", "label": "Faster w/ CSV", "accent": false }
+    { "value": "2-4x", "label": "Faster w/ CSV", "accent": false }
   ],
   "terminal": {
     "title": "artisan — turbo-seeder:run",
     "progressBar": "████████████████████████",
     "progressPct": "100%",
-    "seedTime": "14.8s",
-    "seedMem": "184 MB",
-    "seedRate": "67,540 rows/s"
+    "seedTime": "19.4s",
+    "seedMem": "124 MB",
+    "seedRate": "52,640 rows/s"
   },
   "comparisonTable": [
-    { "scenario": "Simple table",   "standard": "~30 min",  "turbo": "~15s" },
-    { "scenario": "Complex table",  "standard": "~40–60 min","turbo": "~60s" },
-    { "scenario": "Via CSV import", "standard": "—",         "turbo": "~9–40s" },
-    { "scenario": "Peak memory",    "standard": "unbounded", "turbo": "< 200 MB" }
+    { "scenario": "Simple table",   "standard": "~30 min",   "turbo": "~22s" },
+    { "scenario": "Complex table",  "standard": "~40-50 min","turbo": "~60s" },
+    { "scenario": "Via CSV strategy", "standard": "—",       "turbo": "~10-45s" },
+    { "scenario": "Peak memory",    "standard": "unbounded", "turbo": "< 50-200 MB" }
   ],
   "speedCards": [
     { "num": "01", "title": "No Eloquent overhead", "desc": "Raw SQL only — no model events, no observers, no per-row hydration." },
