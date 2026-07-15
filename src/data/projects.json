@@ -8,7 +8,8 @@
     "stack": ["PHP", "Laravel", "MySQL", "PostgreSQL", "CLI"],
     "metric": "1M+ records seeded in ~9-60s",
     "accent": "amber",
-    "link": "https://github.com/iz-ahmad/laravel-turbo-seeder/"
+    "link": "https://github.com/iz-ahmad/laravel-turbo-seeder/",
+    "page": "/packages/turbo-seeder"
   },
   {
     "id": "helpnest-ai",

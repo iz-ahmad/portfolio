@@ -153,7 +153,7 @@
   border-top: 1px dashed var(--hair);
 }
 .stat .stat-v { font-family: var(--font-display); font-size: 36px; font-weight: 500; color: var(--ink-0); letter-spacing: -0.02em; }
-.stat .stat-k { font-family: var(--font-mono); font-size: 10px; color: var(--ink-2); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 4px; }
+.stat .stat-k { font-family: var(--font-mono); font-size: 10px; color: var(--ink-1-soft); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 4px; }
 
 /* Marquee */
 .hero-marquee {
@@ -321,7 +321,7 @@
 .film-card {
   flex: 0 0 auto;
   width: clamp(320px, 34vw, 500px);
-  height: 66vh;
+  height: 70vh;
   position: relative;
   border-radius: 18px;
   overflow: hidden;
@@ -353,9 +353,8 @@
   display: flex; flex-direction: column; gap: 8px;
   border-top: 1px solid var(--hair);
   background: rgba(10,10,24,0.7);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
   border-radius: 0;
+  backdrop-filter: none;
 }
 .film-meta { display: flex; gap: 12px; align-items: center; }
 .film-title { font-family: var(--font-display); font-size: 28px; font-weight: 500; margin: 0; }
@@ -373,6 +372,7 @@
 }
 .chip-on { background: var(--red); color: #000; border-color: var(--red); }
 .film-metric { font-family: var(--font-mono); font-size: 11px; color: var(--red); letter-spacing: 0.08em; margin-top: 4px; }
+.film-card--linked .film-card-body { padding-bottom: 48px; }
 .film-end {
   flex: 0 0 auto; width: 300px; height: 60vh;
   display: flex; flex-direction: column; justify-content: center; gap: 16px;

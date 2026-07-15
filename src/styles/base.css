@@ -10,6 +10,7 @@
   --bg-2: #0f0f22;
   --ink-0: #fafafa;
   --ink-1: #c8c8d8;
+  --ink-1-soft: #9a9ab0;
   --ink-2: #7a7a92;
   --ink-3: #3a3a52;
 
@@ -17,6 +18,7 @@
   --red: #ff2d3d;
   --ember: #ff5a3c;
   --crimson: #b8132a;
+  --crimson-light: #b81329b3;
   --amber: #ffb000;
 
   --glass: rgba(255, 255, 255, 0.04);

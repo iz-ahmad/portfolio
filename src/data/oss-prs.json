@@ -33,17 +33,6 @@
     "weight": 4
   },
   {
-    "repo": "laravel/docs",
-    "num": 11150,
-    "branch": "13.x",
-    "title": "retryUntil() return type → DateTimeInterface",
-    "desc": "retryUntil() returns DateTimeInterface, not concrete DateTime. Corrected the docs for accurate guidance.",
-    "status": "merged",
-    "tag": "docs",
-    "url": "https://github.com/laravel/docs/pull/11150",
-    "weight": 4
-  },
-  {
     "repo": "laravel/boost",
     "num": 748,
     "branch": "main",

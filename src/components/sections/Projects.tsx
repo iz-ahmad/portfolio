@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import type { Project } from '@/types'
 import rawProjects from '@/data/projects.json'
 
@@ -50,6 +50,36 @@ function FilmMock({ idx }: { idx: number }) {
   return <>{variants[idx % variants.length]}</>
 }
 
+interface FilmCardProps {
+  p: Project
+  i: number
+}
+
+const FilmCard = memo(function FilmCard({ p, i }: FilmCardProps) {
+  return (
+    <article className={`film-card film-${p.accent}${p.page ? ' film-card--linked' : ''}`} data-cursor="hover" data-cursor-label="View project">
+      <div className="film-card-bg" aria-hidden />
+      <div className="film-card-num" aria-hidden>{String(i + 1).padStart(2, '0')}</div>
+      <a href={p.page ? p.page : p.link} target="_blank" rel="noopener noreferrer" className="film-card-link">
+        <div className="film-card-mock" aria-hidden>
+          <FilmMock idx={i} />
+        </div>
+        <div className="film-card-body glass">
+          <div className="film-meta">
+            <span className="hud-label">{p.year}</span>
+            <span className="muted">{p.role}</span>
+          </div>
+          <h3 className="film-title">{p.name}</h3>
+          <p className="film-desc">{p.desc}</p>
+          <div className="film-stack">
+            {p.stack.map((s) => <span key={s} className="chip">{s}</span>)}
+          </div>
+        </div>
+      </a>
+    </article>
+  )
+})
+
 export function Projects() {
   const wrapRef = useRef<HTMLElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
@@ -61,7 +91,7 @@ export function Projects() {
     const track = trackRef.current
     if (!wrap || !track) return
 
-    // Filmstrip scroll only on desktop; mobile/tablet use vertical card layout
+    // filmstrip scroll only on desktop
     if (!window.matchMedia('(min-width: 1280px)').matches) return
 
     const bgEls = Array.from(track.querySelectorAll<HTMLDivElement>('.film-card-bg'))
@@ -144,26 +174,7 @@ export function Projects() {
         <div className="filmstrip-track-wrap">
           <div ref={trackRef} className="filmstrip-track">
             {PROJECTS.map((p, i) => (
-              <article key={p.id} className={`film-card film-${p.accent}`} data-cursor="hover" data-cursor-label="View project">
-                <div className="film-card-bg" aria-hidden />
-                <div className="film-card-num" aria-hidden>{String(i + 1).padStart(2, '0')}</div>
-                <a href={p.link} target="_blank" rel="noopener noreferrer" className="film-card-link">
-                  <div className="film-card-mock" aria-hidden>
-                    <FilmMock idx={i} />
-                  </div>
-                  <div className="film-card-body glass">
-                    <div className="film-meta">
-                      <span className="hud-label">{p.year}</span>
-                      <span className="muted">{p.role}</span>
-                    </div>
-                    <h3 className="film-title">{p.name}</h3>
-                    <p className="film-desc">{p.desc}</p>
-                    <div className="film-stack">
-                      {p.stack.map((s) => <span key={s} className="chip">{s}</span>)}
-                    </div>
-                  </div>
-                </a>
-              </article>
+              <FilmCard key={p.id} p={p} i={i} />
             ))}
             <div className="film-end glass">
               <div className="hud-label">// END_OF_LOG</div>

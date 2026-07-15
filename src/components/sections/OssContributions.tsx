@@ -32,26 +32,7 @@ export function OssContributions() {
           <h2 className="h-display section-title">Open source contributions.</h2>
         </div>
         <div className="section-aside">
-          <p>Explore some of my PRs into <code className="oss-mono">laravel core</code> and other ecosystem packages.</p>
-        </div>
-      </div>
-
-      <div className="oss-stats" role="list" aria-label="Contribution stats">
-        <div className="oss-stat" role="listitem">
-          <span className="oss-stat-num glow-cyan">{stats.merged}+</span>
-          <span className="oss-stat-key">PRs merged</span>
-        </div>
-        <span className="oss-stat-sep" aria-hidden>/</span>
-        <div className="oss-stat" role="listitem">
-          <span className="oss-stat-num">11.x — 13.x</span>
-          <span className="oss-stat-key">laravel range</span>
-        </div>
-        <span className="oss-stat-sep" aria-hidden>/</span>
-        <div className="oss-stat" role="listitem">
-          <span className="oss-stat-num oss-stat-live">
-            <span className="oss-stat-pulse" aria-hidden /> open to OSS
-          </span>
-          <span className="oss-stat-key">always eager for</span>
+          <p>Explore some of my PRs into <code className="oss-mono">laravel core</code> and other ecosystem projects.</p>
         </div>
       </div>
 
