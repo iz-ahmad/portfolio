@@ -16,9 +16,11 @@ export function Contributions({ data }: ContributionsProps) {
   
   useEffect(() => {
     fetch(API_URL)
-      .then(r => r.json())
+      .then(r => (r.ok ? r.json() : null))
       .then(data => {
-        const total = Object.values(data.total as Record<string, number>).reduce((a, b) => a + b, 0)
+        if (!data?.total) return
+        
+        const total = Object.values(data.total as Record<string, number>).reduce((a, b) => a + (Number(b) || 0), 0)
         setCommits(total + '+')
       })
       .catch(() => {})
