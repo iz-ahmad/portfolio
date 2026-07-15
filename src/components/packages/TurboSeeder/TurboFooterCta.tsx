@@ -11,10 +11,14 @@ export function TurboFooterCta() {
   const resetTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   function handleCopy() {
-    try { navigator.clipboard.writeText(CMD) } catch {}
-    setCopyLabel('Copied ✓')
-    clearTimeout(resetTimerRef.current)
-    resetTimerRef.current = setTimeout(() => setCopyLabel('Copy'), 1600)
+    if (typeof navigator === 'undefined' || !navigator.clipboard) return
+    navigator.clipboard.writeText(CMD)
+      .then(() => setCopyLabel('Copied ✓'))
+      .catch(() => setCopyLabel('Failed. Try again.'))
+      .finally(() => {
+        clearTimeout(resetTimerRef.current)
+        resetTimerRef.current = setTimeout(() => setCopyLabel('Copy'), 1600)
+      })
   }
 
   return (
