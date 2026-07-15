@@ -8,6 +8,7 @@ import { TurboHero } from '@/components/packages/TurboSeeder/TurboHero'
 import { TurboProblem } from '@/components/packages/TurboSeeder/TurboProblem'
 import { TurboHowFast } from '@/components/packages/TurboSeeder/TurboHowFast'
 import { TurboQuickStart } from '@/components/packages/TurboSeeder/TurboQuickStart'
+import { TurboChoices } from '@/components/packages/TurboSeeder/TurboChoices'
 import { TurboFeatures } from '@/components/packages/TurboSeeder/TurboFeatures'
 import { TurboFooterCta } from '@/components/packages/TurboSeeder/TurboFooterCta'
 import { RevealObserver } from '@/components/packages/TurboSeeder/RevealObserver'
@@ -83,6 +84,7 @@ export default function TurboSeederPage() {
           <TurboProblem />
           <TurboHowFast />
           <TurboQuickStart />
+          <TurboChoices />
           <TurboFeatures />
           <TurboFooterCta />
         </main>
