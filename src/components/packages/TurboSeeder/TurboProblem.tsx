@@ -24,7 +24,7 @@ export function TurboProblem() {
           <div className="ts-cmp-big-metric">
             30-40<span className="ts-cmp-metric-unit"> min</span>
           </div>
-          <div className="ts-cmp-metric-caption">to seed 1,000,000 rows</div>
+          <div className="ts-cmp-metric-caption">to seed 1M rows</div>
           <ul className="ts-cmp-bullets">
             <li className="ts-cmp-bullet"><span className="ts-cmp-bullet-prefix" aria-hidden>—</span>One query per row via Eloquent</li>
             <li className="ts-cmp-bullet"><span className="ts-cmp-bullet-prefix" aria-hidden>—</span>Model events fire on every record</li>
@@ -42,10 +42,10 @@ export function TurboProblem() {
               Turbo Seeder
             </div>
             <div className="ts-cmp-big-metric ts-cmp-big-metric-accent">
-              ~20<span className="ts-cmp-metric-unit"> sec</span>
+              ~20-60<span className="ts-cmp-metric-unit"> sec</span>
             </div>
             <div className="ts-cmp-metric-caption ts-cmp-metric-caption-muted">
-              same 1,000,000 rows · ~100x faster
+              same 1M rows · ~50/100x faster
             </div>
             <ul className="ts-cmp-bullets">
               <li className="ts-cmp-bullet ts-cmp-bullet-win"><span className="ts-cmp-bullet-prefix" aria-hidden>✓</span>Raw bulk INSERT — no Eloquent</li>
