@@ -4,7 +4,7 @@ export function TurboFeatures() {
   return (
     <section className="ts-section reveal">
       <div className="ts-eyebrow">
-        <span className="ts-eyebrow-label">04 / CAPABILITIES</span>
+        <span className="ts-eyebrow-label">05 / CAPABILITIES</span>
         <span className="ts-eyebrow-line" aria-hidden />
       </div>
 
