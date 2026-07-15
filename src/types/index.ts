@@ -30,8 +30,9 @@ export interface Project {
   desc: string
   stack: string[]
   metric: string
-  accent: 'cyan' | 'magenta' | 'violet'
+  accent: string
   link: string
+  page?: string
 }
 
 export interface Experience {

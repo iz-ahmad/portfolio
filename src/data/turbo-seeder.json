@@ -1,0 +1,87 @@
+{
+  "install": "composer require iz-ahmad/laravel-turbo-seeder",
+  "githubUrl": "https://github.com/iz-ahmad/laravel-turbo-seeder/",
+  "docsUrl": "https://github.com/iz-ahmad/laravel-turbo-seeder/#readme",
+  "metrics": [
+    { "value": "~20s", "label": "1M rows", "accent": true },
+    { "value": "< 200 MB", "label": "Peak memory", "accent": false },
+    { "value": "2-4x", "label": "Faster w/ CSV", "accent": false }
+  ],
+  "terminal": {
+    "title": "artisan — turbo-seeder:run",
+    "progressBar": "████████████████████████",
+    "progressPct": "100%",
+    "seedTime": "19.4s",
+    "seedMem": "124 MB",
+    "seedRate": "51,546 rows/s"
+  },
+  "comparisonTable": [
+    { "scenario": "Simple table",   "standard": "~30 min",   "turbo": "~20s" },
+    { "scenario": "Complex table",  "standard": "~40-50 min","turbo": "~60s" },
+    { "scenario": "Via CSV strategy", "standard": "—",       "turbo": "~10-45s" },
+    { "scenario": "Peak memory",    "standard": "unbounded", "turbo": "< 50-200 MB" }
+  ],
+  "speedCards": [
+    { "num": "01", "title": "No Eloquent overhead", "desc": "Raw SQL only — no model events, no observers, no per-row hydration." },
+    { "num": "02", "title": "Bulk inserts",         "desc": "Multi-row INSERT statements instead of one query per row." },
+    { "num": "03", "title": "Native CSV import",    "desc": "LOAD DATA (MySQL) / COPY FROM STDIN (PostgreSQL) for raw throughput." },
+    { "num": "04", "title": "Smart chunking",       "desc": "Lazy generators keep memory flat, with automatic GC between chunks." },
+    { "num": "05", "title": "Minimal overhead",     "desc": "FK checks and query logging are disabled automatically during the seed." },
+    { "num": "06", "title": "Streaming I/O",        "desc": "CSV is piped as a stream and never fully loaded into memory." }
+  ],
+  "steps": [
+    {
+      "num": "01",
+      "label": "Install",
+      "lines": ["$ composer require", "  iz-ahmad/laravel-turbo-seeder"]
+    },
+    {
+      "num": "02",
+      "label": "Scaffold",
+      "lines": ["$ php artisan", "  make:turbo-seeder UserTurboSeeder", "  --table=users --count=1000000"]
+    },
+    {
+      "num": "03",
+      "label": "Run",
+      "lines": ["$ php artisan", "  turbo-seeder:run UserTurboSeeder"]
+    }
+  ],
+  "dataPaths": [
+    {
+      "method": "fromFactory()",
+      "tag": "Reuse what you have",
+      "desc": "Your existing factory definition, as-is — states work exactly like before.",
+      "meta": "Faker-backed · best ≤500k rows"
+    },
+    {
+      "method": "generate()",
+      "tag": "Maximum speed",
+      "desc": "Faker-free closure powered by TurboData helpers — index-based, O(1) memory.",
+      "meta": "No Faker · best for 500k+ rows"
+    }
+  ],
+  "seedingStrategies": [
+    {
+      "method": "Default",
+      "tag": "Bulk INSERT",
+      "desc": "Multi-row INSERT statements. Works everywhere, zero setup required.",
+      "meta": "~20-60s / 1M rows · 50-200 MB"
+    },
+    {
+      "method": "useCsvStrategy()",
+      "tag": "Native import",
+      "desc": "LOAD DATA (MySQL) / COPY FROM STDIN (PostgreSQL) — one method call away.",
+      "meta": "~10-45s / 1M rows · ~0 MB extra"
+    }
+  ],
+  "features": [
+    { "title": "Multi-database",      "desc": "MySQL · PostgreSQL · SQLite" },
+    { "title": "Highly configurable", "desc": "Chunk size, transactions, retries, FK/unique checks" },
+    { "title": "Relational seeding",  "desc": "Load FK values in one line, zero extra queries" },
+    { "title": "Upsert support",      "desc": "Per-driver conflict resolution" },
+    { "title": "Type formatting",     "desc": "Enums, JSON, dates, arrays — automatic" },
+    { "title": "Progress tracking",   "desc": "Real-time bar with live metrics" },
+    { "title": "Dry run",             "desc": "Validate generation without committing" },
+    { "title": "Laravel 10–13",       "desc": "PHP 8.2+ · CI/CD ready" }
+  ]
+}
