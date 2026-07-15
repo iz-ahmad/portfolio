@@ -959,4 +959,10 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 
   .ts-cta-install { max-width: 100%; }
   .ts-cta-install code { white-space: normal; word-break: break-word; }
+
+  .ts-cmp-row { grid-template-columns: 1.4fr 1fr 1fr; }
+  .ts-cmp-cell-head { padding: 10px 8px; font-size: 9px; letter-spacing: 0.05em; }
+  .ts-cmp-cell,
+  .ts-cmp-cell-std,
+  .ts-cmp-cell-turbo { padding: 10px 8px; font-size: 12px; }
 }
