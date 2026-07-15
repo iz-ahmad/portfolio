@@ -153,7 +153,7 @@
   border-top: 1px dashed var(--hair);
 }
 .stat .stat-v { font-family: var(--font-display); font-size: 36px; font-weight: 500; color: var(--ink-0); letter-spacing: -0.02em; }
-.stat .stat-k { font-family: var(--font-mono); font-size: 10px; color: var(--ink-2); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 4px; }
+.stat .stat-k { font-family: var(--font-mono); font-size: 10px; color: var(--ink-1-soft); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 4px; }
 
 /* Marquee */
 .hero-marquee {
