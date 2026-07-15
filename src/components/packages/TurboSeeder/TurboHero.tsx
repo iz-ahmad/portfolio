@@ -6,14 +6,14 @@ import data from '@/data/turbo-seeder.json'
 const CMD = data.install
 
 export function TurboHero() {
-  const [copyLabel, setCopyLabel] = useState('Click to copy')
+  const [copyLabel, setCopyLabel] = useState('Copy')
   const resetTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   function handleCopy() {
     try { navigator.clipboard.writeText(CMD) } catch { /* ignore */ }
     setCopyLabel('Copied ✓')
     clearTimeout(resetTimerRef.current)
-    resetTimerRef.current = setTimeout(() => setCopyLabel('Click to copy'), 1600)
+    resetTimerRef.current = setTimeout(() => setCopyLabel('Copy'), 1600)
   }
 
   return (
