@@ -4,12 +4,25 @@ import { useEffect, useState } from 'react'
 import type { ContributionGrid } from '@/types'
 import profile from '@/data/profile.json'
 
+const API_URL = 'https://github-contributions-api.jogruber.de/v4/iz-ahmad'
+
 interface ContributionsProps {
   data: ContributionGrid
 }
 
 export function Contributions({ data }: ContributionsProps) {
   const [revealed, setRevealed] = useState(false)
+  const [commits, setCommits] = useState(profile.commits + '+')
+  
+  useEffect(() => {
+    fetch(API_URL)
+      .then(r => r.json())
+      .then(data => {
+        const total = Object.values(data.total as Record<string, number>).reduce((a, b) => a + b, 0)
+        setCommits(total + '+')
+      })
+      .catch(() => {})
+  }, [])
 
   useEffect(() => {
     const el = document.getElementById('contributions')
@@ -66,7 +79,7 @@ export function Contributions({ data }: ContributionsProps) {
             ))}
             <span className="muted">&nbsp;More</span>
           </div>
-          <div className="muted">{profile.commits}+ commits · {profile.ossPrsMerged}+ OSS PRs merged</div>
+          <div className="muted">{commits} commits</div>
         </div>
       </div>
     </section>
