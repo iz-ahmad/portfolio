@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/large-preview.png',
+        url: '/large-preview.webp',
         width: 512,
         height: 512,
         alt: TITLE,
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     creator: '@iz_ahmad_',
-    images: ['/large-preview.jpg'],
+    images: ['/large-preview.webp'],
   },
 }
 
@@ -87,7 +87,7 @@ const personJsonLd = {
   '@type': 'Person',
   name: SITE_NAME,
   url: SITE_URL,
-  image: `${SITE_URL}/large-preview.jpg`,
+  image: `${SITE_URL}/large-preview.webp`,
   jobTitle: 'Software Engineer',
   worksFor: { '@type': 'Organization', name: 'Figlab' },
   address: {
