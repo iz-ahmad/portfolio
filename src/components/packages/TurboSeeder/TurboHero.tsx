@@ -83,7 +83,7 @@ export function TurboHero() {
               <span style={{ color: 'var(--ink-2)' }}>count</span>
               {' 1,000,000\n\n'}
               {'['}
-              <span style={{ color: 'var(--accent)' }}>{data.terminal.progressBar}</span>
+              <span style={{ color: 'var(--crimson)' }}>{data.terminal.progressBar}</span>
               {'] '}
               {data.terminal.progressPct}
               {'\n\n'}
