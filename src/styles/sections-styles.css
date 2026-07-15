@@ -354,6 +354,7 @@
   border-top: 1px solid var(--hair);
   background: rgba(10,10,24,0.7);
   border-radius: 0;
+  backdrop-filter: none;
 }
 .film-meta { display: flex; gap: 12px; align-items: center; }
 .film-title { font-family: var(--font-display); font-size: 28px; font-weight: 500; margin: 0; }
