@@ -214,7 +214,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   justify-content: space-between;
   gap: 14px;
   padding: 14px 16px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(0, 0, 0, 0.35);
   cursor: pointer;
@@ -223,7 +223,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   user-select: none;
 }
 
-.ts-install:hover { border-color: var(--accent); }
+.ts-install:hover { border-color: var(--crimson-light); }
 
 .ts-install code {
   font-family: var(--font-mono);
@@ -246,7 +246,12 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   color: var(--ink-1);
   white-space: nowrap;
   flex-shrink: 0;
+  border: var(--crimson-light) 1px dotted;
+  border-radius: 12px;
+  padding: 4px 8px;
 }
+
+.ts-copy-label:hover { box-shadow: 0 0 2px var(--crimson); }
 
 /* hero terminal */
 .ts-terminal {
@@ -895,7 +900,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   align-items: center;
   gap: 12px;
   padding: 14px 18px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(0, 0, 0, 0.4);
   cursor: pointer;
@@ -904,7 +909,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   user-select: none;
 }
 
-.ts-cta-install:hover { border-color: var(--accent); }
+.ts-cta-install:hover { border-color: var(--crimson-light); }
 
 .ts-cta-install code {
   font-family: var(--font-mono);
@@ -984,19 +989,19 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   .ts-cmp-cell,
   .ts-cmp-cell-std,
   .ts-cmp-cell-turbo { padding: 10px 8px; font-size: 12px; }
+  .ts-breadcrumb { font-size: 11px; }
   .ts-hero-eyebrow {
     font-size: 10px;
   }
   .ts-hero {
     padding-top: 12px;
   }
-
+  .ts-copy-label { font-size: 8px; }
   .ts-nav-btn { font-size: 9px; padding: 9px 12px; letter-spacing: 0.1em; gap: 6px; }
-
   .ts-cta-actions .btn { font-size: 10px; padding: 11px 16px; letter-spacing: 0.12em; }
-
   .ts-tab-bar { padding: 8px 10px; gap: 6px; }
   .ts-tab { font-size: 10px; padding: 7px 10px; }
   .ts-tab-hint { display: none; }
   .ts-code-block { padding: 14px; font-size: 11px; line-height: 1.7; }
+  .ts-cta-section { padding-bottom: 12px; }
 }
