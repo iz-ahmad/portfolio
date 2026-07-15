@@ -163,7 +163,6 @@ export function TurboChoices() {
             {')\n    ->'}
             <span className="ts-c-method">useCsvStrategy</span>
             {'()   '}
-            <span className="ts-c-comment">{'// LOAD DATA / COPY FROM STDIN'}</span>
             {'\n    ->'}
             <span className="ts-c-method">run</span>
             {'();'}
