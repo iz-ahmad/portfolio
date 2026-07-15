@@ -48,7 +48,7 @@
   ],
   "features": [
     { "title": "Multi-database",      "desc": "MySQL · PostgreSQL · SQLite" },
-    { "title": "TurboData helpers",   "desc": "Weighted picks, dates, unique values, FK" },
+    { "title": "Data Generation",     "desc": "Using existing factories or TurboData helpers" },
     { "title": "Relational seeding",  "desc": "Load FK values in one line, zero queries" },
     { "title": "Upsert support",      "desc": "Per-driver conflict resolution" },
     { "title": "Type formatting",     "desc": "Enums, JSON, dates, arrays — automatic" },
