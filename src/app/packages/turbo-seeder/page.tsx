@@ -62,15 +62,13 @@ export default function TurboSeederPage() {
               href={data.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn"
-              style={{ fontSize: '11px', padding: '11px 16px' }}
+              className="btn ts-nav-btn"
             >
               GitHub ↗
             </a>
             <a
               href="#start"
-              className="btn btn-primary"
-              style={{ fontSize: '11px', padding: '11px 16px' }}
+              className="btn btn-primary ts-nav-btn"
             >
               Get started
             </a>
