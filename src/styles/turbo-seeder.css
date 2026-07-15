@@ -973,9 +973,6 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   .ts-cmp-cell-std,
   .ts-cmp-cell-turbo { padding: 10px 8px; font-size: 12px; }
   .ts-breadcrumb { font-size: 11px; }
-  .ts-hero-eyebrow {
-    font-size: 10px;
-  }
   .ts-hero {
     padding-top: 12px;
   }
