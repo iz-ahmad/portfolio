@@ -13,10 +13,10 @@
     "progressPct": "100%",
     "seedTime": "19.4s",
     "seedMem": "124 MB",
-    "seedRate": "52,640 rows/s"
+    "seedRate": "51,546 rows/s"
   },
   "comparisonTable": [
-    { "scenario": "Simple table",   "standard": "~30 min",   "turbo": "~22s" },
+    { "scenario": "Simple table",   "standard": "~30 min",   "turbo": "~20s" },
     { "scenario": "Complex table",  "standard": "~40-50 min","turbo": "~60s" },
     { "scenario": "Via CSV strategy", "standard": "—",       "turbo": "~10-45s" },
     { "scenario": "Peak memory",    "standard": "unbounded", "turbo": "< 50-200 MB" }
@@ -46,10 +46,38 @@
       "lines": ["$ php artisan", "  turbo-seeder:run UserTurboSeeder"]
     }
   ],
+  "dataPaths": [
+    {
+      "method": "fromFactory()",
+      "tag": "Reuse what you have",
+      "desc": "Your existing factory definition, as-is — states work exactly like before.",
+      "meta": "Faker-backed · best ≤500k rows"
+    },
+    {
+      "method": "generate()",
+      "tag": "Maximum speed",
+      "desc": "Faker-free closure powered by TurboData helpers — index-based, O(1) memory.",
+      "meta": "No Faker · best for 500k+ rows"
+    }
+  ],
+  "seedingStrategies": [
+    {
+      "method": "Default",
+      "tag": "Bulk INSERT",
+      "desc": "Multi-row INSERT statements. Works everywhere, zero setup required.",
+      "meta": "~20-60s / 1M rows · 50-200 MB"
+    },
+    {
+      "method": "useCsvStrategy()",
+      "tag": "Native import",
+      "desc": "LOAD DATA (MySQL) / COPY FROM STDIN (PostgreSQL) — one method call away.",
+      "meta": "~10-45s / 1M rows · ~0 MB extra"
+    }
+  ],
   "features": [
     { "title": "Multi-database",      "desc": "MySQL · PostgreSQL · SQLite" },
     { "title": "Data Generation",     "desc": "Using existing factories or TurboData helpers" },
-    { "title": "Relational seeding",  "desc": "Load FK values in one line, zero queries" },
+    { "title": "Relational seeding",  "desc": "Load FK values in one line, zero extra queries" },
     { "title": "Upsert support",      "desc": "Per-driver conflict resolution" },
     { "title": "Type formatting",     "desc": "Enums, JSON, dates, arrays — automatic" },
     { "title": "Progress tracking",   "desc": "Real-time bar with live metrics" },
