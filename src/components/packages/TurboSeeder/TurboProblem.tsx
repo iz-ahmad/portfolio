@@ -39,7 +39,7 @@ export function TurboProblem() {
           <div className="ts-cmp-right-inner">
             <div className="ts-cmp-panel-label ts-cmp-panel-label-accent">
               <span className="ts-cmp-accent-dot" aria-hidden />
-              Turbo Seeder · CSV strategy
+              Turbo Seeder
             </div>
             <div className="ts-cmp-big-metric ts-cmp-big-metric-accent">
               ~20<span className="ts-cmp-metric-unit"> sec</span>
