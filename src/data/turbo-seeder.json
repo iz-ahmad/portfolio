@@ -76,7 +76,7 @@
   ],
   "features": [
     { "title": "Multi-database",      "desc": "MySQL · PostgreSQL · SQLite" },
-    { "title": "Data Generation",     "desc": "Using existing factories or TurboData helpers" },
+    { "title": "Highly configurable", "desc": "Chunk size, transactions, retries, FK/unique checks" },
     { "title": "Relational seeding",  "desc": "Load FK values in one line, zero extra queries" },
     { "title": "Upsert support",      "desc": "Per-driver conflict resolution" },
     { "title": "Type formatting",     "desc": "Enums, JSON, dates, arrays — automatic" },
