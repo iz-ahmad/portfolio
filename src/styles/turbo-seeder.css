@@ -938,7 +938,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   transition: color 200ms ease;
 }
 
-.ts-page-foot-back:hover { color: var(--ink-0); }
+.ts-page-foot-back:hover { color: var(--red); }
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 1024px) {

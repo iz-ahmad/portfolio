@@ -77,7 +77,7 @@ export function TurboFooterCta() {
         <span className="ts-page-foot-left">
           Made with <span style={{ color: 'var(--red)' }}>♥</span> for the Laravel community
         </span>
-        <Link href="/" className="ts-page-foot-back">← Back to portfolio</Link>
+        <Link href="/" className="ts-page-foot-back">→ Author Portfolio</Link>
       </div>
     </section>
   )
