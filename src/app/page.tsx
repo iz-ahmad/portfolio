@@ -3,6 +3,10 @@ import type { ContributionGrid, ContributionLevel, ContributionCell } from '@/ty
 
 const CONTRIBUTIONS_API = 'https://github-contributions-api.deno.dev/iz-ahmad.json'
 
+// Blocking script — reads the stored theme before first paint so returning
+// dark-mode visitors don't see a flash of the (default) light theme.
+const THEME_INIT_SCRIPT = `try{if(localStorage.getItem('iz_site_theme')==='dark')document.documentElement.setAttribute('data-site-theme','dark')}catch(e){}`
+
 // API returns { contributions: Week[][] } where Week = { contributionLevel: string, contributionCount: number, date: string }[]
 // Outer array = weeks (columns), inner = days (rows 0-6)
 const LEVEL_MAP: Record<string, ContributionLevel> = {
@@ -33,5 +37,10 @@ async function fetchContributions(): Promise<ContributionGrid> {
 
 export default async function Home() {
   const contributions = await fetchContributions()
-  return <AppShell contributions={contributions} />
+  return (
+    <>
+      <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      <AppShell contributions={contributions} />
+    </>
+  )
 }
