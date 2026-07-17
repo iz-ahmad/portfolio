@@ -734,7 +734,7 @@ kbd {
 
 /* ── Section base ────────────────────────────────────────────── */
 @media (max-width: 639px) {
-  .section { padding: 56px 16px 48px; }
+  .section { padding: 42px 16px 36px; }
   .section-head { margin-bottom: 28px; align-items: baseline; flex-direction: column; gap: 10px; }
   .section-title { font-size: clamp(26px, 8vw, 42px); margin-top: 4px; }
   .section-aside { max-width: 100%; font-size: 13px; }
@@ -774,7 +774,7 @@ kbd {
 
 /* ── Hero ────────────────────────────────────────────────────── */
 @media (max-width: 639px) {
-  .hero { padding: 90px 16px 32px; min-height: auto; }
+  .hero { padding: 72px 16px 32px; min-height: auto; }
   .hero-inner { display: flex; flex-direction: column; }
   .hero-meta { margin-bottom: 14px; }
   .hero-grid { display: flex; flex-direction: column; gap: 0; }
