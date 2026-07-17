@@ -25,6 +25,9 @@
   --glass-strong: rgba(255, 255, 255, 0.07);
   --hair: rgba(255, 255, 255, 0.10);
   --hair-strong: rgba(255, 255, 255, 0.18);
+  /* Fixed dark panel fill for surfaces that stay dark in both
+     themes (game cabinet, boot terminal, etc). Not theme-aware. */
+  --dark-panel: #0d0a12;
 
   /* Typography */
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -37,6 +40,94 @@
   /* Layout */
   --gutter: clamp(20px, 4vw, 64px);
   --max-w: 1480px;
+
+  /* ============================================================
+     SITE THEME TOKENS (main portfolio page only) — light is the
+     default theme; HomeThemeToggle sets [data-site-theme="dark"]
+     on <html> to switch to the original dark design. Every
+     theme-aware color on the homepage funnels through these
+     tokens (and the matching dark block below) — retune a theme
+     by editing values here only.
+
+     Mirrors the same pattern used on the Turbo Seeder package
+     page (see turbo-seeder.css) and shares its light palette for
+     visual consistency across the whole site.
+
+     Exception: "boot terminal" / game / loading-screen surfaces
+     (Hero's boot window, BugSnake's game canvas + instructions,
+     the initial LoadingScreen) intentionally stay a fixed dark
+     palette in both themes — like a terminal or an arcade cabinet
+     — so they keep using --ink-*, --red, --bg-* directly instead of
+     these tokens.
+     ============================================================ */
+  --site-bg: #faf7f5;
+  --site-bg-rgb: 250, 247, 245;
+  --site-text-0: #1c1620;
+  --site-text-1: #4c4456;
+  --site-text-1-soft: #756c80;
+  --site-text-2: #655d70;
+  --site-text-3: #a89fb1;
+
+  --site-surface-rgb: 28, 22, 32;
+  --site-border: rgba(28, 22, 32, 0.10);
+  --site-border-strong: rgba(28, 22, 32, 0.16);
+
+  /* For recessed/"well" fills (inputs, status pills) that should read
+     as darker-than-surface in BOTH themes — unlike --site-surface-rgb,
+     which flips to white in dark mode for highlight-style texture. */
+  --site-well-rgb: 28, 22, 32;
+
+  --site-accent: #d81f38;
+  --site-accent-rgb: 216, 31, 56;
+  --site-ember-rgb: 255, 90, 60;
+
+  --site-shadow-card: 0 1px 2px rgba(28, 22, 32, 0.04), 0 10px 28px rgba(28, 22, 32, 0.07);
+  --site-heading-gradient: linear-gradient(180deg, #1c1620 0%, #4c4456 100%);
+  --site-panel-bg: var(--site-bg);
+
+  --site-noise-display: none;
+  --site-scanlines-display: none;
+  --site-starfield-display: none;
+
+  --site-cursor-dot: #1c1620;
+  --site-cursor-ring: rgba(216, 31, 56, 0.6);
+}
+
+[data-site-theme="dark"] {
+  --site-bg:
+    radial-gradient(1200px 800px at 80% -10%, rgba(184, 19, 42, 0.18), transparent 60%),
+    radial-gradient(1000px 700px at 0% 30%, rgba(255, 90, 60, 0.10), transparent 55%),
+    radial-gradient(900px 600px at 60% 110%, rgba(255, 45, 61, 0.14), transparent 60%),
+    var(--bg-0);
+  --site-bg-rgb: 5, 5, 16;
+  --site-text-0: var(--ink-0);
+  --site-text-1: var(--ink-1);
+  --site-text-1-soft: var(--ink-1-soft);
+  --site-text-2: var(--ink-2);
+  --site-text-3: var(--ink-3);
+
+  --site-surface-rgb: 255, 255, 255;
+  --site-border: var(--hair);
+  --site-border-strong: var(--hair-strong);
+  --site-well-rgb: 0, 0, 0;
+
+  --site-accent: var(--red);
+  --site-accent-rgb: 255, 45, 61;
+  --site-ember-rgb: 255, 90, 60;
+
+  --site-shadow-card:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(255, 45, 61, 0.04),
+    0 1px 0 rgba(0, 0, 0, 0.3);
+  --site-heading-gradient: linear-gradient(180deg, #fff 0%, #c8c8d8 100%);
+  --site-panel-bg: var(--dark-panel);
+
+  --site-noise-display: block;
+  --site-scanlines-display: block;
+  --site-starfield-display: block;
+
+  --site-cursor-dot: var(--ink-0);
+  --site-cursor-ring: rgba(255, 45, 61, 0.6);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -51,8 +142,8 @@ html, body { margin: 0; padding: 0; }
 .skip-link:focus { top: 16px; }
 
 html {
-  background: var(--bg-0);
-  color: var(--ink-0);
+  background: var(--site-bg);
+  color: var(--site-text-0);
   font-family: var(--font-mono);
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -61,19 +152,16 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  background:
-    radial-gradient(1200px 800px at 80% -10%, rgba(184, 19, 42, 0.18), transparent 60%),
-    radial-gradient(1000px 700px at 0% 30%, rgba(255, 90, 60, 0.10), transparent 55%),
-    radial-gradient(900px 600px at 60% 110%, rgba(255, 45, 61, 0.14), transparent 60%),
-    var(--bg-0);
+  background: var(--site-bg);
 }
 
-/* Ambient layers */
+/* Ambient layers — noise/scanlines/starfield are a night-sky/CRT
+   effect that only suits the dark theme; hidden by default. */
 .bg-grid {
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
   background-image:
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(var(--site-surface-rgb),0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--site-surface-rgb),0.03) 1px, transparent 1px);
   background-size: 64px 64px;
   -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 80%);
   mask-image: radial-gradient(ellipse at center, #000 40%, transparent 80%);
@@ -81,18 +169,21 @@ body {
 
 .bg-noise {
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  display: var(--site-noise-display);
   opacity: 0.06; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
 }
 
 .scanlines {
   position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  display: var(--site-scanlines-display);
   background: repeating-linear-gradient(to bottom, transparent 0, transparent 3px, rgba(255,255,255,0.015) 3px, rgba(255,255,255,0.015) 4px);
   mix-blend-mode: overlay;
 }
 
 .starfield {
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  display: var(--site-starfield-display);
 }
 
 ::selection { background: var(--ember); color: #000; }
@@ -108,7 +199,7 @@ body {
 .cursor-orb {
   width: 36px; height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 45, 61, 0.6);
+  border: 1px solid var(--site-cursor-ring);
   background: radial-gradient(circle at 30% 30%, rgba(255, 45, 61, 0.25), rgba(184, 19, 42, 0.10) 60%, transparent 75%);
   box-shadow: 0 0 24px rgba(255, 45, 61, 0.35), inset 0 0 12px rgba(255, 90, 60, 0.20);
   transform: translate(-50%, -50%);
@@ -118,7 +209,7 @@ body {
 .cursor-dot {
   width: 5px; height: 5px;
   border-radius: 50%;
-  background: var(--ink-0);
+  background: var(--site-cursor-dot);
   transform: translate(-50%, -50%);
   box-shadow: 0 0 8px rgba(255,255,255,0.9);
 }
@@ -173,17 +264,14 @@ body {
 /* Glass primitive */
 .glass {
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.012) 50%, rgba(255,90,60,0.025) 100%),
-    var(--glass);
-  border: 1px solid var(--hair);
+    linear-gradient(135deg, rgba(var(--site-surface-rgb),0.045) 0%, rgba(var(--site-surface-rgb),0.012) 50%, rgba(var(--site-ember-rgb),0.025) 100%),
+    rgba(var(--site-surface-rgb), 0.04);
+  border: 1px solid var(--site-border);
   backdrop-filter: blur(22px) saturate(150%);
   -webkit-backdrop-filter: blur(22px) saturate(150%);
   border-radius: 16px;
   position: relative;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(255, 45, 61, 0.04),
-    0 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: var(--site-shadow-card);
   isolation: isolate;
 }
 .glass::before {
@@ -215,25 +303,28 @@ body {
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--site-text-2);
   display: inline-flex; align-items: center; gap: 8px;
 }
 .hud-label::before {
   content: "";
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--red);
-  box-shadow: 0 0 8px var(--red);
+  background: var(--site-accent);
+  box-shadow: 0 0 8px var(--site-accent);
 }
 
 .section-num {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
-  color: var(--ink-2);
+  color: var(--site-text-2);
   text-transform: uppercase;
 }
 
-/* Buttons */
+/* Buttons — shared with the Turbo Seeder package page, which has
+   its own higher-specificity ".ts-page .btn" override, so the
+   homepage-only retint below only takes effect when .ts-page is
+   absent from the document. */
 .btn {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -255,6 +346,15 @@ body {
   border-color: var(--crimson);
   box-shadow: 0 0 24px rgba(255, 45, 61, 0.25), inset 0 0 12px rgba(255, 45, 61, 0.08);
   transform: translateY(-1px);
+}
+html:not([data-site-theme="dark"]) body:not(:has(.ts-page)) .btn:not(.btn-primary) {
+  background: rgba(var(--site-surface-rgb), 0.04);
+  border-color: var(--site-border-strong);
+  color: var(--site-text-0);
+}
+html:not([data-site-theme="dark"]) body:not(:has(.ts-page)) .btn:not(.btn-primary):hover {
+  border-color: var(--site-accent);
+  box-shadow: 0 0 24px rgba(var(--site-accent-rgb), 0.25), inset 0 0 12px rgba(var(--site-accent-rgb), 0.08);
 }
 .btn-primary {
   background: linear-gradient(135deg, var(--ember), var(--crimson));
@@ -287,20 +387,28 @@ body {
 .section-head {
   display: flex; align-items: center; justify-content: space-between;
   gap: 24px; margin-bottom: 56px;
-  border-bottom: 1px dashed var(--hair);
+  border-bottom: 1px dashed var(--site-border);
   padding-bottom: 28px;
 }
 
 /* Glow text */
-.glow-cyan { color: var(--red); text-shadow: 0 0 18px rgba(255, 45, 61, 0.5); }
+.glow-cyan { color: var(--site-accent); text-shadow: 0 0 18px rgba(var(--site-accent-rgb), 0.5); }
 .glow-magenta { color: var(--ember); text-shadow: 0 0 18px rgba(255, 90, 60, 0.5); }
 
-/* Glitch */
+/* Glitch — the offset duplicate layers screen-blend against whatever
+   sits behind them; that reads as a subtle glow around light text on
+   a dark page, but on a light page with dark text it inverts into a
+   loud red outline traced onto the letters. Only enabled in dark mode. */
 .glitch { position: relative; display: inline-block; }
 .glitch::before, .glitch::after {
   content: attr(data-text);
   position: absolute; inset: 0;
   pointer-events: none;
+  opacity: 0;
+}
+[data-site-theme="dark"] .glitch::before,
+[data-site-theme="dark"] .glitch::after {
+  opacity: 1;
 }
 .glitch::before {
   color: var(--ember);
