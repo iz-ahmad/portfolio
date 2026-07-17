@@ -90,7 +90,11 @@
 
   --site-noise-display: none;
   --site-scanlines-display: none;
-  --site-starfield-display: none;
+  /* Unlike noise/scanlines (mix-blend-mode overlays that only work over
+     a dark page), the starfield is plain solid-colour dots with no
+     blend mode, and Starfield.tsx itself mutes/retints them for light
+     mode — so it can stay visible in both themes. */
+  --site-starfield-display: block;
 
   --site-cursor-dot: #1c1620;
   --site-cursor-ring: rgba(216, 31, 56, 0.6);
