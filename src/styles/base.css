@@ -81,9 +81,12 @@
   --site-accent-rgb: 216, 31, 56;
   --site-ember-rgb: 255, 90, 60;
 
-  --site-shadow-card: 0 1px 2px rgba(28, 22, 32, 0.04), 0 10px 28px rgba(28, 22, 32, 0.07);
+  --site-shadow-card: 0 1px 2px rgba(28, 22, 32, 0.05), 0 14px 32px rgba(28, 22, 32, 0.08);
   --site-heading-gradient: linear-gradient(180deg, #1c1620 0%, #4c4456 100%);
-  --site-panel-bg: var(--site-bg);
+  /* A touch brighter than --site-bg so opaque card backings (record
+     rows, transmission cards, film-strip info panels) read as raised
+     panels instead of blending flat into the page. */
+  --site-panel-bg: #ffffff;
 
   --site-noise-display: none;
   --site-scanlines-display: none;
@@ -248,7 +251,7 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-0);
-  background: rgba(0,0,0,0.6);
+  background: rgba(5, 5, 16, 0.85);
   border: 1px solid var(--hair-strong);
   padding: 4px 8px;
   border-radius: 999px;
