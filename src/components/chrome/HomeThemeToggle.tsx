@@ -13,10 +13,11 @@ function applyTheme(theme: 'light' | 'dark') {
 }
 
 export function HomeThemeToggle() {
-  // Render as light on the server so SSR matches the first client paint —
-  // the blocking inline script (see layout.tsx) already applied the real
-  // stored theme before this component mounts, avoiding a flash.
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  // Render as dark on the server so SSR matches the first client paint —
+  // the blocking inline script (see page.tsx) already applied the real
+  // stored theme before this component mounts, avoiding a flash. Dark is
+  // the default theme for the homepage.
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export function HomeThemeToggle() {
     setTheme(next)
   }
 
-  const isDark = mounted && theme === 'dark'
+  const isDark = !mounted || theme === 'dark'
 
   return (
     <button
