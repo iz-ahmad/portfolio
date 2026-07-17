@@ -29,7 +29,7 @@
   margin: 0 auto;
   width: 100%;
   gap: 24px;
-  border-bottom: 1px dashed var(--hair);
+  border-bottom: 1px dashed var(--site-border);
 }
 .tx-header-left { min-width: 0; }
 .tx-progress {
@@ -38,7 +38,7 @@
   min-width: 260px;
 }
 .tx-progress-bar {
-  width: 240px; height: 2px; background: var(--hair);
+  width: 240px; height: 2px; background: var(--site-border);
   position: relative; overflow: hidden;
 }
 .tx-progress-fill {
@@ -53,11 +53,11 @@
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
 }
-.tx-progress-meta .muted { color: var(--ink-2); }
+.tx-progress-meta .muted { color: var(--site-text-2); }
 .tx-progress-label {
   font-family: var(--font-mono); font-size: 10px;
   letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--site-text-2);
 }
 
 /* Filmstrip track */
@@ -84,10 +84,10 @@
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid var(--hair);
+  border: 1px solid var(--site-border);
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 50%, rgba(255,90,60,0.025) 100%),
-    rgba(8, 8, 22, 0.7);
+    linear-gradient(135deg, rgba(var(--site-surface-rgb),0.04) 0%, rgba(var(--site-surface-rgb),0.01) 50%, rgba(var(--site-ember-rgb),0.025) 100%),
+    var(--site-panel-bg);
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -97,9 +97,9 @@
 
 .tx-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 45, 61, 0.45);
+  border-color: rgba(var(--site-accent-rgb), 0.45);
   box-shadow:
-    0 30px 80px -30px rgba(255, 45, 61, 0.4),
+    0 30px 80px -30px rgba(var(--site-accent-rgb), 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
@@ -129,22 +129,22 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 22px;
-  border-bottom: 1px dashed var(--hair);
+  border-bottom: 1px dashed var(--site-border);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--site-text-2);
 }
 .tx-id {
   display: inline-flex; align-items: center; gap: 8px;
-  color: var(--red);
+  color: var(--site-accent);
 }
 .tx-id::before {
   content: "";
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--red);
-  box-shadow: 0 0 8px var(--red);
+  background: var(--site-accent);
+  box-shadow: 0 0 8px var(--site-accent);
   animation: txPulse 2s ease-in-out infinite;
 }
 @keyframes txPulse {
@@ -165,8 +165,8 @@
 .tx-signal span:nth-child(3) { height: 75%; }
 .tx-signal span:nth-child(4) { height: 100%; }
 .tx-signal.weak span:nth-child(3),
-.tx-signal.weak span:nth-child(4) { opacity: 0.18; background: var(--ink-2); }
-.tx-signal.med span:nth-child(4)  { opacity: 0.18; background: var(--ink-2); }
+.tx-signal.weak span:nth-child(4) { opacity: 0.18; background: var(--site-text-2); }
+.tx-signal.med span:nth-child(4)  { opacity: 0.18; background: var(--site-text-2); }
 
 /* Quote body */
 .tx-card-body {
@@ -181,7 +181,7 @@
   font-family: var(--font-display);
   font-size: 72px;
   line-height: 0.6;
-  color: rgba(255, 45, 61, 0.18);
+  color: rgba(var(--site-accent-rgb), 0.18);
   margin: 0 0 -20px;
   pointer-events: none;
   user-select: none;
@@ -191,7 +191,7 @@
   font-size: 17px;
   line-height: 1.55;
   letter-spacing: -0.01em;
-  color: var(--ink-0);
+  color: var(--site-text-0);
   margin: 0;
   flex: 1;
   font-weight: 400;
@@ -199,7 +199,7 @@
 .tx-quote.short-quote {
   font-size: 20px;
 }
-.tx-card:nth-child(3n) .tx-mark { color: rgba(255, 90, 60, 0.18); }
+.tx-card:nth-child(3n) .tx-mark { color: rgba(var(--site-ember-rgb), 0.18); }
 
 /* Decoded badge */
 .tx-meta-row {
@@ -208,13 +208,13 @@
   justify-content: space-between;
   gap: 12px;
   padding-top: 14px;
-  border-top: 1px dashed rgba(255,255,255,0.07);
+  border-top: 1px dashed rgba(var(--site-surface-rgb), 0.07);
 }
 .tx-decoded {
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.2em;
-  color: var(--ink-2);
+  color: var(--site-text-2);
   text-transform: uppercase;
   display: inline-flex; align-items: center; gap: 6px;
 }
@@ -229,18 +229,24 @@
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.18em;
-  color: var(--ink-2);
+  color: var(--site-text-2);
   text-transform: uppercase;
 }
 
 /* Card footer — source attribution */
 .tx-card-foot {
   padding: 18px 22px 22px;
-  border-top: 1px solid var(--hair);
-  background: rgba(0,0,0,0.25);
+  border-top: 1px solid var(--site-border);
+  background: rgba(var(--site-well-rgb), 0.05);
   display: flex;
   align-items: center;
   gap: 14px;
+}
+/* Exact original dark-mode footer shade — the light default above
+   is deliberately much softer so the strip doesn't read as a flat
+   grey slab against the light card. */
+[data-site-theme="dark"] .tx-card-foot {
+  background: rgba(0, 0, 0, 0.25);
 }
 .tx-card-foot > div { min-width: 0; flex: 1 1 auto; }
 .tx-avatar {
@@ -252,19 +258,19 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--ink-0);
+  color: var(--site-text-0);
   background:
-    radial-gradient(circle at 30% 30%, rgba(255, 45, 61, 0.4), rgba(184, 19, 42, 0.25) 60%, transparent 80%),
-    rgba(10, 10, 24, 0.8);
-  border: 1px solid rgba(255, 45, 61, 0.4);
+    radial-gradient(circle at 30% 30%, rgba(var(--site-accent-rgb), 0.4), rgba(184, 19, 42, 0.25) 60%, transparent 80%),
+    var(--site-panel-bg);
+  border: 1px solid rgba(var(--site-accent-rgb), 0.4);
   flex-shrink: 0;
-  box-shadow: 0 0 12px rgba(255, 45, 61, 0.18);
+  box-shadow: 0 0 12px rgba(var(--site-accent-rgb), 0.18);
 }
 .tx-who {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.14em;
-  color: var(--ink-0);
+  color: var(--site-text-0);
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -272,7 +278,7 @@
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: var(--ink-2);
+  color: var(--site-text-2);
   margin-top: 3px;
 }
 .tx-role span { color: var(--ember); }
@@ -285,8 +291,8 @@
   height: auto;
   padding: 36px 28px;
   border-radius: 18px;
-  border: 1px dashed var(--hair-strong);
-  background: rgba(8, 8, 22, 0.55);
+  border: 1px dashed var(--site-border-strong);
+  background: var(--site-panel-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -297,22 +303,22 @@
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--site-text-2);
   display: inline-flex; align-items: center; gap: 8px;
 }
 .tx-end .hud-label::before {
   content: "";
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--red); box-shadow: 0 0 8px var(--red);
+  background: var(--site-accent); box-shadow: 0 0 8px var(--site-accent);
 }
 .tx-end-msg {
   font-family: var(--font-display);
   font-size: 20px;
   line-height: 1.4;
-  color: var(--ink-1);
+  color: var(--site-text-1);
 }
 .tx-end-msg a {
-  color: var(--red);
+  color: var(--site-accent);
   text-decoration: none;
   border-bottom: 1px solid currentColor;
 }
@@ -326,7 +332,7 @@
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.3em;
-  color: var(--ink-1);
+  color: var(--site-text-1);
   animation: txHint 2s ease-in-out infinite;
 }
 @keyframes txHint {
@@ -337,7 +343,7 @@
 @media (max-width: 1279px) {
   .tx-wrap { height: auto; }
   .tx-sticky { position: relative; height: auto; overflow: visible; display: block; }
-  .tx-header { padding: 56px 24px 20px; flex-wrap: wrap; gap: 14px; border-bottom: 1px dashed var(--hair); }
+  .tx-header { padding: 56px 24px 20px; flex-wrap: wrap; gap: 14px; border-bottom: 1px dashed var(--site-border); }
   .tx-progress { display: none; }
   .tx-progress-bar { display: none; }
   .tx-track-wrap { overflow: visible; padding: 24px 24px 40px; }
@@ -366,7 +372,7 @@
   .tx-end-msg { font-size: 16px; flex: 1; }
   .tx-scroll-hint { display: none; }
   .tx-quote { font-size: 15px; }
-  .tx-quote.short-quote { font-size: 17px; }  
+  .tx-quote.short-quote { font-size: 17px; }
 }
 
 /* ── Mobile (≤639) — single column ─────────────────────────── */
@@ -381,7 +387,7 @@
   .tx-card-body { padding: 18px 18px 14px; gap: 14px; }
   .tx-mark { font-size: 64px; margin-bottom: -18px; }
   .tx-quote { font-size: 14px; line-height: 1.55; }
-  .tx-quote.short-quote { font-size: 15px; }  
+  .tx-quote.short-quote { font-size: 15px; }
   .tx-card-foot { padding: 14px 16px 16px; gap: 12px; }
   .tx-avatar { width: 36px; height: 36px; font-size: 12px; }
   .tx-who { font-size: 11px; }
