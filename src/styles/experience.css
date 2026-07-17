@@ -175,6 +175,8 @@
   -webkit-background-clip: text;
   background-clip: text;
 }
+/* Light default: a clean outline badge, no fill — the solid dark-mode
+   pill (below) would read as a flat ash-grey block on a white card. */
 .exp2-status {
   display: inline-flex;
   align-items: center;
@@ -187,8 +189,11 @@
   padding: 5px 10px;
   border: 1px solid var(--site-border-strong);
   border-radius: 4px;
-  background: rgba(var(--site-well-rgb), 0.3);
+  background: transparent;
   align-self: flex-start;
+}
+[data-site-theme="dark"] .exp2-status {
+  background: rgba(0, 0, 0, 0.3);
 }
 .exp2-status::before {
   content: "";
@@ -198,6 +203,10 @@
 .exp2-row.is-current .exp2-status {
   border-color: rgba(var(--site-accent-rgb), 0.4);
   color: var(--site-text-0);
+  background: rgba(var(--site-accent-rgb), 0.06);
+}
+[data-site-theme="dark"] .exp2-row.is-current .exp2-status {
+  background: rgba(0, 0, 0, 0.3);
 }
 .exp2-row.is-current .exp2-status::before {
   background: var(--site-accent);
