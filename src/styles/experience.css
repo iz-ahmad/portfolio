@@ -12,39 +12,6 @@
   margin: 0 auto;
 }
 
-/* The terminal-style header strip above the stack */
-.exp2-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--site-text-2);
-  border-radius: 6px;
-  background: rgba(var(--site-surface-rgb), 0.035);
-}
-/* Exact original dark-mode strip (a near-opaque terminal-black bar) —
-   too strong a value to derive from the ink-tint token, so it's
-   pinned directly rather than via --site-surface-rgb. */
-[data-site-theme="dark"] .exp2-meta {
-  background: rgba(5, 5, 16, 0.4);
-}
-.exp2-meta .exp2-meta-dot {
-  display: inline-flex; align-items: center; gap: 8px;
-}
-.exp2-meta .exp2-meta-dot::before {
-  content: "";
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--site-accent);
-  box-shadow: 0 0 8px var(--site-accent);
-}
-.exp2-meta-cluster { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
-.exp2-meta-cluster span { color: var(--site-text-2); }
-.exp2-meta-cluster span b { color: var(--site-text-0); font-weight: 500; letter-spacing: 0.12em; }
-
 /* A single record/dossier row */
 .exp2-row {
   position: relative;
@@ -399,6 +366,4 @@
   .exp2-blurb { font-size: 14px; line-height: 1.6; }
   .exp2-id { display: none; }
   .exp2-foot { font-size: 9px; flex-wrap: wrap; gap: 8px; }
-  .exp2-meta { font-size: 9px; }
-  .exp2-meta-cluster { gap: 10px; }
 }
