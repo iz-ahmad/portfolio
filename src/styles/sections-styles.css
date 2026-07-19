@@ -275,47 +275,70 @@
 .orbit-stage.paused .orbit-orbital { animation-play-state: paused; }
 @keyframes orbit { from { transform: rotate(0deg) translateX(var(--r, 150px)) rotate(0deg); } to { transform: rotate(360deg) translateX(var(--r, 150px)) rotate(-360deg); } }
 
-/* The orbit satellites are an always-dark "constellation" visual —
-   their light text only reads against a dark backing, so each pill
-   layers its color tint over an opaque --dark-panel rather than the
-   page background (which flips light in light mode). */
+/* Light default: satellites read as ordinary tinted chips, same
+   family as .exp2-tags .chip. Dark mode keeps its original opaque
+   "constellation" pill treatment, pinned via the overrides below. */
 .sat {
   position: absolute; transform: translate(-50%, -50%);
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
   padding: 8px 14px; border-radius: 999px;
-  background: linear-gradient(rgba(10,10,24,0.7), rgba(10,10,24,0.7)), var(--dark-panel);
-  color: var(--ink-0);
-  border: 1px solid var(--hair-strong);
+  background: rgba(var(--site-surface-rgb), 0.04);
+  color: var(--site-text-1);
+  border: 1px solid var(--site-border-strong);
   cursor: none; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   white-space: nowrap;
   transition: transform 200ms var(--ease-out), box-shadow 200ms;
 }
-/* Ring 1 — CORE: bright red glow, solid border */
+[data-site-theme="dark"] .sat {
+  background: linear-gradient(rgba(10,10,24,0.7), rgba(10,10,24,0.7)), var(--dark-panel);
+  color: var(--ink-0);
+  border-color: var(--hair-strong);
+}
+/* Ring 1 — CORE */
 .sat-cyan {
+  border-color: rgba(var(--site-accent-rgb), 0.5);
+  background: rgba(var(--site-accent-rgb), 0.08);
+  color: var(--site-text-0);
+  box-shadow: 0 0 14px rgba(var(--site-accent-rgb), 0.15);
+  font-weight: 600;
+}
+[data-site-theme="dark"] .sat-cyan {
   border-color: var(--red);
   background: linear-gradient(rgba(255, 45, 61, 0.12), rgba(255, 45, 61, 0.12)), var(--dark-panel);
   color: var(--ink-0);
   box-shadow: 0 0 22px rgba(255, 45, 61, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  font-weight: 600;
 }
-/* Ring 2 — STRONG: ember/orange */
+/* Ring 2 — STRONG */
 .sat-magenta {
+  border-color: rgba(255, 90, 60, 0.45);
+  background: rgba(255, 90, 60, 0.07);
+  color: var(--site-text-1);
+}
+[data-site-theme="dark"] .sat-magenta {
   border-color: rgba(255, 90, 60, 0.7);
   background: linear-gradient(rgba(255, 90, 60, 0.07), rgba(255, 90, 60, 0.07)), var(--dark-panel);
   color: var(--ink-1);
   box-shadow: 0 0 14px rgba(255, 90, 60, 0.25);
 }
-/* Ring 3 — FAMILIAR: dim crimson */
+/* Ring 3 — FAMILIAR */
 .sat-violet {
+  border-color: rgba(184, 19, 42, 0.4);
+  background: rgba(184, 19, 42, 0.06);
+  color: var(--site-text-1);
+}
+[data-site-theme="dark"] .sat-violet {
   border-color: rgba(184, 19, 42, 0.65);
   background: linear-gradient(rgba(184, 19, 42, 0.08), rgba(184, 19, 42, 0.08)), var(--dark-panel);
   color: var(--ink-1);
   box-shadow: 0 0 10px rgba(184, 19, 42, 0.2);
 }
 .sat:hover { transform: translate(-50%, -50%) scale(1.18); }
-.sat-cyan:hover { box-shadow: 0 0 32px rgba(255, 45, 61, 0.7), inset 0 1px 0 rgba(255,255,255,0.18); }
-.sat-magenta:hover { box-shadow: 0 0 22px rgba(255, 90, 60, 0.5); }
-.sat-violet:hover { box-shadow: 0 0 16px rgba(184, 19, 42, 0.4); color: var(--ink-1); }
+.sat-cyan:hover { box-shadow: 0 0 16px rgba(var(--site-accent-rgb), 0.3); }
+[data-site-theme="dark"] .sat-cyan:hover { box-shadow: 0 0 32px rgba(255, 45, 61, 0.7), inset 0 1px 0 rgba(255,255,255,0.18); }
+.sat-magenta:hover { box-shadow: 0 0 12px rgba(255, 90, 60, 0.3); }
+[data-site-theme="dark"] .sat-magenta:hover { box-shadow: 0 0 22px rgba(255, 90, 60, 0.5); }
+.sat-violet:hover { box-shadow: 0 0 10px rgba(184, 19, 42, 0.25); color: var(--site-text-0); }
+[data-site-theme="dark"] .sat-violet:hover { box-shadow: 0 0 16px rgba(184, 19, 42, 0.4); color: var(--ink-1); }
 
 .orbit-legend { padding: 22px; border-radius: 14px; }
 .legend-row { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11px; color: var(--site-text-1); padding: 8px 0; letter-spacing: 0.12em; text-transform: uppercase; }
