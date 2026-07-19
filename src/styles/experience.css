@@ -166,7 +166,7 @@
   display: block;
 }
 .exp2-row.is-current .exp2-year {
-  background: linear-gradient(180deg, var(--site-text-0) 0%, var(--ember) 100%);
+  background: linear-gradient(180deg, var(--site-accent) 0%, var(--ember) 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
