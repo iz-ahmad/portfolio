@@ -42,9 +42,9 @@ export function Starfield() {
     window.addEventListener('scroll', onScroll, { passive: true })
 
     // Dark mode keeps the original bright night-sky palette; light mode
-    // reacts live to the theme toggle and draws the same field muted and
-    // ink-tinted (white would be invisible on a light page) so it reads
-    // as a faint textural accent instead of stars against daylight.
+    // reacts live to the theme toggle and draws the same field at the
+    // same opacity, just ink-tinted instead of white (which would be
+    // invisible on a light page).
     let isDark = document.documentElement.getAttribute('data-site-theme') === 'dark'
     const themeObserver = new MutationObserver(() => {
       isDark = document.documentElement.getAttribute('data-site-theme') === 'dark'
@@ -54,13 +54,12 @@ export function Starfield() {
     let raf: number
     const draw = () => {
       ctx.clearRect(0, 0, w, h)
-      const dim = isDark ? 1 : 0.32
       for (const s of stars) {
         s.tw += 0.02
         const px = s.x + mx * s.z * 18 * dpr
         const py = s.y + my * s.z * 18 * dpr - ((sy * 0.05 * s.z) % h)
         const tw = (Math.sin(s.tw) + 1) * 0.5
-        const a = ((0.4 + tw * 0.6) / s.z * 0.6) * dim
+        const a = (0.4 + tw * 0.6) / s.z * 0.6
         let color = isDark ? `rgba(255,255,255,${a})` : `rgba(28,22,32,${a})`
         if (s.hue === 'cyan') color = isDark ? `rgba(255,45,61,${a})` : `rgba(216,31,56,${a})`
         if (s.hue === 'magenta') color = `rgba(255,90,60,${a})`
