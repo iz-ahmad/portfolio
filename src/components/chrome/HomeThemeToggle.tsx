@@ -13,10 +13,6 @@ function applyTheme(theme: 'light' | 'dark') {
 }
 
 export function HomeThemeToggle() {
-  // Render as dark on the server so SSR matches the first client paint —
-  // the blocking inline script (see page.tsx) already applied the real
-  // stored theme before this component mounts, avoiding a flash. Dark is
-  // the default theme for the homepage.
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
   const [mounted, setMounted] = useState(false)
 
@@ -44,7 +40,8 @@ export function HomeThemeToggle() {
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       suppressHydrationWarning
     >
-      <span aria-hidden>{isDark ? '☀' : '☾'}</span>
+      <span className={`hud-theme-icon-light ${isDark ? 'visible' : 'hidden'}`} aria-hidden>☀</span>
+      <span className={`hud-theme-icon-dark ${isDark ? 'hidden' : 'visible'}`} aria-hidden>☾</span>
     </button>
   )
 }
