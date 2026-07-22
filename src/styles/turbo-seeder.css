@@ -122,6 +122,10 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   line-height: 1;
   transition: border-color 200ms ease, transform 200ms var(--ease-out);
 }
+.ts-theme-toggle span {
+  display: block;
+  transform: translate(2px, 3px);
+}
 .ts-theme-toggle:hover { border-color: var(--accent); transform: translateY(-1px); }
 
 /* ── Nav ─────────────────────────────────────────────────── */
