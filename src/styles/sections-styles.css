@@ -47,15 +47,14 @@
   pointer-events: auto;
   transition: color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
-.hud-theme-toggle span {
-  display: block;
-  transform: translate(2px, 2px);
-}
 .hud-theme-toggle:hover {
   color: var(--site-text-0);
   border-color: var(--site-accent);
   box-shadow: 0 0 8px rgba(var(--site-accent-rgb), 0.4);
 }
+.hud-theme-icon-light.visible, .hud-theme-icon-dark.visible { display: block; }
+.hud-theme-icon-light.hidden, .hud-theme-icon-dark.hidden { display: none; }
+.hud-theme-icon-dark { transform: translate(1px, 0px); }
 
 /* Side nav */
 .side-nav {

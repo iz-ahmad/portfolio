@@ -118,15 +118,14 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   background: rgba(var(--ts-surface-rgb), 0.04);
   color: var(--ts-text-0);
   cursor: none;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
   transition: border-color 200ms ease, transform 200ms var(--ease-out);
 }
-.ts-theme-toggle span {
-  display: block;
-  transform: translate(2px, 3px);
-}
 .ts-theme-toggle:hover { border-color: var(--accent); transform: translateY(-1px); }
+.ts-theme-icon-light.visible, .ts-theme-icon-dark.visible { display: block; }
+.ts-theme-icon-light.hidden, .ts-theme-icon-dark.hidden { display: none; }
+.ts-theme-icon-dark { transform: translate(2px, 0px); }
 
 /* ── Nav ─────────────────────────────────────────────────── */
 .ts-nav {
