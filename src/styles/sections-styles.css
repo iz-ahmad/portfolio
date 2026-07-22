@@ -42,10 +42,14 @@
   border-radius: 50%;
   border: 1px solid var(--site-border-strong);
   background: transparent;
-  color: var(--site-text-2);
+  color: var(--site-text-0);
   font-size: 11px; line-height: 1; padding: 0;
   pointer-events: auto;
   transition: color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.hud-theme-toggle span {
+  display: block;
+  transform: translate(2px, 2px);
 }
 .hud-theme-toggle:hover {
   color: var(--site-text-0);
