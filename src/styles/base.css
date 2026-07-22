@@ -211,6 +211,11 @@ body {
   box-shadow: 0 0 24px rgba(255, 45, 61, 0.35), inset 0 0 12px rgba(255, 90, 60, 0.20);
   transform: translate(-50%, -50%);
   transition: width 280ms var(--ease-spring), height 280ms var(--ease-spring), border-color 200ms ease, background 200ms ease;
+  mix-blend-mode: normal;
+}
+/* Screen-blend needs a dark backdrop to read — on a light page it
+   washes the whole orb out to near-invisible, so it's dark-mode only. */
+[data-site-theme="dark"] .cursor-orb {
   mix-blend-mode: screen;
 }
 .cursor-dot {
@@ -237,8 +242,13 @@ body {
 .cursor-orb.is-text {
   width: 4px; height: 28px;
   border-radius: 2px;
-  background: var(--red);
+  background: var(--site-accent);
   border: none;
+  mix-blend-mode: normal;
+  box-shadow: 0 0 10px rgba(var(--site-accent-rgb), 0.7);
+}
+[data-site-theme="dark"] .cursor-orb.is-text {
+  background: var(--red);
   mix-blend-mode: difference;
   box-shadow: 0 0 10px rgba(255, 45, 61, 0.7);
 }
@@ -402,16 +412,17 @@ html:not([data-site-theme="dark"]) body:not(:has(.ts-page)) .btn:not(.btn-primar
 .glow-cyan { color: var(--site-accent); text-shadow: 0 0 18px rgba(var(--site-accent-rgb), 0.5); }
 .glow-magenta { color: var(--ember); text-shadow: 0 0 18px rgba(255, 90, 60, 0.5); }
 
-/* Glitch — the offset duplicate layers screen-blend against whatever
-   sits behind them; that reads as a subtle glow around light text on
-   a dark page, but on a light page with dark text it inverts into a
-   loud red outline traced onto the letters. Only enabled in dark mode. */
+/* Glitch — the offset duplicate layers blend against whatever sits
+   behind them. Screen-blend reads as a subtle glow around light text
+   on a dark page, but inverts into a loud outline on dark text over a
+   light page — so light mode swaps to multiply, which instead shows
+   as soft colour fringing in the gaps around the letters. */
 .glitch { position: relative; display: inline-block; }
 .glitch::before, .glitch::after {
   content: attr(data-text);
   position: absolute; inset: 0;
   pointer-events: none;
-  opacity: 0;
+  opacity: 0.4;
 }
 [data-site-theme="dark"] .glitch::before,
 [data-site-theme="dark"] .glitch::after {
@@ -420,16 +431,23 @@ html:not([data-site-theme="dark"]) body:not(:has(.ts-page)) .btn:not(.btn-primar
 .glitch::before {
   color: var(--ember);
   transform: translate(2px, 0);
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
   clip-path: inset(0 0 60% 0);
   animation: glitch-1 4s infinite linear alternate;
 }
 .glitch::after {
-  color: var(--red);
+  color: var(--site-accent);
   transform: translate(-2px, 0);
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
   clip-path: inset(60% 0 0 0);
   animation: glitch-2 5s infinite linear alternate;
+}
+[data-site-theme="dark"] .glitch::before {
+  mix-blend-mode: screen;
+}
+[data-site-theme="dark"] .glitch::after {
+  color: var(--red);
+  mix-blend-mode: screen;
 }
 @keyframes glitch-1 {
   0%,90%,100% { transform: translate(0,0); }
