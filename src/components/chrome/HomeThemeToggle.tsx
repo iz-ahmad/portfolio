@@ -44,7 +44,7 @@ export function HomeThemeToggle() {
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       suppressHydrationWarning
     >
-      {isDark ? '☀' : '☾'}
+      <span aria-hidden>{isDark ? '☀' : '☾'}</span>
     </button>
   )
 }
