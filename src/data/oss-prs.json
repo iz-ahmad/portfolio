@@ -68,7 +68,7 @@
     {
     "repo": "laravel/installer",
     "num": 562,
-    "branch": "5.32.0",
+    "branch": "master",
     "title": "Use the selected package manager in the ci:check script in composer.json",
     "desc": "When creating a new Laravel app with an explicit Node package manager flag (`--bun/--pnpm/--yarn`), ensure that `configureComposerScripts()` now rewrites the npm tokens correctly in the generated `composer.json` for all scripts",
     "status": "merged",
@@ -78,13 +78,13 @@
   },
   {
     "repo": "me-shaon/laravel-request-analytics",
-    "num": 79,
+    "num": 92,
     "branch": "main",
-    "title": "Contributed in Laravel Request Analytics",
-    "desc": "Several PRs got merged here, which contained some feature work and fixes for the request analytics package.",
+    "title": "Contributed in Laravel Request Analytics Package",
+    "desc": "Several PRs got merged here, which contained some feature works and fixes for the package.",
     "status": "merged",
     "tag": "pkg",
-    "url": "https://github.com/me-shaon/laravel-request-analytics/pull/79",
+    "url": "https://github.com/me-shaon/laravel-request-analytics/pull/92",
     "weight": 4
   }
 ]
