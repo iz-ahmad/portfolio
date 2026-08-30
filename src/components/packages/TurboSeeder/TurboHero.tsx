@@ -40,6 +40,16 @@ export function TurboHero() {
             A high-performance database seeder built for production-scale data generation with minimal time and memory.
           </p>
 
+          {/* version badges */}
+          <div className="ts-version-badges">
+            {data.versionBadges.map((b) => (
+              <span key={b.label} className="ts-version-badge">
+                {b.sub && <span className="ts-version-badge-sub">{b.sub}</span>}
+                {b.label}
+              </span>
+            ))}
+          </div>
+
           {/* metric badges */}
           <div className="ts-metrics">
             {data.metrics.map((m) => (
