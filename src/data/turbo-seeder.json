@@ -2,6 +2,15 @@
   "install": "composer require iz-ahmad/laravel-turbo-seeder",
   "githubUrl": "https://github.com/iz-ahmad/laravel-turbo-seeder/",
   "docsUrl": "https://github.com/iz-ahmad/laravel-turbo-seeder/#readme",
+  "versionBadges": [
+    { "label": "v1.0.0", "sub": "Packagist" },
+    { "label": "8.2+", "sub": "PHP" },
+    { "label": "10-13", "sub": "Laravel" }
+  ],
+  "requirements": [
+    { "label": "PHP", "value": "8.2+" },
+    { "label": "Laravel", "value": "10.x · 11.x · 12.x · 13.x" }
+  ],
   "metrics": [
     { "value": "~20s", "label": "1M rows", "accent": true },
     { "value": "< 200 MB", "label": "Peak memory", "accent": false },
@@ -11,9 +20,9 @@
     "title": "artisan — turbo-seeder:run",
     "progressBar": "████████████████████████",
     "progressPct": "100%",
-    "seedTime": "19.4s",
-    "seedMem": "124 MB",
-    "seedRate": "51,546 rows/s"
+    "seedTime": "15.4s",
+    "seedMem": "~2 MB",
+    "seedRate": "64,935 rows/s"
   },
   "comparisonTable": [
     { "scenario": "Simple table",   "standard": "~30 min",   "turbo": "~20s" },
@@ -82,6 +91,28 @@
     { "title": "Type formatting",     "desc": "Enums, JSON, dates, arrays — automatic" },
     { "title": "Progress tracking",   "desc": "Real-time bar with live metrics" },
     { "title": "Dry run",             "desc": "Validate generation without committing" },
-    { "title": "Laravel 10–13",       "desc": "PHP 8.2+ · CI/CD ready" }
+    { "title": "Events",              "desc": "Starting, Completed, Failed — hook into every run" }
+  ],
+  "faq": [
+    {
+      "q": "What PHP and Laravel versions are supported?",
+      "a": "PHP 8.2+ and Laravel 10.x through 13.x. It auto-registers via Laravel's package discovery — no manual provider setup needed."
+    },
+    {
+      "q": "Which databases can I seed?",
+      "a": "MySQL 5.7+, PostgreSQL 9.6+, and SQLite 3.24+. The CSV strategy is fastest on MySQL and PostgreSQL; SQLite generally does better with the default bulk-insert strategy."
+    },
+    {
+      "q": "Should I use fromFactory() or generate()?",
+      "a": "Use `fromFactory()` to reuse your existing factory as-is — best for up to ~500k rows. Use `generate()` with the Faker-free TurboData helpers for 500k+ rows, where it's the fastest and most memory-predictable path."
+    },
+    {
+      "q": "Does the CSV strategy need extra setup?",
+      "a": "PostgreSQL needs nothing extra. MySQL just requires `local_infile` enabled both client- and server-side. Run `php artisan turbo-seeder:test-connection` to check. If it's unavailable, TurboSeeder falls back to the default strategy automatically."
+    },
+    {
+      "q": "Is it safe to run against a production database?",
+      "a": "By default, every run is guared - refused outside `local/testing` environments. The CLI command prompts for confirmation (use `--force` to skip)."
+    }
   ]
 }
