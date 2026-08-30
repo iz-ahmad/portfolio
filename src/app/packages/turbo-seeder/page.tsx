@@ -10,6 +10,7 @@ import { TurboHowFast } from '@/components/packages/TurboSeeder/TurboHowFast'
 import { TurboQuickStart } from '@/components/packages/TurboSeeder/TurboQuickStart'
 import { TurboChoices } from '@/components/packages/TurboSeeder/TurboChoices'
 import { TurboFeatures } from '@/components/packages/TurboSeeder/TurboFeatures'
+import { TurboFAQ } from '@/components/packages/TurboSeeder/TurboFAQ'
 import { TurboFooterCta } from '@/components/packages/TurboSeeder/TurboFooterCta'
 import { RevealObserver } from '@/components/packages/TurboSeeder/RevealObserver'
 import { CursorMount } from '@/components/packages/TurboSeeder/CursorMount'
@@ -84,6 +85,7 @@ export default function TurboSeederPage() {
           <TurboQuickStart />
           <TurboChoices />
           <TurboFeatures />
+          <TurboFAQ />
           <TurboFooterCta />
         </main>
       </div>
