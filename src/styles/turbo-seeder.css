@@ -5,14 +5,97 @@
 
 /* Standalone page overrides — reset portfolio-shell body styles */
 html:has(.ts-page),
-body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
+body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background: var(--ts-bg); }
 
 .ts-page {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  --accent: var(--red);
+  background: var(--ts-bg);
+
+  /* ============================================================
+     THEME TOKENS — every color on this page funnels through these
+     custom properties. Light is the default theme (no attribute
+     needed); ThemeToggle sets [data-ts-theme="dark"] on <html> to
+     switch to the original dark design.
+
+     To retune a theme, edit ONLY the values in this block and the
+     matching "dark" block right below it — no other rule in this
+     file should need to change.
+
+     Exception: the terminal / code-block surfaces (hero terminal,
+     install pills, get-started step cards, the code tabs panel)
+     intentionally stay a fixed dark "editor" palette in BOTH
+     themes — like a code block on a docs site — so they use the
+     global --red / --ink-* tokens directly instead of these.
+     ============================================================ */
+
+  /* -- light theme (default) -- */
+  --ts-bg: #faf7f5;
+  --ts-text-0: #1c1620;      /* headings / primary values */
+  --ts-text-1: #4c4456;      /* body copy */
+  --ts-text-1-soft: #756c80; /* secondary / muted copy */
+  --ts-text-2: #655d70;      /* eyebrow labels, meta, captions */
+  --ts-text-3: #a89fb1;      /* faintest decorative glyphs only */
+
+  --ts-surface-rgb: 28, 22, 32;              /* card tints, hairlines, grid */
+  --ts-border: rgba(28, 22, 32, 0.10);
+  --ts-strike: rgba(28, 22, 32, 0.35);
+  --ts-card-shadow: 0 1px 2px rgba(28, 22, 32, 0.04), 0 10px 28px rgba(28, 22, 32, 0.07);
+
+  --accent: #d81f38;
+  --ts-accent-rgb: 216, 31, 56;
+  --ts-ember-rgb: 255, 90, 60;
+
+  --ts-noise-display: none;
+  --ts-scanlines-display: none;
+
+  --ts-cursor-dot: #1c1620;
+  --ts-cursor-ring: rgba(216, 31, 56, 0.6);
 }
+
+[data-ts-theme="dark"] .ts-page {
+  /* -- dark theme (the original design) -- */
+  --ts-bg:
+    radial-gradient(1200px 800px at 80% -10%, rgba(184, 19, 42, 0.18), transparent 60%),
+    radial-gradient(1000px 700px at 0% 30%, rgba(255, 90, 60, 0.10), transparent 55%),
+    radial-gradient(900px 600px at 60% 110%, rgba(255, 45, 61, 0.14), transparent 60%),
+    var(--bg-0);
+  --ts-text-0: var(--ink-0);
+  --ts-text-1: var(--ink-1);
+  --ts-text-1-soft: var(--ink-1-soft);
+  --ts-text-2: var(--ink-2);
+  --ts-text-3: var(--ink-3);
+
+  --ts-surface-rgb: 255, 255, 255;
+  --ts-border: var(--hair);
+  --ts-strike: rgba(255, 255, 255, 0.403);
+  --ts-card-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  --accent: var(--red);
+  --ts-accent-rgb: 255, 45, 61;
+  --ts-ember-rgb: 255, 90, 60;
+
+  --ts-noise-display: block;
+  --ts-scanlines-display: block;
+
+  --ts-cursor-dot: var(--ink-0);
+  --ts-cursor-ring: rgba(255, 45, 61, 0.6);
+}
+
+/* Ambient layers — dark-mode-only noise/scanlines; a faint tinted
+   grid that flips between dark-on-light and white-on-dark. */
+.ts-page .bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(var(--ts-surface-rgb), 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--ts-surface-rgb), 0.035) 1px, transparent 1px);
+}
+.ts-page .bg-noise { display: var(--ts-noise-display); }
+.ts-page .scanlines { display: var(--ts-scanlines-display); }
+
+/* Custom cursor — stay visible against either background */
+.ts-page .cursor-dot { background: var(--ts-cursor-dot); }
+.ts-page .cursor-orb { border-color: var(--ts-cursor-ring); }
 
 .ts-inner {
   position: relative;
@@ -22,6 +105,28 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   padding: 0 clamp(20px, 4vw, 52px);
 }
 
+/* ── Theme toggle ───────────────────────────────────────── */
+.ts-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid var(--ts-border);
+  background: rgba(var(--ts-surface-rgb), 0.04);
+  color: var(--ts-text-0);
+  cursor: none;
+  font-size: 16px;
+  line-height: 1;
+  transition: border-color 200ms ease, transform 200ms var(--ease-out);
+}
+.ts-theme-toggle:hover { border-color: var(--accent); transform: translateY(-1px); }
+.ts-theme-icon-light.visible, .ts-theme-icon-dark.visible { display: block; }
+.ts-theme-icon-light.hidden, .ts-theme-icon-dark.hidden { display: none; }
+.ts-theme-icon-dark { transform: translate(2px, 0px); }
+
 /* ── Nav ─────────────────────────────────────────────────── */
 .ts-nav {
   display: flex;
@@ -29,7 +134,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   justify-content: space-between;
   gap: 18px;
   padding: 22px 0;
-  border-bottom: 1px dashed var(--hair);
+  border-bottom: 1px dashed var(--ts-border);
   flex-wrap: wrap;
 }
 
@@ -38,7 +143,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: var(--ink-0);
+  color: var(--ts-text-0);
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.04em;
@@ -64,10 +169,23 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   padding: 11px 16px;
 }
 
+/* Ghost button re-tint — .btn/.btn-primary (base.css) assume a dark
+   page background; .btn-primary's gradient already works on both
+   themes unmodified, so only the ghost variant needs an override. */
+.ts-page .btn:not(.btn-primary) {
+  background: rgba(var(--ts-surface-rgb), 0.04);
+  border-color: var(--ts-border);
+  color: var(--ts-text-0);
+}
+.ts-page .btn:not(.btn-primary):hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 24px rgba(var(--ts-accent-rgb), 0.25), inset 0 0 12px rgba(var(--ts-accent-rgb), 0.08);
+}
+
 /* ── Section chrome ─────────────────────────────────────── */
 .ts-section {
   padding: clamp(40px, 7vh, 90px) 0;
-  border-top: 1px dashed var(--hair);
+  border-top: 1px dashed var(--ts-border);
 }
 
 .ts-eyebrow {
@@ -81,7 +199,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -89,7 +207,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-eyebrow-line {
   flex: 1;
   height: 1px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(var(--ts-surface-rgb), 0.14);
 }
 
 .ts-section-h2 {
@@ -99,6 +217,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: clamp(26px, 3.4vw, 44px);
   line-height: 1.06;
   margin: 0;
+  color: var(--ts-text-0);
 }
 
 /* ── Hero ───────────────────────────────────────────────── */
@@ -121,7 +240,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   margin-bottom: 22px;
 }
 
@@ -146,19 +265,19 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   line-height: 0.96;
   font-size: clamp(40px, 6.4vw, 82px);
   margin: 0;
-  color: var(--ink-0);
+  color: var(--ts-text-0);
 }
 
 .ts-hero-accent {
   color: var(--accent);
-  text-shadow: 0 0 26px rgba(255, 45, 61, 0.45);
+  text-shadow: 0 0 26px rgba(var(--ts-accent-rgb), 0.45);
 }
 
 .ts-hero-tagline {
   font-family: var(--font-display);
   font-size: clamp(15px, 1.5vw, 18px);
   line-height: 1.6;
-  color: var(--ink-1);
+  color: var(--ts-text-1);
   max-width: 30em;
   margin: 22px 0 0;
 }
@@ -177,24 +296,24 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   gap: 2px;
   padding: 12px 16px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--ts-border);
+  background: rgba(var(--ts-surface-rgb), 0.03);
 }
 
-.ts-metric-accent-bg { background: rgba(255, 45, 61, 0.06); }
+.ts-metric-accent-bg { background: rgba(var(--ts-accent-rgb), 0.06); }
 
 .ts-metric-val {
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 600;
-  color: var(--ink-0);
+  color: var(--ts-text-0);
 }
 
 .ts-metric-val-accent { color: var(--accent); }
 
 .ts-metric-val-unit {
   font-size: 13px;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   font-weight: 400;
 }
 
@@ -202,11 +321,12 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   text-transform: uppercase;
 }
 
-/* install block */
+/* install block — intentionally a fixed dark "shell" pill in both
+   themes, like an inline code snippet on a docs site. */
 .ts-install {
   margin-top: 24px;
   display: flex;
@@ -216,7 +336,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   padding: 14px 16px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(5, 5, 16, 0.92);
   cursor: pointer;
   max-width: 500px;
   transition: border-color 200ms var(--ease-out);
@@ -236,7 +356,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   min-width: 0;
 }
 
-.ts-install-sigil { color: var(--accent); }
+.ts-install-sigil { color: var(--red); }
 
 .ts-copy-label {
   font-family: var(--font-mono);
@@ -253,12 +373,12 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 
 .ts-copy-label:hover { box-shadow: 0 0 2px var(--crimson); }
 
-/* hero terminal */
+/* hero terminal — always dark, like the install pill above */
 .ts-terminal {
   position: relative;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02) 5%, rgba(255, 45, 61, 0.04));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02) 5%, rgba(255, 45, 61, 0.04)), var(--bg-0);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     inset 0 -1px 0 rgba(255, 45, 61, 0.05),
@@ -297,7 +417,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   display: inline-block;
   width: 8px;
   height: 15px;
-  background: var(--accent);
+  background: var(--red);
   vertical-align: -2px;
   margin-left: 4px;
   animation: ts-blink 1.05s step-end infinite;
@@ -312,7 +432,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-problem-sub {
   font-size: clamp(14px, 1.4vw, 16px);
   line-height: 1.65;
-  color: var(--ink-1);
+  color: var(--ts-text-1);
   max-width: 40em;
   margin: 18px 0 0;
 }
@@ -324,21 +444,21 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   grid-template-columns: 1fr 1fr;
   gap: 0;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid var(--ts-border);
   overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: var(--ts-card-shadow);
   isolation: isolate;
 }
 
 .ts-cmp-left {
   padding: clamp(22px, 3vw, 36px);
-  background: rgba(255, 255, 255, 0.02);
-  border-right: 1px dashed rgba(255, 255, 255, 0.09);
+  background: rgba(var(--ts-surface-rgb), 0.02);
+  border-right: 1px dashed rgba(var(--ts-surface-rgb), 0.09);
 }
 
 .ts-cmp-right {
   padding: clamp(22px, 3vw, 36px);
-  background: linear-gradient(135deg, rgba(255, 45, 61, 0.08), rgba(255, 255, 255, 0.01) 55%, rgba(255, 90, 60, 0.04));
+  background: linear-gradient(135deg, rgba(var(--ts-accent-rgb), 0.08), rgba(var(--ts-surface-rgb), 0.01) 55%, rgba(var(--ts-ember-rgb), 0.04));
   position: relative;
   overflow: hidden;
 }
@@ -346,7 +466,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-cmp-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(340px 180px at 90% 10%, rgba(255, 45, 61, 0.18), transparent 70%);
+  background: radial-gradient(340px 180px at 90% 10%, rgba(var(--ts-accent-rgb), 0.18), transparent 70%);
   pointer-events: none;
 }
 
@@ -357,7 +477,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   margin-bottom: 18px;
 }
 
@@ -384,12 +504,12 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: clamp(46px, 6vw, 72px);
   letter-spacing: -0.03em;
   line-height: 1;
-  color: #9a9ab0;
+  color: var(--ts-text-1-soft);
 }
 
 .ts-cmp-big-metric-accent {
   color: var(--accent);
-  text-shadow: 0 0 28px rgba(255, 45, 61, 0.35);
+  text-shadow: 0 0 28px rgba(var(--ts-accent-rgb), 0.35);
 }
 
 .ts-cmp-metric-unit {
@@ -397,20 +517,20 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-weight: 500;
   letter-spacing: 0;
   vertical-align: 0.12em;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
 }
 
 .ts-cmp-big-metric-accent .ts-cmp-metric-unit { color: inherit; }
 
 .ts-cmp-metric-caption {
   font-size: 12px;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   margin-top: 8px;
   margin-bottom: 24px;
   letter-spacing: 0.02em;
 }
 
-.ts-cmp-metric-caption-muted { color: #9a9ab0; }
+.ts-cmp-metric-caption-muted { color: var(--ts-text-1-soft); }
 
 .ts-cmp-bullets {
   list-style: none;
@@ -426,22 +546,22 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   align-items: baseline;
   gap: 9px;
   font-size: 12.5px;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
 }
 
 .ts-cmp-bullet-prefix {
-  color: var(--ink-3);
+  color: var(--ts-text-3);
   flex-shrink: 0;
 }
 
-.ts-cmp-bullet-win { color: var(--ink-1); }
+.ts-cmp-bullet-win { color: var(--ts-text-1); }
 .ts-cmp-bullet-win .ts-cmp-bullet-prefix { color: var(--accent); }
 
 /* comparison table */
 .ts-cmp-table {
   margin-top: 14px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--ts-border);
   overflow: hidden;
   isolation: isolate;
 }
@@ -451,17 +571,17 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   grid-template-columns: 1.8fr 1fr 1fr;
 }
 
-.ts-cmp-row-header { background: rgba(255, 255, 255, 0.03); }
+.ts-cmp-row-header { background: rgba(var(--ts-surface-rgb), 0.03); }
 
 .ts-cmp-row + .ts-cmp-row {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(var(--ts-surface-rgb), 0.07);
 }
 
 .ts-cmp-cell {
   padding: 13px 16px;
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--ink-1);
+  color: var(--ts-text-1);
 }
 
 .ts-cmp-cell-head {
@@ -470,29 +590,29 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
 }
 
 .ts-cmp-cell-std {
   font-family: var(--font-display);
   font-size: 14px;
-  color: #9a9ab0;
+  color: var(--ts-text-1-soft);
   padding: 13px 16px;
 }
 
 .ts-cmp-cell-std-strike {
   text-decoration: line-through;
-  text-decoration-color: rgba(255, 255, 255, 0.403);
+  text-decoration-color: var(--ts-strike);
 }
 
 .ts-cmp-cell-turbo {
   font-family: var(--font-display);
   font-size: 14px;
-  color: var(--ink-0);
+  color: var(--ts-text-0);
   padding: 13px 16px;
 }
 
-.ts-cmp-head-std  { color: #9a9ab0; }
+.ts-cmp-head-std  { color: var(--ts-text-1-soft); }
 .ts-cmp-head-turbo { color: var(--accent); }
 
 /* ── How it's fast cards ────────────────────────────────── */
@@ -505,20 +625,17 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-fast-card {
   padding: 22px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid var(--ts-border);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.012) 50%, rgba(255, 90, 60, 0.022) 100%),
-    rgba(255, 255, 255, 0.03);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(255, 45, 61, 0.04),
-    0 1px 0 rgba(0, 0, 0, 0.3);
+    linear-gradient(135deg, rgba(var(--ts-surface-rgb), 0.045) 0%, rgba(var(--ts-surface-rgb), 0.012) 50%, rgba(var(--ts-ember-rgb), 0.022) 100%),
+    rgba(var(--ts-surface-rgb), 0.03);
+  box-shadow: var(--ts-card-shadow);
   transition: border-color 200ms var(--ease-out), transform 220ms var(--ease-out);
   will-change: transform;
   isolation: isolate;
 }
 
-.ts-fast-card:hover { border-color: rgba(255, 45, 61, 0.4); transform: translateY(-2px); }
+.ts-fast-card:hover { border-color: rgba(var(--ts-accent-rgb), 0.4); transform: translateY(-2px); }
 
 .ts-fast-num {
   font-family: var(--font-display);
@@ -531,7 +648,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-family: var(--font-display);
   font-size: 17px;
   font-weight: 600;
-  color: var(--ink-0);
+  color: var(--ts-text-0);
   margin-bottom: 6px;
 }
 
@@ -539,7 +656,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-family: var(--font-mono);
   font-size: 12.5px;
   line-height: 1.6;
-  color: #9a9ab0;
+  color: var(--ts-text-1-soft);
   margin: 0;
 }
 
@@ -547,7 +664,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-qs-sub {
   font-family: var(--font-mono);
   font-size: 14px;
-  color: #9a9ab0;
+  color: var(--ts-text-1-soft);
   margin: 8px 0 34px;
 }
 
@@ -558,11 +675,13 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   margin-bottom: 30px;
 }
 
+/* step cards — intentionally a fixed dark "shell" card in both
+   themes, like the install pill and terminal above. */
 .ts-step-card {
   padding: 20px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(5, 5, 16, 0.88);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   isolation: isolate;
 }
@@ -572,7 +691,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.16em;
-  color: var(--accent);
+  color: var(--red);
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -590,14 +709,14 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.02em;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   text-decoration: none;
   transition: color 150ms ease, border-color 150ms ease;
 }
 
 .ts-qs-more:hover {
   color: var(--accent);
-  border-color: rgba(255, 45, 61, 0.4);
+  border-color: rgba(var(--ts-accent-rgb), 0.4);
 }
 
 /* ── Choices you make ──────────────────────────────────── */
@@ -614,7 +733,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   margin-bottom: 14px;
 }
 
@@ -627,25 +746,25 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-choices-divider {
   font-family: var(--font-display);
   font-size: 22px;
-  color: var(--ink-3);
+  color: var(--ts-text-3);
   text-align: center;
 }
 
 .ts-choices-card {
   padding: 18px 20px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid var(--ts-border);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.012) 50%, rgba(255, 90, 60, 0.022) 100%),
-    rgba(255, 255, 255, 0.03);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    linear-gradient(135deg, rgba(var(--ts-surface-rgb), 0.045) 0%, rgba(var(--ts-surface-rgb), 0.012) 50%, rgba(var(--ts-ember-rgb), 0.022) 100%),
+    rgba(var(--ts-surface-rgb), 0.03);
+  box-shadow: var(--ts-card-shadow);
   transition: border-color 200ms var(--ease-out), transform 200ms var(--ease-out);
   will-change: transform;
   isolation: isolate;
 }
 
 .ts-choices-card:hover {
-  border-color: rgba(255, 45, 61, 0.4);
+  border-color: rgba(var(--ts-accent-rgb), 0.4);
   transform: translateY(-2px);
 }
 
@@ -654,7 +773,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   margin-bottom: 8px;
 }
 
@@ -670,7 +789,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-family: var(--font-display);
   font-size: 13px;
   line-height: 1.55;
-  color: var(--ink-1);
+  color: var(--ts-text-1);
   margin: 0 0 12px;
 }
 
@@ -678,14 +797,14 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-family: var(--font-mono);
   font-size: 10.5px;
   letter-spacing: 0.05em;
-  color: #9a9ab0;
+  color: var(--ts-text-1-soft);
 }
 
-/* code tabs */
+/* code tabs — always a fixed dark "editor" panel in both themes */
 .ts-code-panel {
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(5, 5, 16, 0.94);
   overflow: hidden;
 }
 
@@ -747,12 +866,12 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-c-method  { color: #9ad0ff; }
 .ts-c-string  { color: #a5e887; }
 .ts-c-number  { color: #ff9e85; }
-.ts-c-class   { color: var(--accent); }
+.ts-c-class   { color: var(--red); }
 
 .ts-code-caption {
   font-family: var(--font-mono);
   font-size: 12.5px;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   margin: 18px 0 0;
   line-height: 1.6;
 }
@@ -760,13 +879,13 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-caption-link {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 45, 61, 0.35);
+  border-bottom: 1px solid rgba(var(--ts-accent-rgb), 0.35);
   transition: border-color 150ms ease, color 150ms ease;
 }
 
 .ts-caption-link:hover {
-  color: var(--ink-0);
-  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--ts-text-0);
+  border-color: rgba(var(--ts-surface-rgb), 0.4);
 }
 
 /* ── Features ───────────────────────────────────────────── */
@@ -779,18 +898,18 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-feat-card {
   padding: 16px 18px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--ts-border);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 55%, rgba(255, 90, 60, 0.018) 100%),
-    rgba(255, 255, 255, 0.025);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    linear-gradient(135deg, rgba(var(--ts-surface-rgb), 0.04) 0%, rgba(var(--ts-surface-rgb), 0.01) 55%, rgba(var(--ts-ember-rgb), 0.018) 100%),
+    rgba(var(--ts-surface-rgb), 0.025);
+  box-shadow: var(--ts-card-shadow);
   transition: border-color 220ms ease, transform 220ms var(--ease-out);
   will-change: transform;
   isolation: isolate;
 }
 
 .ts-feat-card:hover {
-  border-color: rgba(255, 45, 61, 0.38);
+  border-color: rgba(var(--ts-accent-rgb), 0.38);
   transform: translateY(-2px);
 }
 
@@ -798,14 +917,14 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 600;
-  color: var(--ink-0);
+  color: var(--ts-text-0);
   margin-bottom: 4px;
 }
 
 .ts-feat-desc {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   line-height: 1.5;
   margin: 0;
 }
@@ -813,26 +932,26 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 /* ── Footer CTA ─────────────────────────────────────────── */
 .ts-cta-section {
   padding: clamp(46px, 8vh, 100px) 0 60px;
-  border-top: 1px dashed var(--hair);
+  border-top: 1px dashed var(--ts-border);
 }
 
 .ts-cta-panel {
   position: relative;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--ts-border);
   background:
-    linear-gradient(135deg, rgba(255, 45, 61, 0.08), rgba(255, 90, 60, 0.05) 60%, rgba(0, 0, 0, 0.2));
+    linear-gradient(135deg, rgba(var(--ts-accent-rgb), 0.08), rgba(var(--ts-ember-rgb), 0.05) 60%, rgba(var(--ts-surface-rgb), 0.15));
   padding: clamp(30px, 5vw, 56px);
   text-align: center;
   overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: var(--ts-card-shadow);
   isolation: isolate;
 }
 
 .ts-cta-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(600px 200px at 50% 0%, rgba(255, 45, 61, 0.15), transparent 60%);
+  background: radial-gradient(600px 200px at 50% 0%, rgba(var(--ts-accent-rgb), 0.15), transparent 60%);
   pointer-events: none;
 }
 
@@ -846,7 +965,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   margin-bottom: 18px;
 }
 
@@ -866,18 +985,19 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   font-size: clamp(26px, 3.6vw, 46px);
   line-height: 1.05;
   margin: 0 0 14px;
-  color: var(--ink-0);
+  color: var(--ts-text-0);
 }
 
 .ts-cta-p {
   font-family: var(--font-display);
   font-size: 14px;
-  color: var(--ink-1);
+  color: var(--ts-text-1);
   max-width: 34em;
   margin: 0 auto 28px;
   line-height: 1.6;
 }
 
+/* cta install pill — same fixed dark shell treatment as the hero */
 .ts-cta-install {
   display: inline-flex;
   align-items: center;
@@ -885,7 +1005,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   padding: 14px 18px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(5, 5, 16, 0.92);
   cursor: pointer;
   margin-bottom: 22px;
   transition: border-color 200ms var(--ease-out);
@@ -925,20 +1045,20 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
 .ts-page-foot-left {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   letter-spacing: 0.04em;
 }
 
 .ts-page-foot-back {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: color 200ms ease;
 }
 
-.ts-page-foot-back:hover { color: var(--red); }
+.ts-page-foot-back:hover { color: var(--accent); }
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 1024px) {
@@ -946,7 +1066,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   .ts-fast-grid  { grid-template-columns: repeat(2, 1fr); }
   .ts-feat-grid  { grid-template-columns: repeat(2, 1fr); }
   .ts-cmp-split  { grid-template-columns: 1fr; }
-  .ts-cmp-left   { border-right: none; border-bottom: 1px dashed rgba(255, 255, 255, 0.09); }
+  .ts-cmp-left   { border-right: none; border-bottom: 1px dashed rgba(var(--ts-surface-rgb), 0.09); }
   .ts-hero-eyebrow {display: none; }
   .ts-hero { padding: 28px 0 28px ; }
 }
@@ -985,3 +1105,17 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; }
   .ts-code-block { padding: 14px; font-size: 11px; line-height: 1.7; }
   .ts-cta-section { padding-bottom: 12px; }
 }
+
+/* ============================================================
+   FUTURE THEME CANDIDATE — not active, kept for reference.
+   "Electric Violet" accent option shown to the user alongside
+   the amber option; picked amber-vs-violet decision deferred.
+   To try it: swap the dark-theme block's accent tokens for:
+     --accent: #8b5cf6;
+     --ts-accent-rgb: 139, 92, 246;
+     --ts-ember-rgb: 167, 139, 250;
+   and (since --red/--crimson/--crimson-light/--ember feed the
+   always-dark code zones too) either leave those Laravel-red for
+   contrast, or override --red/--ember/--crimson/--crimson-light
+   the same way the two live preview options in this session did.
+   ============================================================ */

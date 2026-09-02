@@ -13,7 +13,12 @@ import { TurboFeatures } from '@/components/packages/TurboSeeder/TurboFeatures'
 import { TurboFooterCta } from '@/components/packages/TurboSeeder/TurboFooterCta'
 import { RevealObserver } from '@/components/packages/TurboSeeder/RevealObserver'
 import { CursorMount } from '@/components/packages/TurboSeeder/CursorMount'
+import { ThemeToggle } from '@/components/packages/TurboSeeder/ThemeToggle'
 import data from '@/data/turbo-seeder.json'
+
+// Blocking script — reads the stored theme before first paint so returning
+// dark-mode visitors don't see a flash of the (default) light theme.
+const THEME_INIT_SCRIPT = `try{if(localStorage.getItem('iz_ts_theme')==='dark')document.documentElement.setAttribute('data-ts-theme','dark')}catch(e){}`
 
 export const metadata: Metadata = {
   title: 'Laravel Turbo Seeder — seed millions of records in seconds',
@@ -41,6 +46,7 @@ export const metadata: Metadata = {
 export default function TurboSeederPage() {
   return (
     <div className="ts-page">
+      <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       <BgGrid />
       <div className="bg-noise" aria-hidden />
       <Scanlines />
@@ -50,14 +56,15 @@ export default function TurboSeederPage() {
         <header className="ts-nav">
           <Link href="/" className="ts-breadcrumb" aria-label="Return to portfolio home">
             <span className="ts-breadcrumb-dot" aria-hidden />
-            <span style={{ color: 'var(--ink-2)' }}>iz-ahmad</span>
-            <span style={{ color: 'var(--ink-3)' }}>/</span>
-            <span style={{ color: 'var(--ink-2)' }}>packages</span>
-            <span style={{ color: 'var(--ink-3)' }}>/</span>
-            <span style={{ color: 'var(--ink-0)' }}>turbo-seeder</span>
+            <span style={{ color: 'var(--ts-text-2)' }}>iz-ahmad</span>
+            <span style={{ color: 'var(--ts-text-3)' }}>/</span>
+            <span style={{ color: 'var(--ts-text-2)' }}>packages</span>
+            <span style={{ color: 'var(--ts-text-3)' }}>/</span>
+            <span style={{ color: 'var(--ts-text-0)' }}>turbo-seeder</span>
           </Link>
 
           <nav className="ts-nav-actions" aria-label="Page navigation">
+            <ThemeToggle />
             <a
               href={data.githubUrl}
               target="_blank"

@@ -36,7 +36,7 @@ export function TurboHero() {
           </h1>
 
           <p className="ts-hero-tagline">
-            Seed <strong style={{ color: 'var(--ink-0)' }}>millions of records in seconds</strong> — not minutes.
+            Seed <strong style={{ color: 'var(--ts-text-0)' }}>millions of records in seconds</strong> — not minutes.
             A high-performance database seeder built for production-scale data generation with minimal time and memory.
           </p>
 
@@ -78,7 +78,7 @@ export function TurboHero() {
               <span className="ts-terminal-title">{data.terminal.title}</span>
             </div>
             <pre className="ts-terminal-body">
-              <span style={{ color: 'var(--accent)' }}>❯</span>{' '}
+              <span style={{ color: 'var(--red)' }}>❯</span>{' '}
               {'php artisan turbo-seeder:run UsersTurboSeeder\n'}
               <span style={{ color: 'var(--ink-2)' }}>→ table</span>
               {' users  '}
@@ -105,7 +105,7 @@ export function TurboHero() {
               {'\n  '}
               <span style={{ color: 'var(--ink-2)' }}>rate</span>
               {' '}
-              <span style={{ color: 'var(--accent)' }}>{data.terminal.seedRate}</span>
+              <span style={{ color: 'var(--red)' }}>{data.terminal.seedRate}</span>
               <span className="ts-terminal-caret" aria-hidden />
             </pre>
           </div>

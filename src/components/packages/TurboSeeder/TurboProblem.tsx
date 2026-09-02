@@ -12,7 +12,7 @@ export function TurboProblem() {
 
       <p className="ts-problem-sub">
         Seeding 500K-1M+ records for realistic load testing can take{' '}
-        <strong style={{ color: 'var(--ink-0)' }}>30+ minutes</strong> and unbounded memory —
+        <strong style={{ color: 'var(--ts-text-0)' }}>30+ minutes</strong> and unbounded memory —
         slowing every iteration. Turbo Seeder eliminates that bottleneck.
       </p>
 
