@@ -296,20 +296,20 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   gap: 6px;
   padding: 6px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(var(--ts-surface-rgb), 0.12);
+  background: rgba(var(--ts-surface-rgb), 0.03);
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--ink-1);
+  color: var(--ts-text-1);
 }
 
 .ts-version-badge-sub {
   font-size: 9px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ts-text-2);
 }
 
 /* metric badges */
@@ -355,8 +355,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   text-transform: uppercase;
 }
 
-/* install block — intentionally a fixed dark "shell" pill in both
-   themes, like an inline code snippet on a docs site. */
+/* install block — theme-aware styling in both themes */
 .ts-install {
   margin-top: 24px;
   display: flex;
@@ -365,20 +364,20 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   gap: 14px;
   padding: 14px 16px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(5, 5, 16, 0.92);
+  border: 1px solid var(--ts-border);
+  background: rgba(var(--ts-surface-rgb), 0.04);
   cursor: pointer;
   max-width: 500px;
   transition: border-color 200ms var(--ease-out);
   user-select: none;
 }
 
-.ts-install:hover { border-color: var(--crimson-light); }
+.ts-install:hover { border-color: var(--accent); }
 
 .ts-install code {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--ink-0);
+  color: var(--ts-text-0);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -386,19 +385,24 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   min-width: 0;
 }
 
-.ts-install-sigil { color: var(--red); }
+.ts-install-sigil { color: var(--accent); }
 
 .ts-copy-label {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-1);
+  color: var(--ts-text-1);
   white-space: nowrap;
   flex-shrink: 0;
-  border: var(--crimson-light) 1px dotted;
+  border: var(--accent) 1px dotted;
   border-radius: 12px;
   padding: 4px 8px;
+}
+
+.ts-cta-install .ts-copy-label {
+  color: var(--ink-1);
+  border-color: var(--crimson-light);
 }
 
 .ts-copy-label:hover { box-shadow: 0 0 2px var(--crimson); }
@@ -747,7 +751,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: var(--ts-text-2);
   margin-right: 4px;
 }
 
@@ -757,14 +761,14 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   gap: 6px;
   padding: 7px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(var(--ts-surface-rgb), 0.09);
+  background: rgba(var(--ts-surface-rgb), 0.02);
   font-family: var(--font-mono);
   font-size: 11px;
 }
 
 .ts-req-item-key { color: var(--accent); font-weight: 600; }
-.ts-req-item-val { color: var(--ink-2); }
+.ts-req-item-val { color: var(--ts-text-1-soft); }
 
 .ts-qs-more {
   display: inline-block;
@@ -1000,13 +1004,13 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
 
 .ts-faq-item {
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(var(--ts-surface-rgb), 0.10);
+  background: rgba(var(--ts-surface-rgb), 0.02);
   overflow: hidden;
   transition: border-color 200ms var(--ease-out);
 }
 
-.ts-faq-item-open { border-color: rgba(255, 45, 61, 0.35); }
+.ts-faq-item-open { border-color: rgba(var(--ts-accent-rgb), 0.35); }
 
 .ts-faq-question {
   width: 100%;
@@ -1022,7 +1026,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   font-family: var(--font-display);
   font-size: 14.5px;
   font-weight: 600;
-  color: var(--ink-0);
+  color: var(--ts-text-0);
 }
 
 .ts-faq-icon {
@@ -1039,7 +1043,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   font-family: var(--font-mono);
   font-size: 12.5px;
   line-height: 1.65;
-  color: var(--ink-2);
+  color: var(--ts-text-1-soft);
 }
 
 /* ── Footer CTA ─────────────────────────────────────────── */
