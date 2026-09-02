@@ -51,13 +51,6 @@ export function Experience() {
       </div>
 
       <div className="exp2" ref={rootRef} data-mode="reveal">
-        <div className="exp2-meta">
-          <span className="exp2-meta-dot">CAREER_LOG · {EXPERIENCES.length} ENTRIES</span>
-          <div className="exp2-meta-cluster">
-            <span>RANGE <b>2022 → NOW</b></span>
-          </div>
-        </div>
-
         {EXPERIENCES.map((e, i) => {
           const idHex = (0xC0DE + i * 17).toString(16).toUpperCase()
           const path  = `/career/${fileSlug(e.company)}.md`
