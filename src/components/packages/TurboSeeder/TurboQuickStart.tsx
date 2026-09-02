@@ -31,6 +31,17 @@ export function TurboQuickStart() {
         ))}
       </div>
 
+      {/* requirements */}
+      <div className="ts-req-row">
+        <span className="ts-req-label">Requires</span>
+        {data.requirements.map((r) => (
+          <span key={r.label} className="ts-req-item">
+            <span className="ts-req-item-key">{r.label}</span>
+            <span className="ts-req-item-val">{r.value}</span>
+          </span>
+        ))}
+      </div>
+
       <a href="#choices" className="ts-qs-more">
         Want more control? See the data paths &amp; seeding strategies ↓
       </a>

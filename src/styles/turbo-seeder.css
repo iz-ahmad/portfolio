@@ -282,6 +282,36 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   margin: 22px 0 0;
 }
 
+/* version badges */
+.ts-version-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.ts-version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-1);
+}
+
+.ts-version-badge-sub {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
 /* metric badges */
 .ts-metrics {
   display: flex;
@@ -417,7 +447,7 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   display: inline-block;
   width: 8px;
   height: 15px;
-  background: var(--red);
+  background: var(--crimson);
   vertical-align: -2px;
   margin-left: 4px;
   animation: ts-blink 1.05s step-end infinite;
@@ -704,6 +734,38 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   color: var(--ink-1);
 }
 
+.ts-req-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin-bottom: 18px;
+}
+
+.ts-req-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-right: 4px;
+}
+
+.ts-req-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.02);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.ts-req-item-key { color: var(--accent); font-weight: 600; }
+.ts-req-item-val { color: var(--ink-2); }
+
 .ts-qs-more {
   display: inline-block;
   font-family: var(--font-mono);
@@ -927,6 +989,57 @@ body:has(.ts-page) { padding-right: 0 !important; overflow-x: hidden; background
   color: var(--ts-text-2);
   line-height: 1.5;
   margin: 0;
+}
+
+/* ── FAQ ────────────────────────────────────────────────── */
+.ts-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ts-faq-item {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  transition: border-color 200ms var(--ease-out);
+}
+
+.ts-faq-item-open { border-color: rgba(255, 45, 61, 0.35); }
+
+.ts-faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-0);
+}
+
+.ts-faq-icon {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.ts-faq-answer {
+  margin: 0;
+  padding: 0 20px 18px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
 }
 
 /* ── Footer CTA ─────────────────────────────────────────── */
