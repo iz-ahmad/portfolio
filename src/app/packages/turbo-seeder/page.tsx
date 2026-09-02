@@ -17,9 +17,8 @@ import { CursorMount } from '@/components/packages/TurboSeeder/CursorMount'
 import { ThemeToggle } from '@/components/packages/TurboSeeder/ThemeToggle'
 import data from '@/data/turbo-seeder.json'
 
-// Blocking script — reads the stored theme before first paint so returning
-// dark-mode visitors don't see a flash of the (default) light theme.
-const THEME_INIT_SCRIPT = `try{if(localStorage.getItem('iz_ts_theme')==='dark')document.documentElement.setAttribute('data-ts-theme','dark')}catch(e){}`
+// reads the stored theme before first paint, defaults to dark
+const THEME_INIT_SCRIPT = `try{const t=localStorage.getItem('iz_ts_theme');if(t!=='light')document.documentElement.setAttribute('data-ts-theme','dark')}catch(e){}`
 
 export const metadata: Metadata = {
   title: 'Laravel Turbo Seeder — seed millions of records in seconds',
