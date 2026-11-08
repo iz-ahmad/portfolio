@@ -1,73 +1,57 @@
-'use client'
-
-import { useState, useRef, useEffect } from 'react'
 import data from '@/data/turbo-seeder.json'
+import { CopyButton } from './CopyButton'
 
 const skill = data.agentSkill
 
-export function AgentSkillCard() {
-  const [copyLabel, setCopyLabel] = useState('Copy')
-  const resetTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
-
-  useEffect(() => () => clearTimeout(resetTimerRef.current), [])
-
-  function handleCopy() {
-    if (typeof navigator === 'undefined' || !navigator.clipboard) return
-    navigator.clipboard.writeText(skill.command)
-      .then(() => setCopyLabel('Copied ✓'))
-      .catch(() => setCopyLabel('Failed. Try again.'))
-      .finally(() => {
-        clearTimeout(resetTimerRef.current)
-        resetTimerRef.current = setTimeout(() => setCopyLabel('Copy'), 1600)
-      })
-  }
-
+function CheckIcon() {
   return (
-    <aside className="ts-skill-card" aria-labelledby="ts-skill-title">
-      <div className="ts-skill-main">
-        <div className="ts-skill-head">
-          <span className="ts-skill-label">{skill.label}</span>
-          <span className="ts-skill-target">{skill.target}</span>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden>
+      <path d="M4 12l5 5L20 6" />
+    </svg>
+  )
+}
+
+export function AgentSkillCard() {
+  return (
+    <aside className="ts-qs-agent" aria-labelledby="ts-qs-agent-title">
+      <div className="ts-qs-agent-l">
+        <span className="ts-qs-badge">
+          <i aria-hidden />
+          {skill.label}
+        </span>
+
+        <h3 id="ts-qs-agent-title">{skill.title}</h3>
+        <p>{skill.desc}</p>
+
+        <div className="ts-qs-install">
+          <span className="ts-qs-prompt" aria-hidden>$</span>
+          <code>{skill.command}</code>
+          <CopyButton text={skill.command} label={`Copy command: ${skill.command}`} />
         </div>
 
-        <h3 id="ts-skill-title" className="ts-skill-title">{skill.title}</h3>
-        <p className="ts-skill-desc">{skill.desc}</p>
+        <div className="ts-qs-ver">{skill.target}</div>
 
-        <button
-          type="button"
-          className="ts-skill-cmd"
-          onClick={handleCopy}
-          aria-label={`Copy command: ${skill.command}`}
-        >
-          <code>
-            <span className="ts-install-sigil">$</span> {skill.command}
-          </code>
-          <span className="ts-copy-label" aria-live="polite">{copyLabel}</span>
-        </button>
-
-        <a
-          href={skill.repoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ts-skill-link"
-        >
-          View the skill on GitHub ↗
+        <a href={skill.repoUrl} target="_blank" rel="noopener noreferrer" className="ts-qs-gh">
+          View the skill on GitHub <span aria-hidden>↗</span>
         </a>
       </div>
 
-      <div className="ts-skill-side">
-        <div className="ts-skill-chat" role="group" aria-label="Example agent session">
+      <div className="ts-qs-agent-r">
+        <div className="ts-qs-chat" role="group" aria-label="Example agent session">
           {skill.transcript.map((line, i) => (
-            <div key={i} className={`ts-skill-line ts-skill-line-${line.who}`}>
-              <span className="ts-skill-who">{line.who}</span>
-              <span>{line.text}</span>
+            <div key={i} className={`ts-qs-msg ts-qs-msg-${line.who}`}>
+              <span className="ts-qs-who">{line.who}</span>
+              <div className="ts-qs-bub">{line.text}</div>
             </div>
           ))}
         </div>
 
-        <ul className="ts-skill-rules">
+        <ul className="ts-qs-checks">
           {skill.rules.map((r) => (
-            <li key={r}>{r}</li>
+            <li key={r} className="ts-qs-chk">
+              <CheckIcon />
+              {r}
+            </li>
           ))}
         </ul>
       </div>
