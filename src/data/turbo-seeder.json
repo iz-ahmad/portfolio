@@ -62,17 +62,28 @@
     {
       "num": "01",
       "label": "Install",
-      "lines": ["$ composer require", "  iz-ahmad/laravel-turbo-seeder"]
+      "parts": [
+        { "text": "composer require " },
+        { "text": "iz-ahmad/laravel-turbo-seeder", "tone": "arg" }
+      ]
     },
     {
       "num": "02",
       "label": "Scaffold",
-      "lines": ["$ php artisan", "  make:turbo-seeder UserTurboSeeder", "  --table=users --count=1000000"]
+      "parts": [
+        { "text": "php artisan make:turbo-seeder " },
+        { "text": "UserTurboSeeder", "tone": "arg" },
+        { "text": " " },
+        { "text": "--table=users --count=1000000", "tone": "flag" }
+      ]
     },
     {
       "num": "03",
       "label": "Run",
-      "lines": ["$ php artisan", "  turbo-seeder:run UserTurboSeeder"]
+      "parts": [
+        { "text": "php artisan turbo-seeder:run " },
+        { "text": "UserTurboSeeder", "tone": "arg" }
+      ]
     }
   ],
   "dataPaths": [
