@@ -38,21 +38,52 @@
     { "num": "05", "title": "Minimal overhead",     "desc": "FK checks and query logging are disabled automatically during the seed." },
     { "num": "06", "title": "Streaming I/O",        "desc": "CSV is piped as a stream and never fully loaded into memory." }
   ],
+  "agentSkill": {
+    "label": "Agent skill (optional)",
+    "title": "Let your AI agent seed for you",
+    "desc": "An optional skill that makes your agent follow the package docs, ask before risky steps, and pick the right seeding path.",
+    "command": "npx skills add iz-ahmad/turbo-seeder-skill",
+    "target": "For turbo-seeder ^1.0",
+    "repoUrl": "https://github.com/iz-ahmad/turbo-seeder-skill",
+    "transcript": [
+      { "who": "you", "text": "Seed 1M rows into users using turbo-seeder." },
+      { "who": "agent", "text": "Not installed yet. Install iz-ahmad/laravel-turbo-seeder? [y/N]" },
+      { "who": "you", "text": "y" },
+      { "who": "agent", "text": "Done. Reading its README, then scaffolding the seeder." }
+    ],
+    "rules": [
+      "Reads the installed package README first",
+      "Asks before installing anything or using force()",
+      "Picks factory or generator, default or CSV, to fit the job",
+      "Doesn't guess undocumented behaviour"
+    ]
+  },
   "steps": [
     {
       "num": "01",
       "label": "Install",
-      "lines": ["$ composer require", "  iz-ahmad/laravel-turbo-seeder"]
+      "parts": [
+        { "text": "composer require " },
+        { "text": "iz-ahmad/laravel-turbo-seeder", "tone": "arg" }
+      ]
     },
     {
       "num": "02",
       "label": "Scaffold",
-      "lines": ["$ php artisan", "  make:turbo-seeder UserTurboSeeder", "  --table=users --count=1000000"]
+      "parts": [
+        { "text": "php artisan make:turbo-seeder " },
+        { "text": "UserTurboSeeder", "tone": "arg" },
+        { "text": " " },
+        { "text": "--table=users --count=1000000", "tone": "flag" }
+      ]
     },
     {
       "num": "03",
       "label": "Run",
-      "lines": ["$ php artisan", "  turbo-seeder:run UserTurboSeeder"]
+      "parts": [
+        { "text": "php artisan turbo-seeder:run " },
+        { "text": "UserTurboSeeder", "tone": "arg" }
+      ]
     }
   ],
   "dataPaths": [
